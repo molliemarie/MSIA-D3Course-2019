@@ -5,16 +5,17 @@
 Here's what we'll learn about today!
 
 - Introductions to learn about each other
-- What is Data Viz? / Why do we Visualize?
 - What is D3?
 - Technical Setup
 - axes and scales
-- An iterative design approach + Brainstorming
 - Data joins
 - Our First Scatter plot!
-  
-## Talk: [Why do we Visualize?](https://github.com/molliemarie/SharedSlides/blob/master/WhyWeVisualize.pdf)
-We'll be talking about why the heck we even bother visualizing stuff in the first place! 
+
+## Introductions
+1. First, write down on a notecard 1) some goals you have for yourself in this class, and 2) you experience level with javascript / css / html.
+2. 30-second introductions: name, background, goal for the class, favorite thing to do that does not involve computers.
+
+Expectations about communicating with me: I may not be available outside of class. If there are subjects you'd like me to spend more time on next class, feel free to tell me after class or email me and let me know.  
 
 ## Talk: [Intro to D3](https://github.com/molliemarie/SharedSlides/blob/master/whatIsD3.pdf)
 
@@ -25,9 +26,9 @@ Also, we'll check out some cool D3 examples to get us excited! Look [here](resou
 ## [Technical Setup](TechnicalSetup/README.md)
 To make sure our computers are all set up for what's to come.
 
-## Exercise: [Make the same bar plot in three different ways!](Projects&Exercises/barChart3Ways)
+## Exercise: [Make the "scatter plot" in three different ways!](Projects&Exercises/scatter3ways.md)
 
-In these exercises you will be making the same bar plot in three different ways: 
+In these exercises you will be making the same scatter plot in three different ways: 
 
 - Using HTML, CSS, and SVG
 - Using D3.js
