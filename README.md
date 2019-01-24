@@ -2,9 +2,11 @@
 
 ## Details
 
-**Course:** [MSIA 411: Data Visualization](https://www.mccormick.northwestern.edu/analytics/curriculum/descriptions/msia-411.html)  
+**Course:** [MSIA 411: Data Visualization](https://www.mccormick.northwestern.edu/analytics/curriculum/descriptions/msia-411.html)
+
 **Dates:** 1/25, 1/28, 2/1, 2/4, and 2/18 2019. 
-**Time** 1pm - 4pm for first four sessions; 1pm-3pm for last session
+
+**Time:** 1pm - 4pm for first four sessions; 1pm-3pm for last session
 
 **Instructor:** Mollie Pettit; [twitter](https://twitter.com/MollzMP); [website](http://guacamollie.com/)
 **Contact:** molliempettit@gmail.com
