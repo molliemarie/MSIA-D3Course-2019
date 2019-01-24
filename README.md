@@ -13,7 +13,7 @@
 **Contact:** Email: molliempettit@gmail.com. **Note:** Mollie will not typically be available for questions outside of class time. 
 
 ---
-## The Instructor
+## About the Instructor
 
 Mollie Pettit wears many technical hats including that of a data visualization designer, a data scientist, and an instructor of both fields. Mollie previously worked as a data viz (D3.js) and data science instructor at Metis and a data scientist consultant with Datascope Analytics. Mollie currently works as a freelancer and has worked with ACLU-IL, The New Yorker, among others. Her most recent public project is [IllinoisTrafficStops.com](https://illinoistrafficstops.com/), for which she created all the visuals using d3.js. Additionally, Mollie organizes up the [Chicago Data Viz Community Meetup group](https://www.meetup.com/Chicago-Data-Viz-Community).
 
