@@ -21,7 +21,7 @@ Expectations about communicating with me: I may not be available outside of clas
 
 What is D3.js? When should we use it? When shouldn't we?
 
-Also, we'll check out some cool D3 examples to get us excited! Look [here](resources.md)
+Also, we'll check out some [cool D3 examples](resources.md) to get us excited!
 
 ## [Technical Setup](TechnicalSetup/README.md)
 To make sure our computers are all set up for what's to come.
