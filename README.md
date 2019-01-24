@@ -9,7 +9,8 @@
 **Time:** 1pm - 4pm for first four sessions; 1pm-3pm for last session
 
 **Instructor:** Mollie Pettit; [twitter](https://twitter.com/MollzMP); [website](http://guacamollie.com/)
-**Contact:** molliempettit@gmail.com
+
+**Contact:** Email: molliempettit@gmail.com. **Note:** Mollie will not typically be available for questions outside of class time. 
 
 ---
 ## Overview
