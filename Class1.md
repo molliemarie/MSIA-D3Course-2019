@@ -30,9 +30,9 @@ To make sure our computers are all set up for what's to come.
 
 In these exercises you will be making the same scatter plot in three different ways: 
 
-- Using HTML, CSS, and SVG
-- Using D3.js
-- Using D3 AND data joins
+- Using [HTML, CSS, and SVG](Projects&Exercises/Scatter3Ways/scatterHtml.md)
+- Using [D3.js](Projects&Exercises/Scatter3Ways/scatterD3.md)
+- Using [D3 AND data joins](Projects&Exercises/Scatter3Ways/scatterD3DataJoin.md)
 
 ## D3.js is not intended for **only** data visualization
 
