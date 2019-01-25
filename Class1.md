@@ -54,6 +54,13 @@ Rendering elements on the web, regardless of chart type, will require following 
 
 How was the first day? What questions do you have so far?
 
+What we'll do next class:
+
+- go over any questions
+- add interactions to the static plot we made today
+- talk about how to utilize brainstorming and iteration in designing your plots
+- build our first bar chart
+
 **Before Next Class**
   - Watch this [IDEO brainstorming video](https://vimeo.com/138588491). It's short, promise!
   - [D3 is not a data visualization library](https://medium.com/@Elijah_Meeks/d3-is-not-a-data-visualization-library-67ba549e8520) by [Elijah Meeks](https://twitter.com/Elijah_Meeks)
