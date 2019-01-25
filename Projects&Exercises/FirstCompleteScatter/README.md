@@ -50,6 +50,7 @@ We'll make a fairly basic plot with no interactions to start that will end up lo
 Alright, we've done a lot! What we have should look pretty similar now to the plot above. Unfortunately, though, our chart isn't really better than what we get with the free tools. (Paste your data into [Chartbuilder](http://quartz.github.io/Chartbuilder/) and feel free to weep.) What makes D3 different is its ability to create **dynamic** and **custom** visualizations and things that tools aren't designed to create. To demonstrate this, tomorrow (and today if time) we will add some interactions to the plot to make it a bit more interesting!
  
  If time...
+ 
  14. Add hover interactions that will
      - make the text only appear on hover
      - make the circle increase in size when hovered upon, and go back to normal if the mouse moves
