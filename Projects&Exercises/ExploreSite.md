@@ -30,6 +30,28 @@ d3.selectAll('.class1.class2')
 So, to do this, you'll need to type:
 
 ```
-d3.selectAll('.rateBubbleCircle').style('stroke', 'black')
+d3.selectAll('.rateBubbleCircle.black').style('fill', 'yellow')
 ```
 
+5. select all circles and change the radius.
+
+```
+d3.selectAll('.rateBubbleCircle').attr('r', '5')
+```
+
+Feel free to experiment with different numbers.
+
+6. Let's append an `h1` tag to the div with the id `all-stop-section`. (The new h1 tag will be added below the first waffle plot.)
+
+```
+d3.select('#all-stop-section').append('h1').attr('id', 'newh1')
+```
+Inspect the page and find the new h1 tag we added. Now let's add text to the new h1 tag and see it appear on the page.
+
+```
+d3.select('#newh1').append('text').text('NEW TEXT')
+```
+
+7. Let's practice expecting elements. Inspect one of the bars in the bar plot by right clicking on the bar and selecting "inspect". What classes does that bar have?
+
+8. Try selecting all bars, or a subset of the bars (your choice), and changing something about them. You can start with what we've already experimented with, but feel free to experiment.
