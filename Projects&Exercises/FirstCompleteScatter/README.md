@@ -47,7 +47,14 @@ We'll make a fairly basic plot with no interactions to start that will end up lo
  12. Let's style the chart to match the example. Things like [tickSize](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) might help.
  13. Let's add a title
  
+Alright, we've done a lot! What we have should look pretty similar now to the plot above. Unfortunately, though, our chart isn't really better than what we get with the free tools. (Paste your data into [Chartbuilder](http://quartz.github.io/Chartbuilder/) and feel free to weep.) What makes D3 different is its ability to create **dynamic** and **custom** visualizations and things that tools aren't designed to create. To demonstrate this, tomorrow (and today if time) we will add some interactions to the plot to make it a bit more interesting!
  
- Alright, we've done a lot! What we have should look pretty similar now to the plot above. Unfortunately, though, our chart isn't really better than what we get with the free tools. (Paste your data into [Chartbuilder](http://quartz.github.io/Chartbuilder/) and feel free to weep.) What makes D3 different is its ability to create **dynamic** visualizations and things that tools aren't designed to create.
-
-Later on, we can come back to this plot and make it interactive!
+ If time...
+ 14. Add hover interactions that will
+     - make the text only appear on hover
+     - make the circle increase in size when hovered upon, and go back to normal if the mouse moves
+     - when a circle is hovered, all other circles become slightly transparent (by assigning a lower opacity)
+ 15. Load in data from a file rather than written out as we have it
+ 16. Now that we've done that, we can see many years of data at once! We'll need to do some filtering.
+ 
+ 
