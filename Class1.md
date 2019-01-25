@@ -12,7 +12,7 @@
 - end of day discussion
 
 ## Introductions
-1. First, write down on a notecard 1) some goals you have for yourself in this class, and 2) you experience level with javascript / css / html.
+1. First, write down on a notecard two things: 1) some goals you have for yourself in this class, and 2) you experience level with javascript / css / html. 
 2. 30-second introductions: name, background, goal for the class, favorite thing to do that does not involve computers.
 
 Expectations about communicating with me: I may not be available outside of class. If there are subjects you'd like me to spend more time on next class, feel free to tell me after class or email me and let me know.  
