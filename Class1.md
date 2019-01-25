@@ -26,7 +26,7 @@ Also, we'll check out some [cool D3 examples](d3examples.md) to get us excited!
 ## [Technical Setup](TechnicalSetup/README.md)
 To make sure our computers are all set up for what's to come.
 
-## Exercise: [Make the "scatter plot" in three different ways!]((Projects&Exercises/Scatter3Ways/README.md))
+## Exercise: [Make the "scatter plot" in three different ways!](Projects&Exercises/Scatter3Ways/README.md)
 
 In these exercises you will be making the same scatter plot in three different ways: 
 
