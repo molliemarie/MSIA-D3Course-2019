@@ -1,6 +1,6 @@
 For this first project, we're going to use data from [The National UFO Reporting Center](http://www.nuforc.org/), a website where people can report UFO sightings.
 
-We'll make a fairly basic plot with no interactions to start that will end up looking something like this
+We'll make a fairly basic plot with no interactions to start that will end up looking something like this:
 
 ![static scatter](imgs/staticScatter.png)
 
