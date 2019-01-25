@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+svg {
+  border:1px solid #f0f;
+}
+
+/*NEW CSS GOES HERE*/
+
+</style>
+
+<body>
+</body>
+
+<script>
+
+var data = [
+	{"date": "12/2018", "count": 233},
+	{"date": "11/2018", "count": 228},
+	{"date": "10/2018", "count": 262},
+	{"date": "09/2018", "count": 293},
+	{"date": "08/2018", "count": 350},
+	{"date": "07/2018", "count": 400},
+	{"date": "06/2018", "count": 225},
+	{"date": "05/2018", "count": 243},
+	{"date": "04/2018", "count": 221},
+	{"date": "03/2018", "count": 235},
+	{"date": "02/2018", "count": 235},
+	{"date": "01/2018", "count": 311}
+];
+
+window.data = data;
+// Look at data in console!
+
+  
+// STEPS:
+// *1* Format Data
+// *2* Create an svg element with width 720 and height of 400. 
+// *3* create circles
+
+
+// *1* format data
+// var parseTime = d3.timeParse("%m/%Y");
+
+data.forEach(function(d) {
+	d.count = +d.count;
+    d.month = d.date.split('/')[0];
+    // d.date = parseTime(d.date);
+});
+// Look at data again!
+
+  
+// *2* create svg
+var width = 720;
+var height = 400;
+
+var svg = d3.select("body").append("svg") //grabs body and appends an svg
+    // .attr('width', 720)
+    .attr("width", width)
+    // .attr('height', 400)
+    .attr("height", height);
+
+// *3* create circles
+// Using a data join, add a circle for every element of our array. Give it a radius 10 and a class, `ufoCircle'. Inspect it in the browser. To start, I like to put a pink border around the SVG to make sure I knew it drew:
+
+var circle = svg.selectAll('.ufoCircle') //select all elements with class ufoCircle. (There currently are none)
+  .data(data) //attach the data
+  .enter().append('circle') //aopend one circle for each data point. There are 11 data points, so there will be 11 circles
+  .attr('class', 'ufoCircle') //give each circle class ufoCircle
+  .attr('r', 10) //assign radius
+  // Position the circles based on their x and y attributes. 
+  .attr("cx", function(d) { return d.month; })
+  .attr("cy", function(d) { return d.count; });
+
+// Note about anonymous functions:
+// You can see the 'cx' and 'cy' attributes use anonymous functions.
+// This is done so that rather than having to define two functions elsewhere, which will make the code less readable, they are defined exactly where they are used.
+// This also means that you do not pollute the name space by having to define several variables or function names that are only used once
+
+// Look at your plot. Notice that the circles are all showing up in the top left corner. Why is this?
+
+// Let's look at the x variables to examine this. Notice they fall between 1 and 12. If you plot these values straight as pixels, it's no wonder they all overlap each other and take up a very small amount of space. In order to fix this, we need to add `scales`. Read up on scales here: https://info474-s17.github.io/book/d3-scales.html
+
+</script>

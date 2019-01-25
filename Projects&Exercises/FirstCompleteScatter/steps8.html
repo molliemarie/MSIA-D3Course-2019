@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+.axis line {
+  stroke-width:1px;
+  stroke: #ccc;
+  stroke-dasharray: 2px 2px;
+}
+
+.axis text {
+  font-size: 12px;
+  fill: #777;
+}
+
+.axis path {
+  display: none;
+}
+
+.circle-group text {
+  fill: #aaa; /*grey out text*/
+  font-size: 11px;
+}
+
+/*NEW CSS GOES HERE*/
+
+</style>
+
+<body>
+  <div id='titleDiv'></div>
+</body>
+
+<script>
+
+// new checklist:
+// *1* load in data file rather than using written out data
+// *2* add filtering
+
+// var data = [
+//   {"date": "12/2018", "count": 233},
+//   {"date": "11/2018", "count": 228},
+//   {"date": "10/2018", "count": 262},
+//   {"date": "09/2018", "count": 293},
+//   {"date": "08/2018", "count": 350},
+//   {"date": "07/2018", "count": 400},
+//   {"date": "06/2018", "count": 225},
+//   {"date": "05/2018", "count": 243},
+//   {"date": "04/2018", "count": 221},
+//   {"date": "03/2018", "count": 235},
+//   {"date": "02/2018", "count": 235},
+//   {"date": "01/2018", "count": 311}
+// ];
+
+// *1* load in data file rather than using written out data
+
+// transforming data into json
+d3.csv("data/ufo.csv", ready)
+
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+
+  window.data = data;
+
+  var radius = 10;
+
+  var parseTime = d3.timeParse("%m/%Y");
+
+  data.forEach(function(d) {
+    d.count = +d.count;
+      d.month = d.date.split('/')[0];
+      d.date = parseTime(d.date);
+      d.year = d.date.getYear() + 1900
+  });
+  // *2* add filtering
+  startData = data.filter(function(d) { return d.year == 2018; })
+
+    
+  var margin = {top: 50, right: 10, bottom: 20, left: 40};
+  var width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
+  var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  d3.select('#titleDiv')
+    .append('h1')
+    .text('UFO Sightings in 2018')
+
+  var xScale = d3.scaleTime()
+  // *2* add filtering
+    .domain(d3.extent(startData, function(d) { return d.date; }))
+    .range([0, width]);
+
+  var yScale = d3.scaleLinear()
+  // *2* add filtering
+    .domain(d3.extent(startData, function(d) { return d.count; }))
+    .range([height, 0])
+
+  var xAxis = d3.axisBottom(xScale)
+    .tickSize(-height);
+
+  var yAxis = d3.axisLeft(yScale)
+    .tickSize(-width);
+
+  svg.append("g")
+      .attr("class", "x axis") //gives group the classes `x` and `axis`
+      .attr("transform", "translate(0," + height + ")")
+      // 
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis") //gives group the classes `y` and `axis`
+      .call(yAxis);
+
+    var ufoGroup = svg.selectAll('.ufoGroup')
+    // *2* add filtering
+      .data(startData).enter().append('g')
+      .attr('class', 'ufoGroup')
+      .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+      .on('mouseenter', function(d) {
+        d3.select(this)
+          .select('text')
+          .transition()
+          .duration(0)
+          .style('opacity', 1)
+
+        d3.selectAll('circle')
+          .style('opacity', 0.5)
+
+        d3.select(this)
+          .select('circle')
+          .transition()
+          .ease(d3.easeElastic)
+          .duration(1000)
+          .attr('r', radius*2)
+          .style('opacity', 1)
+      })
+      .on('mouseleave', function(d) {
+        d3.select(this)
+          .select('text')
+          .transition()
+          .style('opacity', 0)
+          // .remove()
+
+        d3.select(this)
+          .select('circle')
+          .transition()
+          .ease(d3.easeElastic)
+          .duration(1000)
+          .attr('r', radius)
+
+        d3.selectAll('circle')
+          .style('opacity', 1)
+      });
+
+
+  ufoGroup.append('circle')
+    .attr('class', 'ufoCircle')
+    .style('fill', 'limegreen')
+    .attr('r', radius)
+
+  ufoGroup.append('text')
+    .attr('class', 'ufoText')
+    .attr('dx', radius)
+    .attr('dy', -radius)
+    .text(function(d) { return d.count})
+    .style('opacity', 0)
+
+};
+
+</script>

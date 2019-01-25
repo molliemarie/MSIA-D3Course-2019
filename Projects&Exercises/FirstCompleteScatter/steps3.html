@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+svg {
+  border:1px solid #f0f;
+}
+
+/*NEW CSS GOES HERE*/
+
+</style>
+
+<body>
+</body>
+
+<script>
+
+var data = [
+	{"date": "12/2018", "count": 233},
+	{"date": "11/2018", "count": 228},
+	{"date": "10/2018", "count": 262},
+	{"date": "09/2018", "count": 293},
+	{"date": "08/2018", "count": 350},
+	{"date": "07/2018", "count": 400},
+	{"date": "06/2018", "count": 225},
+	{"date": "05/2018", "count": 243},
+	{"date": "04/2018", "count": 221},
+	{"date": "03/2018", "count": 235},
+	{"date": "02/2018", "count": 235},
+	{"date": "01/2018", "count": 311}
+];
+
+window.data = data;
+
+  
+// STEPS:
+// *1* Format Data
+// *2* Create an svg element with width 720 and height of 400. 
+// *3* create circles
+// *4* create scales
+// *5* Label bubbles with count value
+
+// *6* Fix Y axis
+// The reason the y axis counts from top to bottom is because the origin (0,0) of the svg always starts in the top left corner. Therefore, you move downward as you count higher along the y axis. To fix this, we will simply invert the y axis by the alteration of one line of code.
+
+// *7* Make group elements that contain both circles and text. This technique can be quite useful when you have several visual elements that should all act in concert. In our chart, for example, we could group circle and text elements into a group together because they will always appear together.
+
+// *8* Add circles to group elements
+// *9* add text to group elements
+
+// var parseTime = d3.timeParse("%m/%Y");
+
+data.forEach(function(d) {
+	d.count = +d.count;
+    d.month = d.date.split('/')[0];
+    // d.date = parseTime(d.date);
+});
+
+  
+var width = 720;
+var height = 400;
+
+var svg = d3.select("body").append("svg") //grabs body and appends an svg
+  // .attr('width', 720)
+  .attr("width", width)
+  // .attr('height', 400)
+  .attr("height", height);
+
+
+var xScale = d3.scaleLinear()
+  .domain([1,12])
+  .range([0 , width]) //scope of data going out / pixels 
+
+var yScale = d3.scaleLinear()
+  // .domain(d3.extent(startData, function(d) { return d.count }))
+  .domain([200, 400])
+  // .range([0, height])
+  .range([height, 0])
+
+
+// var circle = svg.selectAll('.ufoCircle') //select all elements with class ufoCircle. (There currently are none)
+//   .data(data) //attach the data
+//   .enter().append('circle') //aopend one circle for each data point. There are 11 data points, so there will be 11 circles
+//   .attr('class', 'ufoCircle') //give each circle class ufoCircle
+//   .attr('r', 10) //assign radius
+//   // Position the circles based on their x and y attributes. 
+//   .attr("cx", function(d) { return xScale(d.month); })
+//   .attr("cy", function(d) { return yScale(d.count); });
+
+// var text = svg.selectAll("text")
+//   .data(data)
+//   .enter().append("text")
+//   .attr("x", function(d) { return xScale(d.month); })
+//   .attr("y", function(d) { return yScale(d.count); })
+//   .text( function (d) { return d.count; })
+//   .attr('dx', 10) //moves text 10px (right) on the x axis
+//   .attr('dy', -10); //moves text -10px (up) on the y axis. These help move the text so it's not overlapping with the circles
+
+// *7* Make group elements that contain both circles and text. This technique can be quite useful when you have several visual elements that should all act in concert. In our chart, for example, we could group circle and text elements into a group together because they will always appear together.
+
+var ufoGroup = svg.selectAll('.ufoGroup')
+  .data(data).enter().append('g')
+  .attr('class', 'ufoGroup')
+  .attr('transform', function(d) { return 'translate(' + xScale(d.month) + ',' + yScale(d.count) + ')'})
+
+// *8* Add circles to group elements
+ufoGroup.append('circle')
+  .attr('class', 'ufoCircle')
+  .attr('r', 10)
+
+// *9* add text to group elements
+ufoGroup.append('text')
+  .attr('class', 'ufoText')
+  .attr('dx', 10)
+  .attr('dy', -10)
+  .text(function(d) { return d.count})
+
+</script>

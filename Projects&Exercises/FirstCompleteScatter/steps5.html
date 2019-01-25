@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+/* *15* remove border */
+/*svg {
+  border: 1px solid #f0f;
+}*/
+
+/* *15* styles gridlines*/
+.axis line {
+  stroke-width:1px;
+  stroke: #ccc;
+  stroke-dasharray: 2px 2px;
+}
+
+/* *15* styles axis text*/
+.axis text {
+  font-size: 12px;
+  fill: #777;
+}
+
+/* *15* removes border from around graph*/
+.axis path {
+  display: none;
+}
+
+/* *15* styles circle label text */
+.circle-group text {
+  fill: #aaa; /*grey out text*/
+  font-size: 11px;
+}
+
+/*NEW CSS GOES HERE*/
+
+</style>
+
+<body>
+</body>
+
+<script>
+
+var data = [
+	{"date": "12/2018", "count": 233},
+	{"date": "11/2018", "count": 228},
+	{"date": "10/2018", "count": 262},
+	{"date": "09/2018", "count": 293},
+	{"date": "08/2018", "count": 350},
+	{"date": "07/2018", "count": 400},
+	{"date": "06/2018", "count": 225},
+	{"date": "05/2018", "count": 243},
+	{"date": "04/2018", "count": 221},
+	{"date": "03/2018", "count": 235},
+	{"date": "02/2018", "count": 235},
+	{"date": "01/2018", "count": 311}
+];
+
+window.data = data;
+
+  
+// STEPS:
+// *1* Format Data
+// *2* Create an svg element with width 720 and height of 400. 
+// *3* create circles
+// *4* create scales
+// *5* Label bubbles with count value
+// *6* Fix Y axis
+// *7* Make group elements that contain both circles and text. 
+// *8* Add circles to group elements
+// *9* add text to group elements
+// *10* add axes
+
+// *11* Create margins using standard margin convention. 
+// To copy & paste, and to understand what this is doing, read up here: https://bl.ocks.org/mbostock/3019563. Then, change margins until you can see all of your axis ok. (Try changing margin numbers to see what happens.)
+// *12* Fix x axis
+// The x axis is at the top of the screen. This is because of the same issue mentioned earlier, wehre the origin (0, 0) of the svg is located at the top left corner. Therefore, this appears at the top of the svg by default. We will use transform, translate to move it to the right spot. 
+// *13* fix x axis format (to date format)
+// *14* Add gridlines.
+// *15* Add some styling
+
+// *13* fix x axis format
+var parseTime = d3.timeParse("%m/%Y");
+
+data.forEach(function(d) {
+	d.count = +d.count;
+    d.month = d.date.split('/')[0];
+    // *13* fix x axis format
+    d.date = parseTime(d.date);
+});
+
+  
+// var width = 720;
+// var height = 400;
+
+// var svg = d3.select("body").append("svg") //grabs body and appends an svg
+//   // .attr('width', 720)
+//   .attr("width", width)
+//   // .attr('height', 400)
+//   .attr("height", height);
+
+// *11* Margin conventions
+// First define the margin object with properties for the four sides (clockwise from the top, as in CSS). 
+var margin = {top: 20, right: 10, bottom: 20, left: 40};
+// Then define width and height as the inner dimensions of the chart area.
+var width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+// Lastly, define svg as a G element that translates the origin to the top-left corner of the chart area.
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+// *13* fix x axis format
+
+// var xScale = d3.scaleLinear()
+var xScale = d3.scaleTime()
+  // .domain([1,12])
+  .domain(d3.extent(data, function(d) { return d.date; }))
+  .range([0, width]);
+
+var yScale = d3.scaleLinear()
+  .domain(d3.extent(data, function(d) { return d.count; }))
+  .range([height, 0])
+
+var xAxis = d3.axisBottom(xScale)
+  // *14* add gridlines - show progression to demonstrate. Try substituting for some of the lines below to see what's happening.
+  // .tickSize(50)
+  // .tickSize(-50)
+  .tickSize(-height);
+
+var yAxis = d3.axisLeft(yScale)
+  // *14* add gridlines
+  .tickSize(-width);
+
+svg.append("g")
+    .attr("class", "x axis") //gives group the classes `x` and `axis`
+    // *12* transform, translate axis. Can uncomment some of the lines below to see get a better sense of what's going on.
+    // .attr("transform", "translate(0, 50)")
+    // .attr("transform", "translate(0, 100)")
+    .attr("transform", "translate(0," + height + ")")
+    // 
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis") //gives group the classes `y` and `axis`
+    .call(yAxis);
+
+var ufoGroup = svg.selectAll('.ufoGroup')
+  .data(data).enter().append('g')
+  .attr('class', 'ufoGroup')
+  // *13* fix x axis format
+  // .attr('transform', function(d) { return 'translate(' + xScale(d.month) + ',' + yScale(d.count) + ')'})
+  .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+
+ufoGroup.append('circle')
+  .attr('class', 'ufoCircle')
+  // *15* red circle fill (This is to show that can also be added using D3)
+  .style('fill', 'limegreen')
+  .attr('r', 10)
+
+ufoGroup.append('text')
+  .attr('class', 'ufoText')
+  .attr('dx', 10)
+  .attr('dy', -10)
+  .text(function(d) { return d.count})
+
+</script>

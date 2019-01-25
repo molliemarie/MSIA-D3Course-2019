@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+svg {
+  border:1px solid #f0f;
+}
+
+/*NEW CSS GOES HERE*/
+
+</style>
+
+<body>
+</body>
+
+<script>
+
+var data = [
+	{"date": "12/2018", "count": 233},
+	{"date": "11/2018", "count": 228},
+	{"date": "10/2018", "count": 262},
+	{"date": "09/2018", "count": 293},
+	{"date": "08/2018", "count": 350},
+	{"date": "07/2018", "count": 400},
+	{"date": "06/2018", "count": 225},
+	{"date": "05/2018", "count": 243},
+	{"date": "04/2018", "count": 221},
+	{"date": "03/2018", "count": 235},
+	{"date": "02/2018", "count": 235},
+	{"date": "01/2018", "count": 311}
+];
+
+window.data = data;
+
+  
+// STEPS:
+// *1* Format Data
+// *2* Create an svg element with width 720 and height of 400. 
+// *3* create circles
+// *4* create scales
+// *5* Label bubbles with count value
+// *6* Fix Y axis
+// *7* Make group elements that contain both circles and text. 
+// *8* Add circles to group elements
+// *9* add text to group elements
+
+// *10* add axes
+
+// var parseTime = d3.timeParse("%m/%Y");
+
+data.forEach(function(d) {
+	d.count = +d.count;
+    d.month = d.date.split('/')[0];
+    // d.date = parseTime(d.date);
+});
+
+  
+var width = 720;
+var height = 400;
+
+var svg = d3.select("body").append("svg") //grabs body and appends an svg
+  // .attr('width', 720)
+  .attr("width", width)
+  // .attr('height', 400)
+  .attr("height", height);
+
+
+var xScale = d3.scaleLinear()
+  .domain([1,12])
+  .range([0 , width]) //scope of data going out / pixels 
+
+var yScale = d3.scaleLinear()
+  .domain([200, 400])
+  .range([height, 0])
+
+// *10* Define an Xaxis for your scale with the ticks oriented on the bottom
+var xAxis = d3.axisBottom(xScale);
+
+// *10* Define a yAxis with your ticks oriented on the left.
+var yAxis = d3.axisLeft(yScale);
+
+// *10* Append a `g` element to your svg, and call your xAxis function. 
+svg.append("g")
+    .attr("class", "x axis") //gives group the classes `x` and `axis`
+    .call(xAxis);
+
+// *10* Append a `g` element to your svg, and call your yAxis function. 
+svg.append("g")
+    .attr("class", "y axis") //gives group the classes `y` and `axis`
+    .call(yAxis);
+
+// You'll now notice a few things about your plot. 1) you can't see the axes well because they seem to be mostly outside of the svg. And 2) the x axis is at the top of the screen. We'll address both of these issues in the next file.
+
+var ufoGroup = svg.selectAll('.ufoGroup')
+  .data(data).enter().append('g')
+  .attr('class', 'ufoGroup')
+  .attr('transform', function(d) { return 'translate(' + xScale(d.month) + ',' + yScale(d.count) + ')'})
+
+ufoGroup.append('circle')
+  .attr('class', 'ufoCircle')
+  .attr('r', 10)
+
+ufoGroup.append('text')
+  .attr('class', 'ufoText')
+  .attr('dx', 10)
+  .attr('dy', -10)
+  .text(function(d) { return d.count})
+
+</script>

@@ -9,6 +9,8 @@ svg {
   border:1px solid #f0f;
 }
 
+/*NEW CSS GOES HERE*/
+
 </style>
 
 <body>
@@ -16,44 +18,24 @@ svg {
 
 <script>
 
-var parseTime = d3.timeParse("%m/%Y");
-var titleText = "UFO Sightings in";
-var radius = 10;
+var data = [
+  {"date": "12/2018", "count": 233}
+  {"date": "11/2018", "count": 228}
+  {"date": "10/2018", "count": 262}
+  {"date": "09/2018", "count": 293}
+  {"date": "08/2018", "count": 350}
+  {"date": "07/2018", "count": 400}
+  {"date": "06/2018", "count": 225}
+  {"date": "05/2018", "count": 243}
+  {"date": "04/2018", "count": 221}
+  {"date": "03/2018", "count": 235}
+  {"date": "02/2018", "count": 235}
+  {"date": "01/2018", "count": 311}
+];
+window.data = data;
   
 //   *************************
 //     NEW CODE GOES HERE
 //   *************************
 
-
-// Margin Conventions
-var margin = {top: 40, right: 50, bottom: 30, left: 40};
-var width = 900 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-var svg = d3.select("body").append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-// transforming data into json
-d3.csv("https://gist.githubusercontent.com/molliemarie/97ddd571f90b11e0f846ae4557719b9f/raw/ee1e6a8d73ad182d0fe6f99f3362d3eef377b057/ufo.csv", ready)
-
-function ready(error, data) {
-
-  if (error) return console.warn(error);
-
-  data.forEach(function(d) {
-    d.date = parseTime(d.date);
-    d.count = +d.count;
-    d.year = d.date.getYear() + 1900
-  });
-
-  window.data = data;
-  
-  //   *************************
-//     NEW CODE GOES HERE
-//   *************************
-  
-}
 </script>
