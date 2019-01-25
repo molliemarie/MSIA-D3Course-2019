@@ -38,7 +38,7 @@ In these exercises you will be making the same scatter plot in three different w
 
 D3 is not intended just for data visualization; like jQuery, it's useful for DOM selection and manipulation, or simply for creating structured HTML pages. It's also public-facing on more web sites than you think. In [this activity](Projects&Exercises/ExploreSite.md), we will explore some of its features.
 
-## Exercise: [Building our first scatter plot](Projects&Exercises/anscombeQuartet/anscombe_part1.md)
+## Exercise: [Building our first scatter plot](Projects&Exercises/FirstCompleteScatter/README.md)
 
 We'll now build our first full chart by plotting one of the Ambscombe data sets in a scatter plot.
 
@@ -46,15 +46,7 @@ We'll now build our first full chart by plotting one of the Ambscombe data sets 
 
 Bl.ocks is the main site where D3 projects are posted. Let's check it out and learn how to post our own Bl.ocks!
 
-## Exercise: [Axes Practice](Projects&Exercises/AxisPractice/README.md)
-
-This activity will help with your understanding of scales and axes.
-
-## Exercise: [Adding interaction to our first scatter plot!](Projects&Exercises/anscombeQuartet/anscombe_part2.md)
-
-Let's take the plot we made earlier and make it fancier! In this section, we'll learn how to load our data dynamically and add some interactions!
-
-## Activity/Discussion: [Creating a D3 Blueprint](Projects&Exercises/blueprint/README.md)
+## Activity/Discussion: Creating a D3 Blueprint
 
 Rendering elements on the web, regardless of chart type, will require following the same pattern. Because we'll find ourselves doing this over and over, let's consider the steps involved.
 
