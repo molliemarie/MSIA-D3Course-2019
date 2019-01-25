@@ -46,7 +46,7 @@ We'll now build our first full chart by plotting one of the Ambscombe data sets 
 
 Bl.ocks is the main site where D3 projects are posted. Let's check it out and learn how to post our own Bl.ocks!
 
-## Exercise: [Axes Practice](Projects&Exercises/axesExercise/README.md)
+## Exercise: [Axes Practice](Projects&Exercises/AxisExercise/README.md)
 
 This activity will help with your understanding of scales and axes.
 
