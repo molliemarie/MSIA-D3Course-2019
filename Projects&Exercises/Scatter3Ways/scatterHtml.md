@@ -1,10 +1,10 @@
 # Creating a "scatter plot" using html
 
-This is an exercise to practice basic HTML, SVG, and CSS syntax. It is also designed to demonstrate that something that _looks like_ a chart on a website is actually just a collection of simple HTML elements. The final example should look like this (you can also see a completed example [here](https://codepen.io/molliemarie/pen/BGerVo).)
+This is an exercise to practice basic HTML, SVG, and CSS syntax. It is also designed to demonstrate that something that _looks like_ a chart on a website is actually just a collection of simple HTML elements. The final example should look like the image below. (You can also see a completed example [here](https://codepen.io/molliemarie/pen/rQgvmQ).)
 
 ![simple html circles](imgs/scatterHtml.png)
 
-You'll want to open up your `d3Scatter1.html` file in a text editor, and then perform the following steps (instructions are also in the file):
+You'll want to open up your `htmlScatter.html` file in a text editor, and then perform the following steps (instructions are also in the file):
 
 - Make a container `<div>` in which you'll render your content 
 - Create a `<p>` element in which you write "My HTML Scatter" 
