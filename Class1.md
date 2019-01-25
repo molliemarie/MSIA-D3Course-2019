@@ -34,20 +34,9 @@ In these exercises you will be making the same scatter plot in three different w
 - Using D3.js
 - Using D3 AND data joins
 
-## Activity: Descriptive Statistics Calculation
+## D3.js is not intended for **only** data visualization
 
-Everyone will be assigned a Roman Numeral, I, II, III or IV.
-
-Copy the data locally from [this Google doc](https://docs.google.com/spreadsheets/d/1V26-vVOtnFBlbY7fI3O1jwN3h0mgmfJvzBSklxsQvO0/edit?usp=sharing) *for your group only* and do the following calculations:
-
- 1. Calculate the median (average value) of both the "x" and "y" columns. 
- 2. Calculate the variance (`VAR` in Excel and Google spreadsheets) of both the "x" and "y" columns.
- 3. Calculate the [Pearson's coefficient](https://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient) of x and y (you can use `CORR` in Excel or `CORREL` in Google Spreadsheets). 
- 4. Now calculate the slope and y-intercept of the best-fit line to the data (`SLOPE` and `INTERCEPT` in both). 
- 5. Plot the data in google spreadsheets. Don't your plots with the other groups yet.
- 6. Once we're all set, we'll compare our descriptive statistics amongst one another
- 7. All together, we'll paste our plots into [this google doc](https://docs.google.com/document/d/1KpF8nnCbxweSv3ABEM2xAIu5A7JMqJ4ZQ1z87QZXwpo/edit?usp=sharing) to compare.
- 8. Let's talk about our charts and go over some basic ideas and charting terms.
+D3 is not intended just for data visualization; like jQuery, it's useful for DOM selection and manipulation, or simply for creating structured HTML pages. It's also public-facing on more web sites than you think. In this activity, we will explore some of its features.
 
 ## Exercise: [Building our first scatter plot](Projects&Exercises/anscombeQuartet/anscombe_part1.md)
 
