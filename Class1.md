@@ -57,7 +57,5 @@ How was the first day? What questions do you have so far?
 **Before Next Class**
   - Watch this [IDEO brainstorming video](https://vimeo.com/138588491). It's short, promise!
   - [D3 is not a data visualization library](https://medium.com/@Elijah_Meeks/d3-is-not-a-data-visualization-library-67ba549e8520) by [Elijah Meeks](https://twitter.com/Elijah_Meeks)
-  - [Redesigning a Circular Timeline](http://www.thefunctionalart.com/2015/02/redesigning-circular-timeline.html)
-  - [Design and Redesign in Data Visualization](https://medium.com/@hint_fm/design-and-redesign-4ab77206cf9)
-  - [What are you trying to say?](http://lulupinney.co.uk/2012/08/what-are-you-trying-to-say/)
+  - The Power of Visualization's "Aha!" Moments](https://hbr.org/2013/03/power-of-visualizations-aha-moment) by [Amanda Cox](https://twitter.com/amandacox)
   - Gather links for cool visualizations you would like to share with the class, by you or others.
