@@ -10,7 +10,7 @@ Let's explore some of its features on the [Illinois Traffic Stops site](https://
  ```
  d3.select('.rateBubbleCircle')
  d3.selectAll('.rateBubbleCircle')
- 
+ d3.selectAll('.rateBubbleCircle').data()
 ```
 
 3. Let's add a stroke to all the elements with the class `rateBubbleCircle`. 
@@ -52,6 +52,9 @@ Inspect the page and find the new h1 tag we added. Now let's add text to the new
 d3.select('#newh1').append('text').text('NEW TEXT')
 ```
 
-7. Let's practice expecting elements. Inspect one of the bars in the bar plot by right clicking on the bar and selecting "inspect". What classes does that bar have?
+7. Now, how would we change this text to a different color? Try it!
 
-8. Try selecting all bars, or a subset of the bars (your choice), and changing something about them. You can start with what we've already experimented with, but feel free to experiment.
+8. Let's practice expecting elements. Inspect one of the bars in the bar plot by right clicking on the bar and selecting "inspect". What classes does that bar have?
+
+9. Try selecting all bars, or a subset of the bars (your choice), and changing something about them. You can start with what we've already experimented with, but feel free to experiment.
+
