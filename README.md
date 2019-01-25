@@ -25,10 +25,10 @@ Mollie Pettit wears many technical hats including that of a data visualization d
 ## Schedule
 Week | Monday | Friday
 --- | --- | ---
-1: 1/25 | --- | [Class 01 - getting to know D3 and building our first scatter plot!](class1.md)
-2: 1/28 & 2/1 | Class 02 | Class 03
-3: 2/4 | Class 04 | ---
-4: 2/18 | Class 05 | ---
+1/25 | --- | [Class 01 - getting to know D3 and building our first scatter plot!](class1.md)
+1/28 & 2/1 | Class 02 | Class 03
+2/4 | Class 04 | ---
+2/18 | Class 05 | ---
 
 
 For additional guidance working through these foundational skills, you can see the [resources page](resources.md).
