@@ -2,8 +2,6 @@
 
 # Agenda:
 
-Here's what we'll learn about today!
-
 - introductions to learn about each other
 - what is D3?
 - technical Setup
