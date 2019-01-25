@@ -1,6 +1,8 @@
 For this first project, we're going to use data from [The National UFO Reporting Center](http://www.nuforc.org/), a website where people can report UFO sightings.
 
-We'll make a fairly basic plot with no interactions to start that will end up looking something like [this](imgs/staticScatter.png)
+We'll make a fairly basic plot with no interactions to start that will end up looking something like this
+
+![static scatter](imgs/staticScatter.png)
 
 **Note:** Since Mike doesn't [technically](https://bl.ocks.org/mbostock/3887118) make valid HTML pages, we're not going to either — here's how we'll start our own empty HTML pages from here on out:
 
