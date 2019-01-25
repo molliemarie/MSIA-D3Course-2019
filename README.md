@@ -26,7 +26,7 @@ Mollie Pettit wears many technical hats including that of a data visualization d
 Week | Monday | Friday
 --- | --- | ---
 1/25 | --- | [Class 01 - getting to know D3 and building our first scatter plot!](class1.md)
-1/28 & 2/1 | Class 02 | Class 03
+1/28 & 2/1 | Class 02 - adding interactions, design process, creating our first bar plot | Class 03 - understanding the general update pattern
 2/4 | Class 04 | ---
 2/18 | Class 05 | ---
 
