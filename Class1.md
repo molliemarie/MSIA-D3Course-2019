@@ -26,13 +26,13 @@ Also, we'll check out some [cool D3 examples](d3examples.md) to get us excited!
 ## [Technical Setup](TechnicalSetup/README.md)
 To make sure our computers are all set up for what's to come.
 
-## Exercise: [Make the "scatter plot" in three different ways!](Projects&Exercises/scatter3ways.md)
+## Exercise: [Make the "scatter plot" in three different ways!]((Projects&Exercises/Scatter3Ways/README.md))
 
 In these exercises you will be making the same scatter plot in three different ways: 
 
-- Using [HTML, CSS, and SVG](Projects&Exercises/Scatter3Ways/scatterHtml.md)
-- Using [D3.js](Projects&Exercises/Scatter3Ways/scatterD3.md)
-- Using [D3 AND data joins](Projects&Exercises/Scatter3Ways/scatterD3DataJoin.md)
+- Using HTML, CSS, and SVG
+- Using D3.js
+- Using D3 AND data joins
 
 ## D3.js is not intended for **only** data visualization
 
