@@ -3,7 +3,7 @@ This is an exercise to practice manipulating the DOM D3 using the **data-join**.
 
 ![data join circles](imgs/scatterD3DataJoin.png)
 
-You'll want to open up your `index.html` file in a text editor, and then perform the following steps (instructions are also in the file). All steps will be completed using d3.js, and should be completed in the `<script>` section at the bottom of the `index.html` file. Preliminary steps have been completed for you.
+You'll want to open up your `d3DataJoinScatter.html` file in a text editor, and then perform the following steps (instructions are also in the file). All steps will be completed using d3.js, and should be completed in the `<script>` section at the bottom of the `index.html` file. Preliminary steps have been completed for you.
 
 - Append 3 `circle` elements inside of your `<svg>` **using the data join**. To do this, you'll use the following syntax:
 
