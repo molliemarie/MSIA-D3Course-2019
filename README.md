@@ -8,7 +8,7 @@
 
 **Time:** 1pm - 4pm for first four sessions; 1pm-3pm for last session
 
-**Instructor:** Mollie Pettit; [twitter](https://twitter.com/MollzMP); [website](http://guacamollie.com/)
+**Instructor:** Mollie Pettit | [twitter](https://twitter.com/MollzMP) | [website](http://guacamollie.com/)
 
 **Contact:** Email: molliempettit@gmail.com. I'm also in the #d3tutorials channel in the MSiA slack.  **Note:** I will not typically be available for questions outside of class time. 
 
