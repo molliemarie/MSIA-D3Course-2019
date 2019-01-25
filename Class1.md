@@ -54,15 +54,10 @@ Rendering elements on the web, regardless of chart type, will require following 
 
 How was the first day? What questions do you have so far?
 
-Homework: 
-
-  - TKTK - exercise for them to try - plotting barplot in both directions - like example from past class?
-  - Read the readings and be ready to discuss
-  - Each Day there will be opportunities for us to practice brainstorming, ideally with someone's actual data viz idea. Come ready with ideas.
-  - Gather links for cool visualizations you would like to share with the class, by you or others.
-
-**Readings**
-  - [The Power of Visualization’s “Aha!” Moments](https://hbr.org/2013/03/power-of-visualizations-aha-moment/)
+**Before Next Class**
+  - Watch this [IDEO brainstorming video](https://vimeo.com/138588491). It's short, promise!
+  - [D3 is not a data visualization library](https://medium.com/@Elijah_Meeks/d3-is-not-a-data-visualization-library-67ba549e8520) by [Elijah Meeks](https://twitter.com/Elijah_Meeks)
   - [Redesigning a Circular Timeline](http://www.thefunctionalart.com/2015/02/redesigning-circular-timeline.html)
   - [Design and Redesign in Data Visualization](https://medium.com/@hint_fm/design-and-redesign-4ab77206cf9)
   - [What are you trying to say?](http://lulupinney.co.uk/2012/08/what-are-you-trying-to-say/)
+  - Gather links for cool visualizations you would like to share with the class, by you or others.
