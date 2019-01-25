@@ -36,7 +36,7 @@ In these exercises you will be making the same scatter plot in three different w
 
 ## D3.js is not intended for **only** data visualization
 
-D3 is not intended just for data visualization; like jQuery, it's useful for DOM selection and manipulation, or simply for creating structured HTML pages. It's also public-facing on more web sites than you think. In this activity, we will explore some of its features.
+D3 is not intended just for data visualization; like jQuery, it's useful for DOM selection and manipulation, or simply for creating structured HTML pages. It's also public-facing on more web sites than you think. In [this activity](Projects&Exercises/ExploreSite.md), we will explore some of its features.
 
 ## Exercise: [Building our first scatter plot](Projects&Exercises/anscombeQuartet/anscombe_part1.md)
 
