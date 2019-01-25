@@ -10,7 +10,7 @@
 
 **Instructor:** Mollie Pettit; [twitter](https://twitter.com/MollzMP); [website](http://guacamollie.com/)
 
-**Contact:** Email: molliempettit@gmail.com. **Note:** Mollie will not typically be available for questions outside of class time. 
+**Contact:** Email: molliempettit@gmail.com. I'm also in the #d3tutorials channel in the MSiA slack.  **Note:** I will not typically be available for questions outside of class time. 
 
 ---
 ## Overview
@@ -25,7 +25,7 @@ Mollie Pettit wears many technical hats including that of a data visualization d
 ## Schedule
 Week | Monday | Friday
 --- | --- | ---
-1: 1/25 | --- | Class 01
+1: 1/25 | --- | [Class 01 - getting to know D3 and building our first scatter plot!](class1.md)
 2: 1/28 & 2/1 | Class 02 | Class 03
 3: 2/4 | Class 04 | ---
 4: 2/18 | Class 05 | ---
