@@ -4,12 +4,14 @@
 
 Here's what we'll learn about today!
 
-- Introductions to learn about each other
-- What is D3?
-- Technical Setup
-- axes and scales
-- Data joins
-- Our First Scatter plot!
+- introductions to learn about each other
+- what is D3?
+- technical Setup
+- Building a simple scatter plot three different ways
+- poke in the console
+- our First Scatter plot!
+- think about the D3 blueprint
+- end of day discussion
 
 ## Introductions
 1. First, write down on a notecard 1) some goals you have for yourself in this class, and 2) you experience level with javascript / css / html.
