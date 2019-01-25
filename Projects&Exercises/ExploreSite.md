@@ -58,3 +58,4 @@ d3.select('#newh1').append('text').text('NEW TEXT')
 
 9. Try selecting all bars, or a subset of the bars (your choice), and changing something about them. You can start with what we've already experimented with, but feel free to experiment.
 
+10. In addition to selecting a class or id using `d3.selectAll()`, you can also select an html tag (e.g. `p`, `text`, etc.). Feel free to experiment with these.
