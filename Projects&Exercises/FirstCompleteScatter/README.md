@@ -97,8 +97,7 @@ function ready(error, data) {
  
  Then, we'll want to change our x axis from a linear scale to a time scale using [`d3.scaleTime()`](https://github.com/d3/d3-scale#scaleTime). 
  
- 4. You might have noticed that this broke the code. Our new time scale will no longer understand our originally set domain. This is a good opportunity to make the domain calculation a bit more dynamic. 
-  a) We'll  use [`d3.extent()`](https://github.com/d3/d3-array#extent) to obtain the min and max values of the data. We will end up with something like this:
+ 4. You might have noticed that this broke the code. Our new time scale will no longer understand our originally set domain. This is a good opportunity to make the domain calculation a bit more dynamic. We'll  use [`d3.extent()`](https://github.com/d3/d3-array#extent) to obtain the min and max values of the data. We will end up with something like this:
  
   ```
   var xScale = d3.scaleTime()
@@ -107,11 +106,9 @@ function ready(error, data) {
     .range([0, width]);
   ```
 
-  b) We might as well apply `d3.extent()` to the `yScale` domain as well. Do that now. 
+4.1 We might as well apply `d3.extent()` to the `yScale` domain as well. Do that now. 
 
-5. Let's style the chart to match the image above, starting with gridlines. Things like [`tickSize()`](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) might help. 
-
-  a) For example, adding a gridline to the x axis would look like this:
+5. Let's style the chart to match the image above, starting with gridlines. Things like [`tickSize()`](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) might help. For example, adding a gridline to the x axis would look like this:
 
 ```
 var xAxis = d3.axisBottom(xScale)
@@ -120,6 +117,6 @@ var xAxis = d3.axisBottom(xScale)
 
 If you don't understand why I'm inputting the variable `height`, try inputting different numbers to see what happens.
 
-  b) Now, add gridlines to the y axis.
+5.1 Now, add gridlines to the y axis.
 
  
