@@ -4,7 +4,7 @@ We'll make a fairly basic plot with no interactions to start that will end up lo
 
 ![static scatter](imgs/staticScatter.png)
 
-**Note:** Since Mike doesn't [technically](https://bl.ocks.org/mbostock/3887118) make valid HTML pages, we're not going to either — here's how we'll start our own empty HTML pages from here on out:
+**Note:** Since Mike doesn't technically make valid HTML pages, we're not going to either — here's how we'll start our own empty HTML pages from here on out:
 
   ```
   <!DOCTYPE html>
