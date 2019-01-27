@@ -55,7 +55,7 @@ Alright, we've done a lot! What we have should look pretty similar now to the pl
  
 Last class, we finished our first scatter pot! Let's start where we left off, adding some stylings and interactions! Open `class1Final.html` for our starting point today.
 
-1. Right now, the data is provided for us in the file. Let's change this so that we're loading in the data from an outside file. D3 let's us do this easily with [d3-request](https://github.com/d3/d3-request)! The data we have is in csv (comma separated value) form, so we'll be using the `d3.csv()` module.
+12. Right now, the data is provided for us in the file. Let's change this so that we're loading in the data from an outside file. D3 let's us do this easily with [d3-request](https://github.com/d3/d3-request)! The data we have is in csv (comma separated value) form, so we'll be using the `d3.csv()` module.
 
 To load and parse a csv file: 
 
@@ -81,7 +81,7 @@ function ready(error, data) {
 
 ```
  
- 2. Now that we've loaded in all of the data, all of the data is showing up! For starters, let's filter out everything that isn't 2018.   We'll need an easy way to check for this, so first let's create a year value in our data formatting loop using `getYear`.
+13. Now that we've loaded in all of the data, all of the data is showing up! For starters, let's filter out everything that isn't 2018.   We'll need an easy way to check for this, so first let's create a year value in our data formatting loop using `getYear`.
  
   `d.year = d.date.getYear() + 1900`
 
@@ -93,11 +93,11 @@ function ready(error, data) {
  
  You'll then need to replace data thoughout the file with `startData` for it to update.
  
- 3. The axis is still referring to month values. Let's change this so that it's reading the values in as dates. Use [`d3.timeparse()`]() to format the date. (You'll need to create a variable `parseTime` and then call that within the formatting for loop to create `d.date`.
+14. The axis is still referring to month values. Let's change this so that it's reading the values in as dates. Use [`d3.timeparse()`]() to format the date. (You'll need to create a variable `parseTime` and then call that within the formatting for loop to create `d.date`.
  
  Then, we'll want to change our x axis from a linear scale to a time scale using [`d3.scaleTime()`](https://github.com/d3/d3-scale#scaleTime). 
  
- 4. You might have noticed that this broke the code. Our new time scale will no longer understand our originally set domain. This is a good opportunity to make the domain calculation a bit more dynamic. We'll  use [`d3.extent()`](https://github.com/d3/d3-array#extent) to obtain the min and max values of the data. We will end up with something like this:
+15. You might have noticed that this broke the code. Our new time scale will no longer understand our originally set domain. This is a good opportunity to make the domain calculation a bit more dynamic. We'll  use [`d3.extent()`](https://github.com/d3/d3-array#extent) to obtain the min and max values of the data. We will end up with something like this:
  
   ```
   var xScale = d3.scaleTime()
@@ -106,9 +106,9 @@ function ready(error, data) {
     .range([0, width]);
   ```
 
-5. We might as well apply `d3.extent()` to the `yScale` domain as well. Do that now. 
+16. We might as well apply `d3.extent()` to the `yScale` domain as well. Do that now. 
 
-6. Let's style the chart to match the image above, starting with gridlines. Things like [`tickSize()`](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) might help. For example, adding a gridline to the x axis would look like this:
+17. Let's style the chart to match the image above, starting with gridlines. Things like [`tickSize()`](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) might help. For example, adding a gridline to the x axis would look like this:
 
 ```
 var xAxis = d3.axisBottom(xScale)
@@ -117,9 +117,9 @@ var xAxis = d3.axisBottom(xScale)
 
 If you don't understand why I'm inputting the variable `height`, try inputting different numbers to see what happens.
 
-7. Now, add gridlines to the y axis. Think about what variable would be the correct input here.
+18. Now, add gridlines to the y axis. Think about what variable would be the correct input here.
 
-8. Now, let's add some further styling, starting with the styling of the gridlines. Inside the `<style>` tag, add the following stylings. Refresh your page after each addition to see what it's doing. What does line, path, and text refer to here?
+19. Now, let's add some further styling, starting with the styling of the gridlines. Inside the `<style>` tag, add the following stylings. Refresh your page after each addition to see what it's doing. **What does line, path, and text refer to here?**
 
 ```
 .axis line {
@@ -138,7 +138,7 @@ If you don't understand why I'm inputting the variable `height`, try inputting d
 }
 ```
 
-9. Let's style the circle label text by also adding the folling into the `<script>` tag.
+20. Let's style the circle label text by also adding the folling into the `<script>` tag.
 
 ```
 .ufoGroup text {
@@ -148,7 +148,7 @@ If you don't understand why I'm inputting the variable `height`, try inputting d
 
 ```
 
-10. In addition to adding styling using css (in the `<script>` tag), you can also add styling in javascript using d3. For example, let's change the color of the circles using d3. In the code where you added your circles (towards the bottom of the page), add the line `.style('fill', '[color of choice]'). Here's an example:
+21. In addition to adding styling using css (in the `<script>` tag), you can also add styling in javascript using d3. For example, let's change the color of the circles using d3. In the code where you added your circles (towards the bottom of the page), add the line `.style('fill', '[color of choice]'). Here's an example:
 
 ```
 ufoGroup.append('circle')
@@ -157,4 +157,130 @@ ufoGroup.append('circle')
   .attr('r', 10);
 ```
 
+**When might we want to use d3 to do this rather than css?**
+
+22. Now, Let's add a title! First, let's add a div with the id `titleDiv` within the `<body>` tags. 
+
+```
+<body>
+  <!-- *16* Add Title -->
+  <div id='titleDiv'></div>
+</body>
+
+```
+
+Then, add the below d3 code anywhere within the script to add a title. 
+
+```
+d3.select('#titleDiv')
+  .append('h1')
+  .text('UFO Sightings in 2018')
+```
  
+ We could technically add this title without using D3. **What are reasons why adding a title using d3 might come in handy?**
+ 
+ ### Adding interactions
+ 
+Ok, we've finished created a plot that resembles the image at the top of the page! Now, let's go about adding some interactions!
+ 
+First, we will add some hover interactions. Let's make the following three things happen on hover:
+
+- text appear (first, we'll need to remove the text, so that it only appears on hover)
+- circle size increase 
+- dull circles not being hovered on
+
+#### Hover text
+1. There are a couple ways we could do this. We could either remove the text completely, and then generate the text upon hover OR we could make the text invisible by default, make it visible only upon hover. Let's go the latter route. First, let's make the opacity of all text 0, by chaining `.attr('opacity', 0)` onto the text code, like so:
+
+```
+ufoGroup.append('text')
+  .attr('class', 'ufoText')
+  .attr('dx', 10)
+  .attr('dy', -10)
+  .text(function(d) { return d.count})
+  .attr('opacity', 0);
+```
+
+Now, let's make the text visible upon hover. To do this, we will chain a [`mousenter`](https://developer.mozilla.org/en-US/docs/Web/Events/mouseenter) event to the  ufoGroup creation code:
+
+```
+  var ufoGroup = svg.selectAll('.ufoGroup')
+    .data(data).enter().append('g')
+    .attr('class', 'ufoGroup')
+    .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+    .on('mouseenter', function(d) {
+    
+      // add code here to make text visible
+    
+    })
+  ```
+
+This is a good time to talk about the Javascript keyword [`this`](https://www.w3schools.com/js/js_this.asp), which refers to the object it belongs to. For example, insert the following code
+
+```
+    .on('mouseenter', function(d) {
+
+      var thisThis = d3.select(this)
+
+      console.log(thisThis)
+
+    })
+```
+Then, open your console and start hoving over bubbles. You'll notice that each time you hover, a json is printed in the console. If you expand the outputs, you'll notice they are describing the bubble over which you just hovered.
+
+Now, let's make the text reappear!
+
+```
+    .on('mouseenter', function(d) {
+
+      d3.select(this)
+        .select('text')
+        .style('opacity', 1)
+
+    })
+```
+
+You'll notice the text will now appear when a bubble is hovered over. Let's go one step further and utilize the [`d3-transition`](https://github.com/d3/d3-transition). A transition is a selection-like interface for animating changes to the DOM. Instead of applying changes instantaneously, transitions smoothly interpolate the DOM from its current state to the desired target state over a given duration. It's pretty great!  Try adding the following:
+
+```
+    .on('mouseenter', function(d) {
+
+      d3.select(this)
+        .select('text')
+        .transition()
+        .style('opacity', 1)
+
+    })
+```
+
+Nice, right!? 
+
+Ok, now we've got the text appearing, but it's not dissapearing! We'll need to add a `mouseleave` event.
+
+2) Make text dissapear on `mouseleave`. Like so:
+
+```
+
+  var ufoGroup = svg.selectAll('.ufoGroup')
+    .data(data).enter().append('g')
+    .attr('class', 'ufoGroup')
+    .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+    .on('mouseenter', function(d) {
+    
+      // add code here to make text visible
+    
+    })
+    .on('mouseleave', function(d) {
+
+      d3.select(this)
+        .select('text')
+        .transition()
+        .style('opacity', 0)
+    });
+```
+
+
+
+
+
+Additionally, if you'd like the transition to take a specific amount of time, you can use `.duration()` to assign this, where one second equals a value of 1000. Try chaining `.duration` into the above code. Experiment with different values! Like so:
