@@ -106,9 +106,9 @@ function ready(error, data) {
     .range([0, width]);
   ```
 
-4.1 We might as well apply `d3.extent()` to the `yScale` domain as well. Do that now. 
+5. We might as well apply `d3.extent()` to the `yScale` domain as well. Do that now. 
 
-5. Let's style the chart to match the image above, starting with gridlines. Things like [`tickSize()`](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) might help. For example, adding a gridline to the x axis would look like this:
+6. Let's style the chart to match the image above, starting with gridlines. Things like [`tickSize()`](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) might help. For example, adding a gridline to the x axis would look like this:
 
 ```
 var xAxis = d3.axisBottom(xScale)
@@ -117,6 +117,36 @@ var xAxis = d3.axisBottom(xScale)
 
 If you don't understand why I'm inputting the variable `height`, try inputting different numbers to see what happens.
 
-5.1 Now, add gridlines to the y axis.
+7. Now, add gridlines to the y axis. Think about what variable would be the correct input here.
+
+8. Now, let's add some further styling, starting with the styling of the gridlines. Inside the `<style>` tag, add the following stylings. Refresh your page after each addition to see what it's doing. What does line, path, and text refer to here?
+
+```
+.axis line {
+  stroke-width:1px;
+  stroke: #ccc;
+  stroke-dasharray: 2px 2px;
+}
+
+.axis text {
+  font-size: 12px;
+  fill: #777;
+}
+
+.axis path {
+  display: none;
+}
+```
+
+9. Let's style the circle label text by also adding the folling into the `<script>` tag.
+
+```
+.ufoGroup text {
+  fill: #aaa; /*grey out text*/
+  font-size: 11px;
+}
+
+```
+
 
  
