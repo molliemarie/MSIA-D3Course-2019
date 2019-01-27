@@ -358,10 +358,99 @@ Goal:
 We'll need:
 - buttons
 - a data swap function that will:
-  - take a value (like group I)
+  - take a value (like 2018)
   - transition the existing dots to the new locations
   - update the title
+  
+  
+#### Start dataswap function
+1. Let's start writing the dataSwap function. This function will take in a year and filter the full data to return just the data from that data year. Put this function outside of / above the `ready` function. 
 
+```
+function dataSwap(datasetGroup, xScale, yScale) {
+
+  //filters data using new input year
+  var thisDataGroup = data.filter(function(d) { return d.group == datasetGroup})
+  
+}
+```
+
+#### create buttons
+
+Let's create buttons with each year on it. To do this we'll need to:
+
+- create an array of years included in the data
+  - will first need to create a year variable within the data
+- create a div with id `buttonsDiv`
+- Use the array of years to create data buttons within `buttonsDiv`
+
+2. Before we create an array of years included in the data, let's create a year variable within the data. To do this, we will use [`d3.timeParse()`](https://github.com/d3/d3-time-format):
+
+```
+  var parseTime = d3.timeParse("%m/%Y"); //CONVERTS STRING TO DATE
+
+  data.forEach(function(d) {
+    d.count = +d.count;
+      d.month = d.date.split('/')[0];
+      d.date = parseTime(d.date);
+      d.year = d.date.getYear() + 1900 //CREATES YEAR VARIABLE WITHIN DATA
+  });
+```
+
+Curious as to why we add 1900 to the year? Read more about `getYear` [here](https://www.tutorialspoint.com/javascript/date_getyear.htm) to find out.
+
+3. Create an array of unique years. We'll do this using [`d3.set()`](https://github.com/d3/d3-collection#set) and [`map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map). 
+
+Before doing this, let's do some experimenting in the console. Copy and paste each of these lines into the cosole and see what it spits out: 
+
+```
+data.map(function(d) { return d.year })
+
+d3.set(data.map(function(d) { return d.year }))
+
+d3.set(data.map(function(d) { return d.year })).values();
+```
+
+**What's going on here? What is each part of this line (`map`, `set`, and `.values()`) doing?**
+
+Now, let's create our yearList:
+
+```
+var yearList = d3.set(data.map(function(d) { return d.year })).values();
+```
+
+4. Let's add a div with the id `buttonsDiv` to the `body` so that we have somewhere specific to add the buttons.
+
+```
+<body>
+  <div id='titleDiv'></div>
+  <div id="buttonsDiv"></div> //FOR BUTTONS
+</body>
+```
+
+5. Use our `yearsList` to add buttons for each year to the appropriate div.
+
+```
+  d3.select('#buttonsDiv') //select div with id buttonsDiv
+    .selectAll('button') //look for existing buttons
+    .data(yearList) //bind data (year list)
+    .enter().append('button') //append buttons for each data point
+    .text(function(d) { return d; }) //append text to each button that corresponds to the data point (Which is a year)
+```
+
+And we now have buttons!! But, they don't do anything... Let's add a click event to test them out.
+
+```
+  d3.select('#buttonsDiv')
+    .selectAll('button')
+    .data(yearList)
+    .enter().append('button')
+    .text(function(d) { return d; })
+    //ADD THIS:
+    .on('click', function(d) {
+      console.log(d) //<-- test buttons. Should print out the year associated with pressed button
+    })
+```
 
 
 
