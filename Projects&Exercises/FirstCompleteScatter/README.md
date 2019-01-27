@@ -81,15 +81,45 @@ function ready(error, data) {
 
 ```
  
- 2) Now that we've loaded in all of the data, all of the data is showing up! For starters, let's filter out everything that isn't 2018. First, let's create a d.year in our data formatting loop using `getYear`.
+ 2. Now that we've loaded in all of the data, all of the data is showing up! For starters, let's filter out everything that isn't 2018.   We'll need an easy way to check for this, so first let's create a year value in our data formatting loop using `getYear`.
  
- `d.year = d.date.getYear() + 1900`
+  `d.year = d.date.getYear() + 1900`
 
- Curious as to why we add 1900 to the value? Read about the method [here](https://www.tutorialspoint.com/javascript/date_getyear.htm). 
+   Curious as to why we add 1900 to the value? Read about the method [here](https://www.tutorialspoint.com/javascript/date_getyear.htm). 
  
- Next, let's create a new veriable `startData` that only includes 2018 data, using Javascript's [`filter`](https://alligator.io/js/filter-array-method/) method.
+   Next, let's create a new veriable `startData` that only includes 2018 data, using Javascript's [`filter`](https://alligator.io/js/filter-array-method/) method.
  
  `var startData = data.filter(function(d) { return d.year == 2018; })`
  
+ You'll then need to replace data thoughout the file with `startData` for it to update.
  
+ 3. The axis is still referring to month values. Let's change this so that it's reading the values in as dates. Use [`d3.timeparse()`]() to format the date. (You'll need to create a variable `parseTime` and then call that within the formatting for loop to create `d.date`.
+ 
+ Then, we'll want to change our x axis from a linear scale to a time scale using [`d3.scaleTime()`](https://github.com/d3/d3-scale#scaleTime). 
+ 
+ 4. You might have noticed that this broke the code. Our new time scale will no longer understand our originally set domain. This is a good opportunity to make the domain calculation a bit more dynamic. 
+  a) We'll  use [`d3.extent()`](https://github.com/d3/d3-array#extent) to obtain the min and max values of the data. We will end up with something like this:
+ 
+  ```
+  var xScale = d3.scaleTime()
+    // .domain([1,12])
+    .domain(d3.extent(startData, function(d) { return d.date; }))
+    .range([0, width]);
+  ```
+
+  b) We might as well apply `d3.extent()` to the `yScale` domain as well. Do that now. 
+
+5. Let's style the chart to match the image above, starting with gridlines. Things like [`tickSize()`](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) might help. 
+
+  a) For example, adding a gridline to the x axis would look like this:
+
+```
+var xAxis = d3.axisBottom(xScale)
+  .tickSize(-height);
+```
+
+If you don't understand why I'm inputting the variable `height`, try inputting different numbers to see what happens.
+
+  b) Now, add gridlines to the y axis.
+
  
