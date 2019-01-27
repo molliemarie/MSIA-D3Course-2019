@@ -163,7 +163,6 @@ ufoGroup.append('circle')
 
 ```
 <body>
-  <!-- *16* Add Title -->
   <div id='titleDiv'></div>
 </body>
 
