@@ -3,7 +3,7 @@
 # Agenda:
 
 - questions?
-- using console for debugging
+- debugging using the console and `console.log()`
 - finish our first Scatter Plot - add interactions!
 - post to bl.ocks
 - think about the D3 blueprint
