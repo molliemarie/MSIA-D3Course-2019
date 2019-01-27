@@ -266,16 +266,22 @@ Ok, now we've got the text appearing, but it's not dissapearing! We'll need to a
     .attr('class', 'ufoGroup')
     .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
     .on('mouseenter', function(d) {
-    
-      // add code here to make text visible
-    
+
+      d3.select(this)
+        .select('text')
+        .transition()
+        .style('opacity', 1)
+
     })
     .on('mouseleave', function(d) {
+    
+    // NEW CODE HERE:
 
       d3.select(this)
         .select('text')
         .transition()
         .style('opacity', 0)
+        
     });
 ```
 
