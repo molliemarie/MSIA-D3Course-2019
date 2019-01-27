@@ -148,5 +148,13 @@ If you don't understand why I'm inputting the variable `height`, try inputting d
 
 ```
 
+10. In addition to adding styling using css (in the `<script>` tag), you can also add styling in javascript using d3. For example, let's change the color of the circles using d3. In the code where you added your circles (towards the bottom of the page), add the line `.style('fill', '[color of choice]'). Here's an example:
+
+```
+ufoGroup.append('circle')
+  .attr('class', 'ufoCircle')
+  .style('fill', 'limegreen') // you can also use hashcodes instead of a color name
+  .attr('r', 10);
+```
 
  
