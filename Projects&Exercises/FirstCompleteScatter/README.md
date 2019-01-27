@@ -1,5 +1,7 @@
 # Your first D3.js scatter plot!
 
+## Day One:
+
 For this first project, we're going to use data from [The National UFO Reporting Center](http://www.nuforc.org/), a website where people can report UFO sightings.
 
 We'll make a fairly basic plot with no interactions to start that will end up looking something like this:
@@ -46,18 +48,48 @@ We'll make a fairly basic plot with no interactions to start that will end up lo
  9. Maybe [axes](https://github.com/d3/d3-axis/blob/master/README.md) are in order?  
  10. We might need to move our axes around. We'll go through the math. Also, maybe add some styles?
  11. The margins are a problem, and they will always be. Here's [a great trick](https://bl.ocks.org/mbostock/3019563) we'll use on every chart we make from here on out.
- 12. Let's style the chart to match the example. Things like [tickSize](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) might help.
- 13. Let's add a title
  
 Alright, we've done a lot! What we have should look pretty similar now to the plot above. Unfortunately, though, our chart isn't really better than what we get with the free tools. (Paste your data into [Chartbuilder](http://quartz.github.io/Chartbuilder/) and feel free to weep.) What makes D3 different is its ability to create **dynamic** and **custom** visualizations and things that tools aren't designed to create. To demonstrate this, tomorrow (and today if time) we will add some interactions to the plot to make it a bit more interesting!
  
- If time...
+ ## Day Two: 
  
- 14. Add hover interactions that will
-     - make the text only appear on hover
-     - make the circle increase in size when hovered upon, and go back to normal if the mouse moves
-     - when a circle is hovered, all other circles become slightly transparent (by assigning a lower opacity)
- 15. Load in data from a file rather than written out as we have it
- 16. Now that we've done that, we can see many years of data at once! We'll need to do some filtering.
+Last class, we finished our first scatter pot! Let's start where we left off, adding some stylings and interactions! Open `class1Final.html` for our starting point today.
+
+1. Right now, the data is provided for us in the file. Let's change this so that we're loading in the data from an outside file. D3 let's us do this easily with [d3-request](https://github.com/d3/d3-request)! The data we have is in csv (comma separated value) form, so we'll be using the `d3.csv()` module.
+
+To load and parse a csv file: 
+
+```
+d3.csv("/path/to/file.csv", function(error, data) {
+  if (error) throw error;
+  console.log(data); // [{"Hello": "world"}, …]
+});
+```
+
+What it's doing is loading the csv file, and then when the file is fully loaded, running the rest of the code. Additionally, rather than inserting an unnamed function into the module, I often name it for easier legibility. In our case, let's put our code into a function `ready()` and then call that function in the `d3.csv()` module:
+
+```
+d3.csv("data/ufo.csv", ready)
+
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+  
+  ... rest of code (the stuff we've already written) here ...
+  
+}
+
+```
+ 
+ 2) Now that we've loaded in all of the data, all of the data is showing up! For starters, let's filter out everything that isn't 2018. First, let's create a d.year in our data formatting loop using `getYear`.
+ 
+ `d.year = d.date.getYear() + 1900`
+
+ Curious as to why we add 1900 to the value? Read about the method [here](https://www.tutorialspoint.com/javascript/date_getyear.htm). 
+ 
+ Next, let's create a new veriable `startData` that only includes 2018 data, using Javascript's [`filter`](https://alligator.io/js/filter-array-method/) method.
+ 
+ `var startData = data.filter(function(d) { return d.year == 2018; })`
+ 
  
  
