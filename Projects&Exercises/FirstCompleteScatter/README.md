@@ -1,4 +1,4 @@
-# Your first scatter plot!
+# Your first D3.js scatter plot!
 
 For this first project, we're going to use data from [The National UFO Reporting Center](http://www.nuforc.org/), a website where people can report UFO sightings.
 
