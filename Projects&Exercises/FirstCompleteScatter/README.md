@@ -189,7 +189,9 @@ First, we will add some hover interactions. Let's make the following three thing
 - dull circles not being hovered on
 
 #### Hover text
-1. There are a couple ways we could do this. We could either remove the text completely, and then generate the text upon hover OR we could make the text invisible by default, make it visible only upon hover. Let's go the latter route. First, let's make the opacity of all text 0, by chaining `.attr('opacity', 0)` onto the text code, like so:
+There are a couple ways we could do this. We could either remove the text completely, and then generate the text upon hover OR we could make the text invisible by default, make it visible only upon hover. Let's go the latter route. 
+
+1. First, let's make the opacity of all text 0, by chaining `.attr('opacity', 0)` onto the text code, like so:
 
 ```
 ufoGroup.append('text')
@@ -200,7 +202,7 @@ ufoGroup.append('text')
   .attr('opacity', 0);
 ```
 
-Now, let's make the text visible upon hover. To do this, we will chain a [`mousenter`](https://developer.mozilla.org/en-US/docs/Web/Events/mouseenter) event to the  ufoGroup creation code:
+2. Now, let's make the text visible upon hover. To do this, we will chain a [`mousenter`](https://developer.mozilla.org/en-US/docs/Web/Events/mouseenter) event to the  ufoGroup creation code:
 
 ```
   var ufoGroup = svg.selectAll('.ufoGroup')
@@ -225,9 +227,9 @@ This is a good time to talk about the Javascript keyword [`this`](https://www.w3
 
     })
 ```
-Then, open your console and start hoving over bubbles. You'll notice that each time you hover, a json is printed in the console. If you expand the outputs, you'll notice they are describing the bubble over which you just hovered.
+Then, open your console and start hoving over bubbles. You'll notice that each time you hover, a json is printed in the console. If you expand the outputs, you'll notice they are describing the bubble over which you just hovered. Therefore, by selecting `this`, we are basically grabbing that bubble so that we can make changes to just specific bubble.
 
-Now, let's make the text reappear!
+Now, let's select `this` and make the text reappear!
 
 ```
     .on('mouseenter', function(d) {
@@ -256,7 +258,7 @@ Nice, right!?
 
 Ok, now we've got the text appearing, but it's not dissapearing! We'll need to add a `mouseleave` event.
 
-2) Make text dissapear on `mouseleave`. Like so:
+3. Make text dissapear on `mouseleave`. We will do this by adjusting the text's [`opacity`](https://www.w3schools.com/cssref/css3_pr_opacity.asp) property, which ranges from 0 (invisible) to fulling opaque (1). Like so:
 
 ```
 
@@ -284,8 +286,82 @@ Ok, now we've got the text appearing, but it's not dissapearing! We'll need to a
     });
 ```
 
+### Increase circle size on hover
+4. Increasing hte circle size on hover will look similar. Let's double the size of the circle on hover by adding the following code into the `mouseenter` event function:
+
+```
+      d3.select(this)
+        .select('circle')
+        .transition()
+        .attr('r', radius*2)
+```
+
+Additionally, if you'd like the transition to take a specific amount of time, you can use `.duration()` to assign this, where one second equals a value of 1000. Try chaining [`.duration`](https://github.com/d3/d3-transition#transition_duration) into the above code. Experiment with different values! Like so:
+
+```
+      d3.select(this)
+        .select('circle')
+        .transition()
+        .duration(1000) // can experiment with different values
+        .attr('r', radius*2)
+```
+
+**Note: Moving forward, I encourage you to create the variable transitionTime at the top of the script, calling that value in `duration` from now on. **
+
+Ok, let's add one more thing to this section before moving on - [`.ease`](https://github.com/d3/d3-transition#transition_ease), which specifies the transition easing function. Below is an example, but I encourage you to experiment with various easing functions. 
+
+```
+      d3.select(this)
+        .select('circle')
+        .transition()
+        .ease(d3.easeElastic)
+        .duration(transitionTime) //make sure to define this variable at top of script with other variables
+        .attr('r', radius*2)
+```
+
+5. The circles now increase in size upon hover, but we need to make them go back to normal after. Try adding code into the `mouseleave` event that will do this. **hint:** It will look similar to the above code.
+
+#### Adjust opacity of circles on hover
+
+Now, let's make it so that when a circle is hovered  upon, all other circles are partly transparent. We do this by adjusting the `opacity` property. 
+
+We could do this by either 1) selecting all circles besides the one being hovered upon and lowering their opacities or 2) lowering all circle opacities, and then specifying that the hovered upon circle is set to 1. The second is a bit easier, so let's do that.
+
+6. First, set all circles to half opacity (value of 0.5) by adding the following code to the `mouseenter` event:
+
+```
+      d3.selectAll('circle')
+        .style('opacity', 0.5)
+```
+
+7. Then, to make the selected circle fully opaque, simply chain one line (`.style('opacity', 1)`) to the already existing circle transition code, like so:
+
+```
+      d3.select(this)
+        .select('circle')
+        .transition()
+        .ease(d3.easeElastic)
+        .duration(1000)
+        .attr('r', radius*2)
+        .style('opacity', 1); //THIS LINE
+```
+
+8. Now, we probably want to make it so that when no bubble is being hovered upon, all bubbles are fully opaque. **What code would we add to the `mouseleave` event to make this happen?**
+
+## Updating the Data
+
+We've now successfully added some hover events! This already make our plot smoother, but let's go even further and make it possible to select different years and have the circles update. 
+
+Goal: 
+- click on button w/title and see data for just that group. For example, click on button that says group 1, and see just group 1 data plotted.
+
+We'll need:
+- buttons
+- a data swap function that will:
+  - take a value (like group I)
+  - transition the existing dots to the new locations
+  - update the title
 
 
 
 
-Additionally, if you'd like the transition to take a specific amount of time, you can use `.duration()` to assign this, where one second equals a value of 1000. Try chaining `.duration` into the above code. Experiment with different values! Like so:
