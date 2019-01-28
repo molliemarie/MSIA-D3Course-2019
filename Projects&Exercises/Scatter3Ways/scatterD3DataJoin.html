@@ -53,8 +53,20 @@ var data = [{
     },
 ];
 // Select all circles in the svg and bind your data to the selection
+<<<<<<< HEAD
 // Determine what's new to the screen using `.enter()` and for each new element, append a circle
 // Then, use the data provided to set the desired attributes
+=======
+var circles = svg.selectAll('circle')
+// Determine what's new to the screen using `.enter()` and for each new element, append a circle
+// Then, use the data provided to set the desired attributes
+circles.data(data)
+    .enter()
+    .append('circle')
+    .attr('cx', function(d) {return d.cx})
+    .attr('cy', function(d) {return d.cy})
+    .attr('r', function(d) {return d.r})
+>>>>>>> day 1 changes
 </script>
 
 </html>
