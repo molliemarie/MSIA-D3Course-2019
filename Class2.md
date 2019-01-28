@@ -7,9 +7,9 @@
 - debugging using the console,  `console.log()`, global variables, etc.
 - finish our first Scatter Plot - add interactions!
 - post to bl.ocks
+- first line chart
 - think about the D3 blueprint
 - discuss readings and videos from last class
-- if time, tackle bar charts
 - end of day discussion
 
 ## Discussion: Review of CSS, HTML, Javascript
@@ -50,7 +50,7 @@ We will follow [these instructions](Projects&Exercises/FirstCompleteScatter/addi
 
 All d3 plots start similarly. I'll give you some time to think about what these components are. We will discuss as a class and then you will create your own blueprint file.
 
-## Articles / Videos
+## Discussion: Articles / Videos
   - [IDEO brainstorming video](https://vimeo.com/138588491)
   - [D3 is not a data visualization library](https://medium.com/@Elijah_Meeks/d3-is-not-a-data-visualization-library-67ba549e8520) by [Elijah Meeks](https://twitter.com/Elijah_Meeks)
   - The Power of Visualization's "Aha!" Moments](https://hbr.org/2013/03/power-of-visualizations-aha-moment) by [Amanda Cox](https://twitter.com/amandacox)
