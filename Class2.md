@@ -3,6 +3,7 @@
 # Agenda:
 
 - questions?
+- css, html, javascript review
 - debugging using the console,  `console.log()`, global variables, etc.
 - finish our first Scatter Plot - add interactions!
 - post to bl.ocks
@@ -10,6 +11,14 @@
 - discuss readings and videos from last class
 - if time, tackle bar charts
 - end of day discussion
+
+## Discussion: Review of CSS, HTML, Javascript
+
+Let's talk about the different components of a webpage - [CSS](https://www.w3schools.com/css/css_howto.asp), [HTML](https://www.w3schools.com/whatis/whatis_html.asp), and [Javascript](https://www.w3schools.com/js/default.asp). 
+
+**What does each do?**
+
+Let's examine the code we've already written, find where each of the three exist, and talk about what they're doing.
 
 ## Add styling and interactions to our scatter plot
 
@@ -39,7 +48,7 @@ We will follow [these instructions](Projects&Exercises/FirstCompleteScatter/addi
 
 ## Discussion / Activity: d3.s Blueprint
 
-All d3 plots start similarly. I'll give you some time to think about what these components are, and then we will discuss as a class.
+All d3 plots start similarly. I'll give you some time to think about what these components are. We will discuss as a class and then you will create your own blueprint file.
 
 ## Articles / Videos
   - [IDEO brainstorming video](https://vimeo.com/138588491)
@@ -53,6 +62,14 @@ How was the first day? What questions do you have so far?
 What we'll do next class:
 
 - go over any questions
+- general update pattern
+- first bar chart
 
 **Before Next Class**
+
+If you're having trouble with HTML, CSS, or Javascript basics, I would recommend doing the corresponding tutorial before next class.
+
+- [HTML](https://www.codecademy.com/learn/learn-html)
+- [CSS](https://www.codecademy.com/learn/learn-css)
+- [Javascript](https://www.codecademy.com/learn/introduction-to-javascript)
 
