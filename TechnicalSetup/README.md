@@ -24,13 +24,13 @@ After the last steps, you should have been redirected to your new forked class r
 
 ![git setup](imgs/git_setup3.png)
 
-You can now click on the green "clone" button, from which a modal will appear that says "Use Git or checkout with SVN using the web URL" followed by a link. The link should be something like `https://github.com/YOUR-USER-NAME/lol18_dv1.git`. Copy it.
+You can now click on the green "clone" button, from which a modal will appear that says "Use Git or checkout with SVN using the web URL" followed by a link. The link should be something like `https://github.com/YOUR-USER-NAME/MSIA-D3Course-2019.git`. Copy it.
 
 ![git setup](imgs/git_setup4.png)
 
  ```bash
  # In the terminal, clone *your repo* onto your machine after forking it
-git clone https://github.com/YOUR-USER-NAME/lol18_dv1.git
+git clone https://github.com/YOUR-USER-NAME/MSIA-D3Course-2019.git
  ```
  
 ### Setting upstream
@@ -39,7 +39,7 @@ Inevitably, I'll be making changes to the course repository, which means you sho
 
  ```bash
  # Add the *course repo* as the upstream
-git remote add upstream https://github.com/thisismetis/lol18_dv1.git
+git remote add upstream https://github.com/molliemarie/MSIA-D3Course-2019.git
  ```
  
 The reasons we do this is as follow: 

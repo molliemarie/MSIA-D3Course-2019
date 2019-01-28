@@ -118,10 +118,14 @@ svg.append("g")
     .on('mouseenter', function(d) {
       // *2* make text have opacity 1 at selection
 
+      var thisThis = d3.select(this)
+
+      console.log(thisThis)
+
       d3.select(this)
         .select('text')
         .transition()
-        .duration(0)
+        .duration(500)
         .style('opacity', 1)
 
       // *5* when circle is selected, dull everything else, leaving only the main circle solid
