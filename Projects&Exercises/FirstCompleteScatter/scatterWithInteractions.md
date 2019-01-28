@@ -1,4 +1,4 @@
-# Adding interactions
+# Adding interactions to our scatter!
  
 Ok, we've finished created a plot that resembles the image at the top of the page! Now, let's go about adding some interactions!
  
