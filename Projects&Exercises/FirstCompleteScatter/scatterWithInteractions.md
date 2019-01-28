@@ -341,7 +341,7 @@ Earlier on, we based the domain of the scales on the startData for both x and y.
       .text('UFO Sightings in ' + datasetGroup);
 ```
 
-11. The axes are now update correctly, but they're very abrupt. Let's a add some transitions, defining durations and easing. I encourage you to experiment with these, but here's the complete `dataSwap` function showing an example of what could be done here:
+11. The axes are now update correctly, but they're very abrupt. Let's a add some transitions, defining durations and easing. I encourage you to experiment with these, but here's the complete `dataSwap` function showing an example of what could be done with `transition`, `duration`, and `easing`:
 
 ```
 function ready(error, data) {
@@ -387,4 +387,6 @@ function ready(error, data) {
 
 12. Last, it's actually best to move your `dataSwap` function as well as variables that do not require data outside of the `ready` function. (**Note:** If you only move the `dataSwap` function out and no other variables, you'll notice you'll need to pass in many variables to get the function to work. Intead, it's easist to keep everything unnecessary to the function outside of the function.)
 
-I urge you to check out the completed example of this plot with all stylings and interactions discussed in these instructions in file `scatterCompleteExample.html`. Notice what's been moved
+I urge you to walk through the completed example of this plot and take note of what's been moved. You can do this by opening `scatterCompleteExample.html` (recommended) or this [markdown file](finalScript.md)
+
+**What was moved? What definitions were separated into sections? Why do you think that is?
