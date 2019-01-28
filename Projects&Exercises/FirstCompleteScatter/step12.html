@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+.axis line {
+  stroke-width:1px;
+  stroke: #ccc;
+  stroke-dasharray: 2px 2px;
+}
+
+.axis text {
+  font-size: 12px;
+  fill: #777;
+}
+
+.axis path {
+  display: none;
+}
+
+.circle-group text {
+  fill: #aaa; /*grey out text*/
+  font-size: 11px;
+}
+
+/*NEW CSS GOES HERE*/
+
+</style>
+
+<body>
+  <div id='titleDiv'></div>
+  <div id="buttonsDiv"></div>
+</body>
+
+<script>
+
+  //In this file, I've rearranged the code so that functions along with everything that does not require data to be defined outside of the ready function. This is less important with this example, but is a good habit to get into. It is especially important for larger d3 projects.
+
+// define dataSwap function
+// define dataSwap function
+function dataSwap(datasetGroup) {
+
+  // filter data to get new data subset based on year
+  var thisDataGroup = data.filter(function(d) { return d.year == datasetGroup});
+
+  // define scale domains using new data, pass newly defined scales into axes, call axes for each axis group
+  xScale
+    .domain(d3.extent(thisDataGroup, function(d) { return d.date; }));
+
+  yScale
+    .domain(d3.extent(thisDataGroup, function(d) { return d.count; }));
+
+  xAxis.scale(xScale);
+
+  yAxis.scale(yScale);
+
+  xAxisGroup
+    .call(xAxis);
+
+  yAxisGroup
+    .transition()
+    .duration(transitionTime)
+    .call(yAxis);
+  
+  // move locations of each ufo group (each of which contain a circle and text)
+  svg.selectAll('.ufoGroup')
+    .data(thisDataGroup)
+    .transition()
+    .ease(d3.easeElastic)
+    .duration(transitionTime)
+    .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+
+  // update title
+  d3.select('#titleText')
+    .text('UFO Sightings in ' + datasetGroup);
+
+}
+
+// define variables, including svg, margins, etc.
+var radius = 10;
+var parseTime = d3.timeParse("%m/%Y");
+var transitionTime = 1000
+
+var margin = {top: 50, right: 10, bottom: 20, left: 40};
+var width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// Add a title. This could alternatively be done above in the html section
+d3.select('#titleDiv')
+  .append('h1')
+  .attr('id', 'titleText')
+  .text('UFO Sightings in 2018')
+
+// define xScale and yScale; will define domain later within ready function
+var xScale = d3.scaleTime()
+  .range([0, width]);
+
+var yScale = d3.scaleLinear()
+  .range([height, 0])
+
+// Define xAxis and yAxis, will define associated scales inside ready function
+var xAxis = d3.axisBottom()
+  .tickSize(-height);
+
+var yAxis = d3.axisLeft()
+  .tickSize(-width);
+
+// Define xAxisGroup and yAxisGroup. Will call the appropriate axis within ready function
+var xAxisGroup = svg.append("g")
+    .attr("class", "x axis") //gives group the classes `x` and `axis`
+    .attr("transform", "translate(0," + height + ")");
+
+var yAxisGroup = svg.append("g")
+    .attr("class", "y axis"); //gives group the classes `y` and `axis`
+
+// transforming data into json
+d3.csv("data/ufo.csv", ready)
+
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+
+  window.data = data;
+
+  // format data
+  data.forEach(function(d) {
+    d.count = +d.count;
+      d.month = d.date.split('/')[0];
+      d.date = parseTime(d.date);
+      d.year = d.date.getYear() + 1900
+  });
+
+  // filter to define startData
+  var startData = data.filter(function(d) { return d.year == 2018; })
+
+  // define domain of scales, pass newly defined scales into axes, call axes for each axis group
+  xScale.domain(d3.extent(startData, function(d) { return d.date; }));
+
+  yScale.domain(d3.extent(startData, function(d) { return d.count; }));
+
+  xAxis.scale(xScale)
+
+  yAxis.scale(yScale)
+
+  xAxisGroup.call(xAxis);
+
+  yAxisGroup.call(yAxis);
+
+  // create buttons
+  var yearList = d3.set(data.map(function(d) { return d.year })).values();
+
+  d3.select('#buttonsDiv')
+    .selectAll('button')
+    .data(yearList)
+    .enter().append('button')
+    .text(function(d) { return d; })
+    .on('click', function(d) {
+      dataSwap(d) 
+    })
+
+
+  // create ufo Groups
+  var ufoGroup = svg.selectAll('.ufoGroup')
+    .data(startData).enter().append('g')
+    .attr('class', 'ufoGroup')
+    .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+    .on('mouseenter', function(d) {
+      // define hover events
+      d3.select(this)
+        .select('text')
+        .transition()
+        .duration(0)
+        .style('opacity', 1)
+
+      d3.selectAll('circle')
+        .style('opacity', 0.5)
+
+      d3.select(this)
+        .select('circle')
+        .transition()
+        .ease(d3.easeElastic)
+        .duration(transitionTime)
+        .attr('r', radius*2)
+        .style('opacity', 1)
+    })
+    .on('mouseleave', function(d) {
+      // define mouseleave events
+      d3.select(this)
+        .select('text')
+        .transition()
+        .style('opacity', 0)
+
+      d3.select(this)
+        .select('circle')
+        .transition()
+        .ease(d3.easeElastic)
+        .duration(transitionTime)
+        .attr('r', radius)
+
+      d3.selectAll('circle')
+        .style('opacity', 1)
+    })
+
+
+  // append circles to ufo groups
+  ufoGroup.append('circle')
+    .attr('class', 'ufoCircle')
+    .style('fill', 'limegreen')
+    .attr('r', radius)
+
+  // append text to ufo groups
+  ufoGroup.append('text')
+    .attr('class', 'ufoText')
+    .attr('dx', radius)
+    .attr('dy', -radius)
+    .text(function(d) { return d.count})
+    .style('opacity', 0)
+
+};
+
+</script>
