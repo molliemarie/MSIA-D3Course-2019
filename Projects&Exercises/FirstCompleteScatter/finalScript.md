@@ -1,5 +1,7 @@
 # Final Script
 
+**What was moved? What definitions were separated into sections? Why do you think that is? 
+
 ```
 <!DOCTYPE html>
 <meta charset="utf-8">
