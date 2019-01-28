@@ -168,11 +168,12 @@ ufoGroup.append('circle')
 
 ```
 
-Then, add the below d3 code anywhere within the script to add a title. 
+Then, add the below d3 code anywhere within the script to add a title with an id `titleText` attached to the `h1` tag. 
 
 ```
 d3.select('#titleDiv')
   .append('h1')
+  .attr('id', 'titleText')
   .text('UFO Sightings in 2018')
 ```
  
@@ -364,10 +365,10 @@ We'll need:
   
   
 #### Start dataswap function
-1. Let's start writing the dataSwap function. This function will take in a year and filter the full data to return just the data from that data year. Put this function outside of / above the `ready` function. 
+1. Let's start writing the dataSwap function. This function will take in a year and filter the full data to return just the data from that data year. For now, put this function inside the `ready` function at the top, below where you defined the variable `transitionTime` (since we'll want to use that). **Note:** It would be more proper for this function, as well as many variable definitions, to be outside of the `ready` function, but we'll worry about that later. For now, let's leave it all inside.
 
 ```
-function dataSwap(datasetGroup, xScale, yScale) {
+function dataSwap(datasetGroup) {
 
   //filters data using new input year
   var thisDataGroup = data.filter(function(d) { return d.group == datasetGroup})
@@ -451,6 +452,355 @@ And we now have buttons!! But, they don't do anything... Let's add a click event
       console.log(d) //<-- test buttons. Should print out the year associated with pressed button
     })
 ```
+
+Now when you click the buttons, you should see the year appear in the console.
+
+### Finish and call dataSwap function
+
+Now that we have functioning buttons, we can make the dataSwap function work!
+
+6. We'll start by finishing the function. We need the function to move the ufoGroups to their new locations when a button is pressed. We'll do this by selecting all elements with the class `.ufoGroup`, binding the new data, and defining a new `transform, translate` location attribute.
+
+```
+function dataSwap(datasetGroup) {
+
+  var thisDataGroup = data.filter(function(d) { return d.group == datasetGroup})
+  
+  //NEW CODE:
+  svg.selectAll('.ufoGroup')
+    .data(thisDataGroup)
+    .transition()
+    .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+
+}
+```
+
+7. You'll notice the buttons still don't work. This is because we have not yet called the function. We'll do this by adding an `on click` event to the buttons, like so:
+
+```
+  d3.select('#buttonsDiv')
+    .selectAll('button')
+    .data(yearList)
+    .enter().append('button')
+    .text(function(d) { return d; })
+    // ON CLICK EVENT, CALLS dataSwap:
+    .on('click', function(d) {
+      dataSwap(d) 
+    })
+```
+
+8. Ok, so it still doesn't quite work. Before reading on, **do you have any idea why the bubbles are dissapearing?**
+
+Earlier on, we based the domain of the scales on the startData for both x and y. So, in the dataswap function, let's add these lines to define the scales based on the new data.
+
+```
+  xScale
+    .domain(d3.extent(thisDataGroup, function(d) { return d.date; }));
+
+  yScale
+    .domain(d3.extent(thisDataGroup, function(d) { return d.count; }));
+```
+
+9. You'll notice that the bubbles now move to the right location, but the axes are not updating. This is because we still need to update the axes.
+
+```
+    // attaches new scales to the axes
+    xAxis.scale(xScale);
+
+    yAxis.scale(yScale);
+    
+    // Updates the axis groups, and therefore the labels
+    xAxisGroup.call(xAxis);
+
+    yAxisGroup.call(yAxis);
+```
+
+10. We still need to change the title to match the new data. You can do this by adding the following code at the end of the `dataSwap` function:
+
+```
+    d3.select('#titleText')
+      .text('UFO Sightings in ' + datasetGroup);
+```
+
+11. The axes are now update correctly, but they're very abrupt. Let's a add some transitions, defining durations and easing. I encourage you to experiment with these, but here's the complete `dataSwap` function showing an example of what could be done here:
+
+```
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+
+  function dataSwap(datasetGroup) {
+
+    var thisDataGroup = data.filter(function(d) { return d.year == datasetGroup});
+
+    console.log(thisDataGroup);
+
+    xScale
+      .domain(d3.extent(thisDataGroup, function(d) { return d.date; }));
+
+    yScale
+      .domain(d3.extent(thisDataGroup, function(d) { return d.count; }));
+
+    xAxis.scale(xScale);
+
+    yAxis.scale(yScale);
+
+    xAxisGroup
+      .call(xAxis);
+
+    yAxisGroup
+      .transition()
+      .duration(transitionTime)
+      .call(yAxis);
+    
+    svg.selectAll('.ufoGroup')
+      .data(thisDataGroup)
+      .transition()
+      .ease(d3.easeElastic)
+      .duration(transitionTime)
+      .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+
+    d3.select('#titleText')
+      .text('UFO Sightings in ' + datasetGroup);
+  }
+
+```
+
+12. Last, it's actually best to move your `dataSwap` function as well as variables that do not require data outside of the `ready` function. (**Note:** If you only move the `dataSwap` function out and no other variables, you'll notice you'll need to pass in many variables to get the function to work. Intead, it's easist to keep everything unnecessary to the function outside of the function.)
+
+I urge you to check out the completed example of this plot with all stylings and interactions discussed in these instructions in file `scatterCompleteExample.html`. Notice what's been moved
+
+```
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+.axis line {
+  stroke-width:1px;
+  stroke: #ccc;
+  stroke-dasharray: 2px 2px;
+}
+
+.axis text {
+  font-size: 12px;
+  fill: #777;
+}
+
+.axis path {
+  display: none;
+}
+
+.circle-group text {
+  fill: #aaa; /*grey out text*/
+  font-size: 11px;
+}
+
+/*NEW CSS GOES HERE*/
+
+</style>
+
+<body>
+  <div id='titleDiv'></div>
+  <div id="buttonsDiv"></div>
+</body>
+
+<script>
+
+  //In this file, I've rearranged the code so that functions along with everything that does not require data to be defined outside of the ready function. This is less important with this example, but is a good habit to get into. It is especially important for larger d3 projects.
+
+// define dataSwap function
+function dataSwap(datasetGroup) {
+
+  var thisDataGroup = data.filter(function(d) { return d.year == datasetGroup});
+
+  console.log(thisDataGroup);
+
+  xScale
+    .domain(d3.extent(thisDataGroup, function(d) { return d.date; }));
+
+  yScale
+    .domain(d3.extent(thisDataGroup, function(d) { return d.count; }));
+
+  xAxis.scale(xScale);
+
+  yAxis.scale(yScale);
+
+  xAxisGroup
+    .call(xAxis);
+
+  yAxisGroup
+    .transition()
+    .duration(transitionTime)
+    .call(yAxis);
+  
+  svg.selectAll('.ufoGroup')
+    .data(thisDataGroup)
+    .transition()
+    .ease(d3.easeElastic)
+    .duration(transitionTime)
+    .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+
+  d3.select('#titleText')
+    .text('UFO Sightings in ' + datasetGroup);
+
+}
+
+// define variables, including svg, margins, etc.
+var radius = 10;
+var parseTime = d3.timeParse("%m/%Y");
+var transitionTime = 1000
+
+var margin = {top: 50, right: 10, bottom: 20, left: 40};
+var width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// Add a title. This could alternatively be done above in the html section
+d3.select('#titleDiv')
+  .append('h1')
+  .attr('id', 'titleText')
+  .text('UFO Sightings in 2018')
+
+// define xScale and yScale; will define domain later within ready function
+var xScale = d3.scaleTime()
+  .range([0, width]);
+
+var yScale = d3.scaleLinear()
+  .range([height, 0])
+
+// Define xAxis and yAxis, will define associated scales inside ready function
+var xAxis = d3.axisBottom()
+  .tickSize(-height);
+
+var yAxis = d3.axisLeft()
+  .tickSize(-width);
+
+// Define xAxisGroup and yAxisGroup. Will call the appropriate axis within ready function
+var xAxisGroup = svg.append("g")
+    .attr("class", "x axis") //gives group the classes `x` and `axis`
+    .attr("transform", "translate(0," + height + ")");
+
+var yAxisGroup = svg.append("g")
+    .attr("class", "y axis"); //gives group the classes `y` and `axis`
+
+// transforming data into json
+d3.csv("data/ufo.csv", ready)
+
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+
+  window.data = data;
+
+  // format data
+  data.forEach(function(d) {
+    d.count = +d.count;
+      d.month = d.date.split('/')[0];
+      d.date = parseTime(d.date);
+      d.year = d.date.getYear() + 1900
+  });
+
+  // filter to define startData
+  var startData = data.filter(function(d) { return d.year == 2018; })
+
+  // define domain of scales, pass newly defined scales into axes, call axes for each axis group
+  xScale.domain(d3.extent(startData, function(d) { return d.date; }));
+
+  yScale.domain(d3.extent(startData, function(d) { return d.count; }));
+
+  xAxis.scale(xScale)
+
+  yAxis.scale(yScale)
+
+  xAxisGroup.call(xAxis);
+
+  yAxisGroup.call(yAxis);
+
+  // create buttons
+  var yearList = d3.set(data.map(function(d) { return d.year })).values();
+
+  d3.select('#buttonsDiv')
+    .selectAll('button')
+    .data(yearList)
+    .enter().append('button')
+    .text(function(d) { return d; })
+    .on('click', function(d) {
+      dataSwap(d) 
+    })
+
+
+  // create ufo Groups
+  var ufoGroup = svg.selectAll('.ufoGroup')
+    .data(startData).enter().append('g')
+    .attr('class', 'ufoGroup')
+    .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+    .on('mouseenter', function(d) {
+      // define hover events
+      d3.select(this)
+        .select('text')
+        .transition()
+        .duration(0)
+        .style('opacity', 1)
+
+      d3.selectAll('circle')
+        .style('opacity', 0.5)
+
+      d3.select(this)
+        .select('circle')
+        .transition()
+        .ease(d3.easeElastic)
+        .duration(transitionTime)
+        .attr('r', radius*2)
+        .style('opacity', 1)
+    })
+    .on('mouseleave', function(d) {
+      // define mouseleave events
+      d3.select(this)
+        .select('text')
+        .transition()
+        .style('opacity', 0)
+
+      d3.select(this)
+        .select('circle')
+        .transition()
+        .ease(d3.easeElastic)
+        .duration(transitionTime)
+        .attr('r', radius)
+
+      d3.selectAll('circle')
+        .style('opacity', 1)
+    })
+
+
+  // append circles to ufo groups
+  ufoGroup.append('circle')
+    .attr('class', 'ufoCircle')
+    .style('fill', 'limegreen')
+    .attr('r', radius)
+
+  // append text to ufo groups
+  ufoGroup.append('text')
+    .attr('class', 'ufoText')
+    .attr('dx', radius)
+    .attr('dy', -radius)
+    .text(function(d) { return d.count})
+    .style('opacity', 0)
+
+};
+
+</script>
+```
+
+
+
+
 
 
 
