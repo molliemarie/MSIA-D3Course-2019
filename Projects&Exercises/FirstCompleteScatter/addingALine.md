@@ -1,4 +1,4 @@
-# Creating our first line plot!
+# Creating our first line plot
 
 We've already created a scatter plot, so let's piggy back off that code, adding a line to this already created plot.
 
