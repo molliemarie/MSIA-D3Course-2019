@@ -83,23 +83,4 @@ Then, within the ready function, let's change our existing code to look like so:
 
 And there we go - you've got yourself an updating line plot!
 
-
-
-
-
-
-However, let's start by defining lineGenerator outside of the `ready` function so that it can be easily used in other functions, like so:
-
-`var lineGenerator = d3.line()`
-
-and then with the ready function, below all the scale and axes definitions, finish creating your line like so:
-
-```
-  lineGenerator
-    .x(function(d) { return xScale(d.date)})
-    .y(function(d) { return yScale(d.count)})
-
-  svg.append('path')
-    .attr('class', 'line')
-    .attr('d', lineGenerator(startData));
-```
+6. Post to [bl.ocks](https://bl.ocks.org/)
