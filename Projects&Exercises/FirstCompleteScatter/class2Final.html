@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+svg {
+  border:1px solid #f0f;
+}
+
+.axis line {
+  stroke-width:1px;
+  stroke: #ccc;
+  stroke-dasharray: 2px 2px;
+}
+
+.axis text {
+  font-size: 12px;
+  fill: #777;
+}
+
+.axis path {
+  display: none;
+}
+
+/*.ufoCircle {
+  fill: red;
+}*/
+
+/*NEW CSS GOES HERE*/
+
+</style>
+
+<body>
+  <div id='titleDiv'></div>
+  <div id='buttonsDiv'></div>
+</body>
+
+<script>
+
+// var data = [
+//   {"date": "12/2018", "count": 233},
+//   {"date": "11/2018", "count": 228},
+//   {"date": "10/2018", "count": 262},
+//   {"date": "09/2018", "count": 293},
+//   {"date": "08/2018", "count": 350},
+//   {"date": "07/2018", "count": 400},
+//   {"date": "06/2018", "count": 225},
+//   {"date": "05/2018", "count": 243},
+//   {"date": "04/2018", "count": 221},
+//   {"date": "03/2018", "count": 235},
+//   {"date": "02/2018", "count": 235},
+//   {"date": "01/2018", "count": 311}
+// ];
+
+d3.csv('data/ufo.csv', ready);
+
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+
+  function dataSwap(datasetGroup) {
+
+    //filters data using new input year
+    var thisDataGroup = data.filter(function(d) { return d.year == datasetGroup})
+
+    xScale
+      .domain(d3.extent(thisDataGroup, function(d) { return d.date; }));
+
+    yScale
+      .domain(d3.extent(thisDataGroup, function(d) { return d.count}));
+
+    xAxis.scale(xScale);
+
+    yAxis.scale(yScale);
+
+    xAxisGroup.call(xAxis);
+
+    yAxisGroup
+      .transition()
+      .duration(transitionTime)
+      .call(yAxis);
+
+    console.log(thisDataGroup)
+
+    svg.selectAll('.ufoGroup')
+      .data(thisDataGroup)
+      .transition()
+      .ease(d3.easeElastic)
+      .duration(transitionTime)
+      .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+
+    svg.selectAll('.ufoText')
+      .data(thisDataGroup)
+      .text(function(d) { return d.count})
+
+    d3.select('#titleText')
+      .text('UFO Sightings in ' + datasetGroup)
+    
+  }
+
+  window.data = data;
+
+  d3.select('#titleDiv')
+    .append('h1')
+    .attr('id', 'titleText')
+    .text('UFO Sightings in 2018');
+
+
+  var radius = 10;
+  var parseTime = d3.timeParse("%m/%Y");
+  var transitionTime = 1000;
+
+  // format data
+  data.forEach(function(d) {
+    d.count = +d.count;
+    d.month = d.date.split('/')[0];
+    d.year = d.date.split('/')[1];
+    d.date = parseTime(d.date);
+    // d.year = d.date.getYear() + 1900
+    
+  });
+
+  var yearList = d3.set(data.map(function(d) { return d.year })).values();
+
+  d3.select('#buttonsDiv')
+    .selectAll('button')
+    .data(yearList)
+    .enter().append('button')
+    .text(function(d) { return d})
+    .on('click', function(d) {
+      // console.log(d)
+      dataSwap(d)
+    });
+
+  var startData = data.filter(function(d) { return d.year == 2018});
+
+  // create svg
+  var margin = {top: 20, right: 10, bottom: 20, left: 30};
+
+  var width = 500 - margin.left - margin.right
+      
+  height = 500 - margin.top - margin.bottom;
+
+  var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  // scales
+  var xScale = d3.scaleTime()
+    // .domain([1,12])
+    .domain(d3.extent(startData, function(d) { return d.date; }))
+    .range([0, width])
+
+  var yScale = d3.scaleLinear()
+    .domain(d3.extent(startData, function(d) { return d.count}))
+    .range([height, 0])
+
+  // add axes
+  var xAxis = d3.axisBottom(xScale)
+    .tickSize(-height);
+
+  var yAxis = d3.axisLeft(yScale)
+    .tickSize(-width);
+
+  var xAxisGroup = svg.append('g')
+    .attr('class', 'x axis')
+    .attr('transform', 'translate(0,' + height + ')')
+    .call(xAxis);
+
+  var yAxisGroup = svg.append('g')
+    .attr('class', 'y axis')
+    .call(yAxis);
+
+  // create groups
+  var ufoGroup = svg.selectAll('.ufoGroup')
+    .data(startData).enter().append('g')
+    .attr('class', 'ufoGroup')
+    .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+    .on('mouseenter', function(d) {
+      // EVERYTHING HERE WILL HAPPEN ON HOVER
+
+      // var testThis = d3.select(this)
+
+      // console.log(testThis)
+
+      var thisThis = d3.select(this)
+
+      // d3.select(this)
+      thisThis
+        .select('text')
+        .attr('dx', radius*2)
+        .attr('dy', radius*2)
+        .transition()
+        // .duration(1000)
+        .style('opacity', 1)
+
+      // d3.selectAll('circle')
+      d3.selectAll('.ufoCircle')
+        .style('opacity', 0.5)
+
+
+      // d3.select(this)
+      thisThis
+        .select('circle')
+        .transition()
+        .ease(d3.easeElastic)
+        .duration(transitionTime)
+        .attr('r', radius*2)
+        .style('opacity', 1)
+
+
+
+    })
+    .on('mouseleave', function(d) {
+      // EVERYTHING HERE WILL HAPPEN WHEN YOUR MOUSE LEAVES A CIRCLE
+
+      var thisThis = d3.select(this)
+
+      // d3.select(this)
+      thisThis
+        .select('text')
+        .attr('dx', radius*2)
+        .attr('dy', radius*2)
+        .transition()
+        .style('opacity', 0)
+
+      thisThis
+        .select('circle')
+        .transition()
+        .ease(d3.easeElastic)
+        .duration(transitionTime)
+        .attr('r', radius)
+
+      d3.selectAll('.ufoCircle')
+        .style('opacity', 1)
+
+
+    })
+
+  // add circles to group
+  ufoGroup.append('circle')
+    .attr('class', 'ufoCircle')
+    .attr('r', radius)
+    .style('fill', 'limegreen');
+
+  // add text to group
+  ufoGroup.append('text')
+    .attr('class', 'ufoText')
+    .attr('dx', radius)
+    .attr('dy', radius)
+    .text(function(d) { return d.count;})
+    .attr('opacity', 0);
+
+  console.log(data, startData);
+
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
