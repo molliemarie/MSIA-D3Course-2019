@@ -71,9 +71,9 @@ function ready(error, data) {
 
   data.forEach(function(d) {
     d.count = +d.count;
-      d.month = d.date.split('/')[0];
-      d.date = parseTime(d.date);
-      d.year = d.date.getYear() + 1900
+    d.month = d.date.split('/')[0];
+    d.date = parseTime(d.date);
+    d.year = d.date.getYear() + 1900
   });
   // *2* add filtering
   startData = data.filter(function(d) { return d.year == 2018; })
