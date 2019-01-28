@@ -33,14 +33,18 @@ Instructions [here](Projects&Exercises/FirstCompleteScatter/scatterWithInteracti
 
 Now, we'll follow [these instructions](TechnicalSetup/blocks.md) to add our new visualizations to bl.ocks.org
 
-## D3.js blueprint
+## Your first D3.js line chart!
+
+We will follow [these instructions](Projects&Exercises/FirstCompleteScatter/addingALine.md) to build off our scatter plot to create your first d3.js line chart.
+
+## Discussion / Activity: d3.s Blueprint
+
+All d3 plots start similarly. I'll give you some time to think about what these components are, and then we will discuss as a class.
 
 ## Articles / Videos
   - [IDEO brainstorming video](https://vimeo.com/138588491)
   - [D3 is not a data visualization library](https://medium.com/@Elijah_Meeks/d3-is-not-a-data-visualization-library-67ba549e8520) by [Elijah Meeks](https://twitter.com/Elijah_Meeks)
   - The Power of Visualization's "Aha!" Moments](https://hbr.org/2013/03/power-of-visualizations-aha-moment) by [Amanda Cox](https://twitter.com/amandacox)
-
-## Your first D3.js bar chart!
 
 ## Discussion: End of Day Q&A
 
