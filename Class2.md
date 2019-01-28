@@ -13,7 +13,21 @@
 
 ## Add styling and interactions to our scatter plot
 
+First, we will finish up our static scatter plot [here](README.md) by:
+  - loading in our data with `d3.csv`
+  - formatting our x axis
+  - adding gridlines and other stylings
+  - adding a title
+  
+Then, we'll move on to adding interactions to our plot [here](scatterWithInteractions.md), which will include
+  - hover interactions
+  - creating buttons
+  - updating data shown
+  - utilizing `transition`, `duration`, and `ease`
+
 ## Post to bl.ocks
+
+Now, we'll follow [these instructions](TechnicalSetup/blocks.md) to add our new visualizations to bl.ocks.org
 
 ## D3.js blueprint
 
