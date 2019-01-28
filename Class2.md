@@ -13,13 +13,13 @@
 
 ## Add styling and interactions to our scatter plot
 
-First, we will finish up our static scatter plot [here](README.md) by:
+First, we will finish up our static scatter plot [here](Projects&Exercises/FirstCompleteScatter/README.md) by:
   - loading in our data with `d3.csv`
   - formatting our x axis
   - adding gridlines and other stylings
   - adding a title
   
-Then, we'll move on to adding interactions to our plot [here](scatterWithInteractions.md), which will include
+Then, we'll move on to adding interactions to our plot [here](Projects&Exercises/FirstCompleteScatter/scatterWithInteractions.md), which will include
   - hover interactions
   - creating buttons
   - updating data shown
