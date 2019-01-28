@@ -1,6 +1,6 @@
 # Creating a "scatter plot" using html
 
-This is an exercise to practice basic HTML, SVG, and CSS syntax. It is also designed to demonstrate that something that _looks like_ a chart on a website is actually just a collection of simple HTML elements. The final example for all three plots should look like the image below. (You can also see a completed example [here](https://codepen.io/molliemarie/pen/rQgvmQ).)
+This is an exercise to practice basic HTML, SVG, and CSS syntax. It is also designed to demonstrate that something that _looks like_ a chart on a website is actually just a collection of simple HTML elements. The final example for all three plots should look like the image below. (You can also see a completed example [here](https://codepen.io/molliemarie/pen/aQrGYg).)
 
 ![simple html circles](imgs/scatterHtml.png)
 
@@ -32,7 +32,7 @@ You'll want to open up your `d3Scatter1.html` file in a text editor, and then pe
     - `r`: circle radius. Should be 10, 15, and 20.
     
 ## Creating a scatter plot using D3 and data joins
-This is an exercise to practice manipulating the DOM D3 using the **data-join**. You can also see a completed example [here](https://codepen.io/molliemarie/pen/RqmyaW).
+This is an exercise to practice manipulating the DOM D3 using the **data-join**. You can also see a completed example [here](https://codepen.io/molliemarie/pen/rQgvmQ).
 
 You'll want to open up your `d3DataJoinScatter.html` file in a text editor, and then perform the following steps (instructions are also in the file). All steps will be completed using d3.js, and should be completed in the `<script>` section at the bottom of the `d3DataJoinScatter.html` file. Preliminary steps have been completed for you.
 

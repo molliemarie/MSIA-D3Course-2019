@@ -29,7 +29,7 @@
 }
 
 /* *15* styles circle label text */
-.circle-group text {
+.ufoGroup text {
   fill: #aaa; /*grey out text*/
   font-size: 11px;
 }
@@ -159,9 +159,9 @@ var ufoGroup = svg.selectAll('.ufoGroup')
 
 ufoGroup.append('circle')
   .attr('class', 'ufoCircle')
-  // *15* red circle fill (This is to show that can also be added using D3)
+  // *15* lime green circle fill (This is to show that can also be added using D3)
   .style('fill', 'limegreen')
-  .attr('r', 10)
+  .attr('r', 10);
 
 ufoGroup.append('text')
   .attr('class', 'ufoText')

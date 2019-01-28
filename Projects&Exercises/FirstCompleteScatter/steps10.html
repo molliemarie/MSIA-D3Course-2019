@@ -42,33 +42,61 @@
 // We'll need:
   // - buttons
   // - a data swap function that will:
-    // -take a value (like 2018)
+    // -take a value (like group I)
     // -transition the existing dots to the new locations
     // - update the title
 
 // STEPS:
-// *1* Start writing function. Take in a year, and filter full data to return just the data from that data year
-// *2* create array of years
+// *1* Start writing function. Take in data group, and filter full data to return just the data from that data group
+// *1.5* change "data" to "groupTwoData"
+// *2* create array of groups
 // *3* create data buttons. First you'll need to add a div in the body with class="buttons"
-// *4* Make dataswap happen! Need to update dataswap function code as well as call the function below
 
+// *4* Make dataswap happen! Need to update dataswap function code as well as call the function below
+// *5* Update the title
 
 // transforming data into json
 d3.csv("data/ufo.csv", ready)
+
+var transitionTime = 1000
 
 function ready(error, data) {
 
   if (error) return console.warn(error);
 
-// *1* create dataSwap function
-function dataSwap(datasetGroup) {
+  function dataSwap(datasetGroup) {
 
-  // *1* start writing dataswap function
-  // We want to reference data somehow, and will use that to update our circles
-  // We've already assigned 2018 values to the variable "data", so we'll need to change name of the variable first (below) before moving forward...
-  var thisDataGroup = data.filter(function(d) { return d.group == datasetGroup})
+    var thisDataGroup = data.filter(function(d) { return d.year == datasetGroup});
 
-}
+    console.log(thisDataGroup);
+
+    xScale
+      .domain(d3.extent(thisDataGroup, function(d) { return d.date; }));
+
+    yScale
+      .domain(d3.extent(thisDataGroup, function(d) { return d.count; }));
+
+    xAxis.scale(xScale);
+
+    yAxis.scale(yScale);
+
+    xAxisGroup
+      .call(xAxis);
+
+    yAxisGroup
+      .call(yAxis);
+    
+
+      // *4* swap data
+    svg.selectAll('.ufoGroup')
+      .data(thisDataGroup)
+      .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+
+    // *5* Update the title
+    d3.select('#titleText')
+      .text('UFO Sightings in ' + datasetGroup);
+
+  }
 
   window.data = data;
 
@@ -83,16 +111,7 @@ function dataSwap(datasetGroup) {
       d.year = d.date.getYear() + 1900
   });
 
-  // *2* Create years array (returns [2000, 2001, ..., 2018]) 
   var yearList = d3.set(data.map(function(d) { return d.year })).values();
-
-  // What this is doing broken down:
-  // data.map(function(d) { return d.year }) returns:
-    // ["2000", "2000", ... "2001", "2001", ... "2018", "2018", "2018"]
-  // d3.set(data.map(function(d) { return d.year })) returns:
-    // {$2000: "2000", $2001: "2001", $2002: "2002",..., $2018: "2018"}
-  // d3.set(data.map(function(d) { return d.year })).values(); returns:
-    // ["2000", "2001", "2002",..., "2018"]
 
   startData = data.filter(function(d) { return d.year == 2018; })
 
@@ -108,6 +127,7 @@ function dataSwap(datasetGroup) {
 
   d3.select('#titleDiv')
     .append('h1')
+    .attr('id', 'titleText')
     .text('UFO Sightings in 2018')
 
   var xScale = d3.scaleTime()
@@ -124,24 +144,23 @@ function dataSwap(datasetGroup) {
   var yAxis = d3.axisLeft(yScale)
     .tickSize(-width);
 
-  svg.append("g")
+  var xAxisGroup = svg.append("g")
       .attr("class", "x axis") //gives group the classes `x` and `axis`
       .attr("transform", "translate(0," + height + ")")
       // 
       .call(xAxis);
 
-  svg.append("g")
+  var yAxisGroup = svg.append("g")
       .attr("class", "y axis") //gives group the classes `y` and `axis`
       .call(yAxis);
 
-  // *3* create buttons
   d3.select('#buttonsDiv')
     .selectAll('button')
     .data(yearList)
     .enter().append('button')
     .text(function(d) { return d; })
     .on('click', function(d) {
-      console.log(d) //<-- test buttons. Should print out the year associated with pressed button
+      dataSwap(d) 
     })
 
     var ufoGroup = svg.selectAll('.ufoGroup')
@@ -162,7 +181,7 @@ function dataSwap(datasetGroup) {
           .select('circle')
           .transition()
           .ease(d3.easeElastic)
-          .duration(1000)
+          .duration(transitionTime)
           .attr('r', radius*2)
           .style('opacity', 1)
       })
@@ -176,12 +195,12 @@ function dataSwap(datasetGroup) {
           .select('circle')
           .transition()
           .ease(d3.easeElastic)
-          .duration(1000)
+          .duration(transitionTime)
           .attr('r', radius)
 
         d3.selectAll('circle')
           .style('opacity', 1)
-      });
+      })
 
 
   ufoGroup.append('circle')
