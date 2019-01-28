@@ -13,17 +13,21 @@
 
 ## Add styling and interactions to our scatter plot
 
-First, we will finish up our static scatter plot [here](Projects&Exercises/FirstCompleteScatter/README.md) by:
+First, we will finish up our static scatter plot by:
   - loading in our data with `d3.csv`
   - formatting our x axis
   - adding gridlines and other stylings
   - adding a title
   
-Then, we'll move on to adding interactions to our plot [here](Projects&Exercises/FirstCompleteScatter/scatterWithInteractions.md), which will include
+ Instructions [here](Projects&Exercises/FirstCompleteScatter/README.md) - scroll down to **"Day Two"**.
+  
+Then, we'll move on to adding interactions to our plot, which will include
   - hover interactions
   - creating buttons
   - updating data shown
   - utilizing `transition`, `duration`, and `ease`
+  
+Instructions [here](Projects&Exercises/FirstCompleteScatter/scatterWithInteractions.md).
 
 ## Post to bl.ocks
 
