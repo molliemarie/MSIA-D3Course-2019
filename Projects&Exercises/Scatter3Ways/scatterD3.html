@@ -23,7 +23,15 @@ svg {
 <script type="text/javascript">
 // 1) Select your `body` and append a `div` element in which you'll render your content. To do this, you'll use the `d3.select()` method, and then the `.append()` method to append your element to your selection.
 
+var div = d3.select('body').append('div')
+
+
+
 // 2)  Append a new `p` element to the `div` you just created, and use the `.text()` method to set the text to "My First D3 Scatter"
+
+div.append('p').text('My First D3 Scatter')
+
+
 
 // How this would look if you defined each separately:
 // p_tag = div.append('p')
@@ -33,6 +41,30 @@ svg {
 
 // 3)  Append a container `svg` to your `div` element in which you'll place your circles     
 // - Set your svg's `width` to 300, and `height` to `400` 
+
+var svg = div.append('svg')
+	.attr('width', 300)
+	.attr('height', 400)
+
+svg.append('circle')
+	.attr('cx', 100)
+	.attr('cy', 100)
+	.attr('r', 10)
+
+svg.append('circle')
+	.attr('cx', 150)
+	.attr('cy', 150)
+	.attr('r', 15)	
+
+svg.append('circle')
+	.attr('cx', 200)
+	.attr('cy', 200)
+	.attr('r', 20)
+
+svg.append('circle')
+	.attr('cx', 100)
+	.attr('cy', 400)
+	.attr('r', 77)
 
 // 4) Append 3 `circle` elements inside of your `<svg>` (one at a time), setting the properties for each one. We'll improve on this process later: 
 // - `cx`: How far to move the circle in the `x` direction (right). Should be 100, 150, and 200. 
