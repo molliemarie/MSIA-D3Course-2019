@@ -38,11 +38,16 @@ Now, let's [build our first bar chart from scratch](Projects&Exercises/FirstComp
 
 ## End of day discussion:
 
-What questions do you have so far?
-
 What we'll do next class:
+- general update pattern
+- d3.hierarchy
+- build your first tree map
+
+Questions?
 
 **Before Next Class**
+
+Ping me if there are concepts that you'd like me to cover more fully.
 
 If you're having trouble with HTML, CSS, or Javascript basics, I would recommend doing the corresponding tutorial before next class.
 
