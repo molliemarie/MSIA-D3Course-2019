@@ -2,7 +2,7 @@
 
 Now we'll be creating our first bar plot!
 
-TKTK: discuss data and where it came from, use scatter / line as reference, mention location of starter file.
+TKTK: discuss data and where it came from, use scatter / line as reference, mention location of starter file, add photo of finished product, point in the direction of finished file.
 
 1. Using Mike Bostock's [margin conventions](https://bl.ocks.org/mbostock/3019563) to define the `margin`, `width`, `height`, and `svg`.
 
