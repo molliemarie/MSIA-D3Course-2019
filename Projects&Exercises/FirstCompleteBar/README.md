@@ -51,14 +51,13 @@ You'll notice our axes are still not showing up. This is because we have not yet
 8. Now, let's create our bars! Here's an example of what this could look like the following. Read the comments for explanation of what's 
 
 ```
-  svg.selectAll(".bar") //selecting all elements with class `bar`. 
-    .data(data) //binding data. There are no elements with class `bar` yet, so placeholders are created for each data point
-    .enter().append("rect") //appends a rectangle for each data point
-    .attr("class", "bar") //gives each bar a class of `bar`
-    .attr("x", function(d) { return xScale(d.violation); }) //assigns the x location of each bar
-    .attr("y", function(d) { return yScale(d.count); }) //assigns the y location of each bar
-    .attr("width", xScale.bandwidth()) //assigns the width of each bar. Luckily, d3 does this calculation for you when you create the scale; all you need to do is call assign the width of the bar to the `bandwidth` associated with the scale you created.
-    .attr("height", function(d) { return height - yScale(d.count); }) //How tall is the bar? Why are we subtracting the count from height? If this is unclear, I suggest you draw a picture of what's happening here. Try out some calculations by hand to get a better understanding of what's going on.
+  svg.selectAll(".bar") 
+    .data(data) 
+    .attr("class", "bar")
+    .attr("x", function(d) { return xScale(d.violation); }) 
+    .attr("y", function(d) { return yScale(d.count); })
+    .attr("width", xScale.bandwidth()) 
+    .attr("height", function(d) { return height - yScale(d.count); }) /
     .style("fill", "red") //assign a color of red.
 ```
 
