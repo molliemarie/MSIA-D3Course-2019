@@ -2,13 +2,7 @@
 
 Now we'll be creating our first bar plot!
 
-TKTK: talk about data
-
-TKTK: mention starter file
-
-TKTK: mention how things not needing data outside of function
-
-TKTK: use scatter / line plot as a reference
+TKTK: discuss data and where it came from, use scatter / line as reference, mention location of starter file.
 
 1. Using Mike Bostock's [margin conventions](https://bl.ocks.org/mbostock/3019563) to define the `margin`, `width`, `height`, and `svg`.
 
@@ -144,7 +138,12 @@ var yAxis = d3.axisLeft(yScale)
 
 Check out the [`d3-format` documentation](https://github.com/d3/d3-format) and try playing around with different formatting options.
 
-14. I'd at this point encourage you to play around with the styling of the axis labels. Try changing the font, font-size, fill, etc.
+14. I'd at this point encourage you to play around with the styling of the axis labels. Do this within the css section, in the `style` tags. Try changing the font, font-size, fill, etc. Make it look nice! 
 
+You could also format the title font.
 
+15. I am not going to provide specific instructions for interactions for this plot. Instead, what I'd like you to do is brainstorm on the type of interactions you might like to add. Do you want to add hover interactions? If so, what kind? Perhaps you'd like to add other years of data and the ability to toggle in between. Or maybe you'd like to grab data from another city and allow people to compare. Then, think about how you might accomplish adding those interactions. You can use past examples as inspiration, or try searching in [block builder search](https://blockbuilder.org/search). 
 
+You're encouraged to try some things on your own or with a friend before asking Mollie for help. Much of the d3 learning process is searching, trying, and failing before succeeding. Don't get discouraged! 
+
+But also, you're absolutely welcome to ask questions as well. :) 
