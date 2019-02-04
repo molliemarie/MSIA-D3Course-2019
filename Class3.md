@@ -1,9 +1,9 @@
 # Welcome to Day Three! :D
 
 # Agenda:
-- file structure
-- CSS, HTML, Javascript review
 - Brainstorming and iteration
+- File structure
+- CSS, HTML, Javascript review
 - Build our first line chart
 - Bar chart three ways
 - Build your first bar chart
