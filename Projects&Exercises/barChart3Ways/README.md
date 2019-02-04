@@ -40,7 +40,7 @@ You'll want to open the file `barD3.html` and perform the following steps (instr
     - `width`: How far to draw the rectangle to the right. Should be `100`,`200`, `300` 
     - `height`: The vertical height of each rectangle. Should be `20` for all rectangles 
     
-See a [finished example here](https://codepen.io/molliemarie/pen/BxNGEp)
+See a [finished example here](https://codepen.io/molliemarie/pen/BxNGEp).
 
 ## Part III: Using D3 AND Data Joins to make a bar plot
 
@@ -72,4 +72,4 @@ rects.data(data)
     - `height`: The vertical height of each rectangle. Should be `20` for all rectangles 
 
 
-See a [finished example here](https://codepen.io/molliemarie/pen/BxNGEp)
+See a [finished example here](https://codepen.io/molliemarie/pen/BxNGEp).
