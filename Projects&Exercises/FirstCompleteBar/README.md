@@ -153,6 +153,6 @@ You could also format the title font.
 
 15. I am not going to provide specific instructions for interactions for this plot. Instead, what I'd like you to do is brainstorm on the type of interactions you might like to add. Do you want to add hover interactions? If so, what kind? Perhaps you'd like to add other years of data and the ability to toggle in between. Or maybe you'd like to grab data from another city and allow people to compare. Then, think about how you might accomplish adding those interactions. You can use past examples as inspiration, or try searching in [block builder search](https://blockbuilder.org/search). 
 
-You're encouraged to try some things on your own or with a friend before asking Mollie for help. Much of the d3 learning process is searching, trying, and failing before succeeding. Don't get discouraged! 
+You're encouraged to try some things on your own or with a friend before asking for help. Much of the d3 learning process is searching, trying, and failing before succeeding. Don't get discouraged! 
 
 But also, you're absolutely welcome to ask questions as well. :) 
