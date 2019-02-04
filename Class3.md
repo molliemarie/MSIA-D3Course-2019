@@ -1,21 +1,28 @@
 # Welcome to Day Three! :D
 
 # Agenda:
+- file structure
 - CSS, HTML, Javascript review
 - Brainstorming and iteration
 - Build our first line chart
 - Bar chart three ways
 - Build your first bar chart
 
-## Discussion: Review of CSS, HTML, Javascript
-
-Let's examine the code we've already written, find where each of the three exist, and talk about what they're doing.
-
 ## Talk: Brainstorming and iteration
 
 It's often one's instinct to take the first idea they come up with and run with it. However, because building things in d3 takes some time, we want to make sure we've thought through our design decisions before building anything. We're going to talk for a moment about the importance of [brainstorming](https://github.com/molliemarie/SharedSlides/blob/master/brainstormingRules.pdf) and iteration when building data visualizations.
 
 To see a good example of brainstorming in action, see [this IDEO brainstorming video](https://vimeo.com/138588491).
+
+## Discussion: Review of CSS, HTML, Javascript
+
+Let's examine the code we've already written, find where each of the three exist, and talk about what they're doing.
+
+## Discussion / Exercise
+
+Open up the file `scatterCompleteExample.html`. I've reorganized the file by moving all elements that don't require data, as well as the `dataSwap` function, outside of the `ready` function. Although this is not totally necessary for this specific example (in its current state) is best to do this in general, as it will make for easier expansion of the code. For example, perhaps as you build out your code, you decide you'd like to access the `dataSwap` function, or any of the variables, elsewhere. 
+
+Take a minute to look through your code from last class, and compare it to this code. Make sure you understand the new structure.
 
 ## Your first D3.js line chart!
 
