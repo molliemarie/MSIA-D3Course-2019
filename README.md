@@ -27,7 +27,7 @@ Week | Monday | Friday
 --- | --- | ---
 1/25 | --- | [Class 01 - getting to know D3 and building our first scatter plot!](Class1.md)
 1/28| [Class 02 - debugging, finishing scatter plot, adding interactions](Class2.md) | ---
-2/4 | [Class 03 - brainstorming, your first line plot, bar plot three ways, your first bar plot](Class3.md) | ---
+2/4 | [Class 03 - brainstorming, your first line plot, your first bar plots](Class3.md) | ---
 2/18, 2/22 | Class 04 - general update pattern, your first tree map | Class 05
 
 
