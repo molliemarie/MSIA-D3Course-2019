@@ -38,6 +38,7 @@ svg {
 <script>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var data = [
   {"date": "12/2018", "count": 233},
   {"date": "11/2018", "count": 228},
@@ -52,23 +53,34 @@ var data = [
   {"date": "02/2018", "count": 235},
   {"date": "01/2018", "count": 311}
 ];
+=======
+>>>>>>> cf9909425a5a16d4f2c7ec66fce9008c85491d47
 
-window.data = data;
+// var data = [
+//   {"date": "12/2018", "count": 233},
+//   {"date": "11/2018", "count": 228},
+//   {"date": "10/2018", "count": 262},
+//   {"date": "09/2018", "count": 293},
+//   {"date": "08/2018", "count": 350},
+//   {"date": "07/2018", "count": 400},
+//   {"date": "06/2018", "count": 225},
+//   {"date": "05/2018", "count": 243},
+//   {"date": "04/2018", "count": 221},
+//   {"date": "03/2018", "count": 235},
+//   {"date": "02/2018", "count": 235},
+//   {"date": "01/2018", "count": 311}
+// ];
 
-console.log(data)
+d3.csv("data/ufo.csv", ready)
+
+function ready(error, data) {
+
+  if (error) return console.warn(error);
 
 
-var radius = 10;
+  function dataSwap(datasetGroup) {
 
-// format data
-data.forEach(function(d) {
-  d.count = +d.count;
-  d.month = d.date.split('/')[0];
-});
-
-// create svg
-var margin = {top: 20, right: 10, bottom: 20, left: 30};
-
+<<<<<<< HEAD
 var width = 960 - margin.left - margin.right
     
 height = 500 - margin.top - margin.bottom;
@@ -144,6 +156,8 @@ function ready(error, data) {
 
   function dataSwap(datasetGroup) {
 
+=======
+>>>>>>> cf9909425a5a16d4f2c7ec66fce9008c85491d47
   //filters data using new input year
   var thisDataGroup = data.filter(function(d) { 
     return d.year == datasetGroup})
