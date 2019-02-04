@@ -8,7 +8,7 @@ You'll be making the same bar plot in three different ways. Each time, you will 
 
 This is an exercise to practice basic HTML, SVG, and CSS syntax. It is also designed to demonstrate that something that _looks like_ a chart on a website is actually just a collection of simple HTML elements. 
 
-You'll want to open up [this pen](https://codepen.io/molliemarie/pen/GdJYRx), fork it, and then perform the following steps (instructions are also in the file):
+You'll want to open the file `barHtml.html` and perform the following steps (instructions are also in the file):
 
 1) Make a container `<div>` in which you'll render your content 
 2) Create a `<p>` element in which you write "My Bar Chart" 
@@ -20,13 +20,13 @@ You'll want to open up [this pen](https://codepen.io/molliemarie/pen/GdJYRx), fo
     - `width`: How far to draw the rectangle to the right. Should be `100`,`200`, `300` 
     - `height`: The vertical height of each rectangle. Should be `20` for all rectangles 
 
-5) In the `<style>` section, set `rect` elements to have a "fill" of "purple"
+5) In the `<style>` section, set `rect` elements to have a "fill" of "purple" (or whatever color you like)
 
 ## Part II: Using D3 to make a bar plot
 
 This is an exercise to practice manipulating the DOM with D3. 
 
-You'll want to open up your [this pen](https://codepen.io/molliemarie/pen/BxNGEp), fork it, and perform the following steps (instructions are also in the file). All steps will be completed using d3.js, and should be completed in the `<script>` section at the bottom of the file.
+You'll want to open the file `barD3.html` and perform the following steps (instructions are also in the file). All steps will be completed using d3.js, and should be completed in the `<script>` section at the bottom of the file.
 
 1) Select your `body` and append a `div` element in which you'll render your content. To do this, you'll use the `d3.select()` method, and then the `.append()` method to append your element to your selection.
 2) Append a new `p` element to the `div` you just created, and use the `.text()` method to set the text to "My Bar Chart"
@@ -42,7 +42,7 @@ You'll want to open up your [this pen](https://codepen.io/molliemarie/pen/BxNGEp
 
 This is an exercise to practice manipulating the DOM D3 using the **[data-join](https://bost.ocks.org/mike/join/)**. 
 
-You'll want to open [this pen](https://codepen.io/molliemarie/pen/rvVoMP), fork it, and then perform the following steps (instructions are also in the file). All steps will be completed using d3.js, and should be completed in the `<script>` section at the bottom of the file. Preliminary steps have been completed for you.
+You'll want to open the file `barD3DataJoin.html` and perform the following steps (instructions are also in the file). All steps will be completed using d3.js, and should be completed in the `<script>` section at the bottom of the file. Preliminary steps have been completed for you.
 
 1) Append 3 `rect` elements inside of your `<svg>` **using the data join**. To do this, you'll use the following syntax:
 
