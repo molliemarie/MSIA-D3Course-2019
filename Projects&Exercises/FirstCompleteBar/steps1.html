@@ -56,16 +56,20 @@ function ready(error, data) {
   // formatting data
   data.forEach(function(d) {
     d.count = +d.count;
-    d.year = +d.year
+    d.year = +d.year;
+    d.violation = d['Primary Type'];
   });
+
+  // filtering for 2018 data
+  var data2018 = data.filter(function(d) { return d.year == 2018})
 
   // Define xScale and yScale domains here:
 
   // *5* y scale domain
-  yScale.domain([0, d3.max(data, function(d) { return d.count; })]);
+  yScale.domain([0, d3.max(data2018, function(d) { return d.count; })]);
 
   // *6* x scale domain
-  xScale.domain(data.map(function(d) { return d.violation; }));
+  xScale.domain(data2018.map(function(d) { return d.violation; }));
 
   // *7* define xAxisGroup and yAxisGroup here:
   var xAxisGroup = svg.append("g")
@@ -81,7 +85,7 @@ function ready(error, data) {
   // *8* Create bars here:
 
   svg.selectAll(".bar")
-    .data(data)
+    .data(data2018)
     .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) { return xScale(d.violation); })

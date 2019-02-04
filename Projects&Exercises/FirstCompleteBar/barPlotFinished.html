@@ -18,11 +18,23 @@
 
 <body>
   <div id=#titleDiv> 
-    <h1>Crime in Chicago in 2016</h1>
+    <h1>Crime in Chicago in 2018</h1>
   </div>
 </body>
 
 <script>
+
+function titleCase(str) {
+  // lowercases each word, only capitalizing the first letter of each word
+   var splitStr = str.toLowerCase().split(' ');
+   for (var i = 0; i < splitStr.length; i++) {
+       // You do not need to check if i is larger than splitStr length, as your for does that for you
+       // Assign it back to the array
+       splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+   }
+   // Directly return the joined string
+   return splitStr.join(' '); 
+}
 
 // margins and svg
 var margin = {top: 20, right: 50, bottom: 130, left: 40};
@@ -62,11 +74,14 @@ function ready(error, data) {
   data.forEach(function(d) {
     d.count = +d.count;
     d.year = +d.year
+    d.violation = titleCase(d['Primary Type'])
   });
 
+  var data2018 = data.filter(function(d) { return d.year == 2018})
+
   // assigning domain to scales
-  yScale.domain([0, d3.max(data, function(d) { return d.count; })]);
-  xScale.domain(data.map(function(d) { return d.violation; }));
+  yScale.domain([0, d3.max(data2018, function(d) { return d.count; })]);
+  xScale.domain(data2018.map(function(d) { return d.violation; }));
 
   // defining and formatting axis groups
   var xAxisGroup = svg.append("g")
@@ -85,7 +100,7 @@ function ready(error, data) {
 
   // creating rectangles
   svg.selectAll(".bar")
-    .data(data)
+    .data(data2018)
     .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) { return xScale(d.violation); })

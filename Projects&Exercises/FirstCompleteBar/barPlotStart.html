@@ -48,8 +48,12 @@ function ready(error, data) {
 
   data.forEach(function(d) {
     d.count = +d.count;
-    d.year = +d.year
+    d.year = +d.year;
+    d.violation = d['Primary Type'];
   });
+
+  // filtering for 2018 data
+  var data2018 = data.filter(function(d) { return d.year == 2018})
 
   // Define xScale and yScale domains here:
 

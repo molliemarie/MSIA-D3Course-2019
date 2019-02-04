@@ -7,7 +7,7 @@
 
 /*Add styling here */
 
-/* *14* Play around with axis label styling*/
+/* *15* Play around with axis label styling*/
 /*.axis text {
   font-size: 12px;
   font-family: "Times New Roman", Times, serif;
@@ -19,11 +19,24 @@
 <body>
   <!-- *12* add title -->
   <div id=#titleDiv> 
-    <h1>Crime in Chicago in 2016</h1>
+    <h1>Crime in Chicago in 2018</h1>
   </div>
 </body>
 
 <script>
+
+// *14* found a function example on stack overflow (https://stackoverflow.com/questions/32589197/capitalize-first-letter-of-each-word-in-a-string-javascript/32589256) to cap only the first letter of each word.
+function titleCase(str) {
+  // lowercases each word, only capitalizing the first letter of each word
+   var splitStr = str.toLowerCase().split(' ');
+   for (var i = 0; i < splitStr.length; i++) {
+       // You do not need to check if i is larger than splitStr length, as your for does that for you
+       // Assign it back to the array
+       splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+   }
+   // Directly return the joined string
+   return splitStr.join(' '); 
+}
 
 // margins and svg
 // *9* adjust left margin
@@ -67,12 +80,17 @@ function ready(error, data) {
   // formatting data
   data.forEach(function(d) {
     d.count = +d.count;
-    d.year = +d.year
+    d.year = +d.year;
+    // *14* implementing titleCase function
+    d.violation = titleCase(d['Primary Type'])
   });
 
+  // filtering for 2018 data
+  var data2018 = data.filter(function(d) { return d.year == 2018})
+
   // assigning domain to scales
-  yScale.domain([0, d3.max(data, function(d) { return d.count; })]);
-  xScale.domain(data.map(function(d) { return d.violation; }));
+  yScale.domain([0, d3.max(data2018, function(d) { return d.count; })]);
+  xScale.domain(data2018.map(function(d) { return d.violation; }));
 
   // defining axis groups
   var xAxisGroup = svg.append("g")
@@ -92,7 +110,7 @@ function ready(error, data) {
 
   // creating rectangles
   svg.selectAll(".bar")
-    .data(data)
+    .data(data2018)
     .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) { return xScale(d.violation); })
