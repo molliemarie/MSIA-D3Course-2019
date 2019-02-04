@@ -156,3 +156,5 @@ You could also format the title font.
 You're encouraged to try some things on your own or with a friend before asking for help. Much of the d3 learning process is searching, trying, and failing before succeeding. Don't get discouraged! 
 
 But also, you're absolutely welcome to ask questions as well. :) 
+
+16. Post to [bl.ocks](https://bl.ocks.org/)
