@@ -8,7 +8,7 @@ We're going to create a bar plot, showing the counts of each crime in Chicago. I
 
 To get started, open up the file `barPlotStart.html` and follow the following instructions. The first several steps should look familiar, as they will similar to (or the same as) steps taken when making the scatter / line plot. I've provided less specific instructions for these steps. If your memory needs refreshed, I'd recommend looking at the earlier plots we created to refresh your memory. 
 
-If you get stuck consider reading documentation, googling around a bit, or working together with a friend before asking for help. Additionally, you'll find the finished code as well as the various steps within this folder, but I'd recommend trying to work through the steps without looking if possible.
+If you get stuck consider reading documentation, googling around a bit, or working together with a friend before asking for help. Additionally, you'll find the finished code as well as the various steps within this folder, but I'd recommend trying to work through the steps without looking at the finished code if possible.
 
 And, here we go!
 
