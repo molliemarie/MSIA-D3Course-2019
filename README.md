@@ -26,8 +26,8 @@ Mollie Pettit wears many technical hats including that of a data visualization d
 Week | Monday | Friday
 --- | --- | ---
 1/25 | --- | [Class 01 - getting to know D3 and building our first scatter plot!](Class1.md)
-1/28 & 2/1 | [Class 02 - debugging, finishing scatter plot, adding interactions](Class2.md) | Class 03 - understanding the general update pattern, your first line plot
-2/4 | Class 04 - finish bar plot, build our first tree map, brainstorm on and then implement interactions on new plots | ---
+1/28 & 2/1 | [Class 02 - debugging, finishing scatter plot, adding interactions](Class2.md) | [Class 03 - your first line plot, bar plot three ways, your first bar plot](Class3.md)
+2/4 | Class 04 - general update pattern, your first tree map, brainstorm on and then implement interactions on new plots | ---
 2/18 | Class 05 - TBD | ---
 
 
