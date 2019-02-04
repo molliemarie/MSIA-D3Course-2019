@@ -9,7 +9,6 @@ svg {
   border:1px solid #f0f;
 }
 
-/*NEW CSS GOES HERE*/
 .axis line {
   stroke-width:1px;
   stroke: #ccc;
@@ -25,9 +24,12 @@ svg {
   display: none;
 }
 
-.ufoCircle{
-  fill: purple;
-}
+/*.ufoCircle {
+  fill: red;
+}*/
+
+/*NEW CSS GOES HERE*/
+
 </style>
 
 <body>
@@ -36,7 +38,6 @@ svg {
 </body>
 
 <script>
-
 
 // var data = [
 //   {"date": "12/2018", "count": 233},
@@ -53,54 +54,59 @@ svg {
 //   {"date": "01/2018", "count": 311}
 // ];
 
-d3.csv("data/ufo.csv", ready)
+d3.csv('data/ufo.csv', ready);
 
 function ready(error, data) {
 
   if (error) return console.warn(error);
 
-
   function dataSwap(datasetGroup) {
 
-  //filters data using new input year
-  var thisDataGroup = data.filter(function(d) { 
-    return d.year == datasetGroup})
-  
-  xScale
-  .domain(d3.extent(thisDataGroup, function(d) { return d.date; }))
+    //filters data using new input year
+    var thisDataGroup = data.filter(function(d) { return d.year == datasetGroup})
 
-  yScale
-    //.domain([0, 400])
-    .domain(d3.extent(thisDataGroup, function(d) { return d.count}))
+    xScale
+      .domain(d3.extent(thisDataGroup, function(d) { return d.date; }));
 
-  xAxis.scale(xScale)
+    yScale
+      .domain(d3.extent(thisDataGroup, function(d) { return d.count}));
 
-  yAxis.scale(yScale)
+    xAxis.scale(xScale);
 
-  xAxisGroup.call(xAxis)
+    yAxis.scale(yScale);
 
-  yAxisGroup
-    .transition()
-    .duration(transitionTime)
-    .call(yAxis)
+    xAxisGroup.call(xAxis);
 
-  svg.selectAll('.ufoGroup')
-  .data(thisDataGroup)
-  .transition()
-  .ease(d3.easeElastic)
-  .duration(transitionTime)
-  .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+    yAxisGroup
+      .transition()
+      .duration(transitionTime)
+      .call(yAxis);
 
-  d3.select('#titleText')
-    .text('UFO Sightings in ' + datasetGroup)
-}
-  
+    console.log(thisDataGroup)
+
+    svg.selectAll('.ufoGroup')
+      .data(thisDataGroup)
+      .transition()
+      .ease(d3.easeElastic)
+      .duration(transitionTime)
+      .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
+
+    svg.selectAll('.ufoText')
+      .data(thisDataGroup)
+      .text(function(d) { return d.count})
+
+    d3.select('#titleText')
+      .text('UFO Sightings in ' + datasetGroup)
+    
+  }
+
   window.data = data;
 
-  var title = d3.select('#titleDiv')
+  d3.select('#titleDiv')
     .append('h1')
     .attr('id', 'titleText')
-    .text('UFO Sightings')
+    .text('UFO Sightings in 2018');
+
 
   var radius = 10;
   var parseTime = d3.timeParse("%m/%Y");
@@ -112,6 +118,8 @@ function ready(error, data) {
     d.month = d.date.split('/')[0];
     d.year = d.date.split('/')[1];
     d.date = parseTime(d.date);
+    // d.year = d.date.getYear() + 1900
+    
   });
 
   var yearList = d3.set(data.map(function(d) { return d.year })).values();
@@ -120,17 +128,18 @@ function ready(error, data) {
     .selectAll('button')
     .data(yearList)
     .enter().append('button')
-    .text(function(d){return d})
-    .on('click', function(d){
-      //console.log(d)
+    .text(function(d) { return d})
+    .on('click', function(d) {
+      // console.log(d)
       dataSwap(d)
-    })
+    });
 
-  var startData = data.filter(function(d) {return d.year == 2018});
+  var startData = data.filter(function(d) { return d.year == 2018});
+
   // create svg
   var margin = {top: 20, right: 10, bottom: 20, left: 30};
 
-  var width = 960 - margin.left - margin.right
+  var width = 500 - margin.left - margin.right
       
   height = 500 - margin.top - margin.bottom;
 
@@ -142,12 +151,11 @@ function ready(error, data) {
 
   // scales
   var xScale = d3.scaleTime()
-    //.domain([1,12])
+    // .domain([1,12])
     .domain(d3.extent(startData, function(d) { return d.date; }))
     .range([0, width])
 
   var yScale = d3.scaleLinear()
-    //.domain([0, 400])
     .domain(d3.extent(startData, function(d) { return d.count}))
     .range([height, 0])
 
@@ -172,48 +180,72 @@ function ready(error, data) {
     .data(startData).enter().append('g')
     .attr('class', 'ufoGroup')
     .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
-    .on('mouseenter', function(d){
-      //var testThis = d3.select(this)
-      //console.log(testThis)
+    .on('mouseenter', function(d) {
+      // EVERYTHING HERE WILL HAPPEN ON HOVER
 
-      d3.select(this)
+      // var testThis = d3.select(this)
+
+      // console.log(testThis)
+
+      var thisThis = d3.select(this)
+
+      // d3.select(this)
+      thisThis
         .select('text')
+        .attr('dx', radius*2)
+        .attr('dy', radius*2)
         .transition()
-        .duration(transitionTime)
+        // .duration(1000)
         .style('opacity', 1)
 
+      // d3.selectAll('circle')
       d3.selectAll('.ufoCircle')
         .style('opacity', 0.5)
 
-      d3.select(this)
+
+      // d3.select(this)
+      thisThis
         .select('circle')
         .transition()
         .ease(d3.easeElastic)
         .duration(transitionTime)
         .attr('r', radius*2)
         .style('opacity', 1)
+
+
+
     })
-    .on('mouseleave', function(d){
-      d3.select(this)
+    .on('mouseleave', function(d) {
+      // EVERYTHING HERE WILL HAPPEN WHEN YOUR MOUSE LEAVES A CIRCLE
+
+      var thisThis = d3.select(this)
+
+      // d3.select(this)
+      thisThis
         .select('text')
+        .attr('dx', radius*2)
+        .attr('dy', radius*2)
         .transition()
-        .duration(transitionTime)
         .style('opacity', 0)
 
-      d3.select(this)
+      thisThis
         .select('circle')
         .transition()
+        .ease(d3.easeElastic)
+        .duration(transitionTime)
         .attr('r', radius)
 
       d3.selectAll('.ufoCircle')
         .style('opacity', 1)
+
+
     })
 
   // add circles to group
   ufoGroup.append('circle')
     .attr('class', 'ufoCircle')
     .attr('r', radius)
-    .style('fill', 'limegreen')
+    .style('fill', 'limegreen');
 
   // add text to group
   ufoGroup.append('text')
@@ -222,9 +254,12 @@ function ready(error, data) {
     .attr('dy', radius)
     .text(function(d) { return d.count;})
     .attr('opacity', 0);
-    
-    //console.log(data, startData);
-  }
+
+  console.log(data, startData);
+
+
+}
+
 
 </script>
 

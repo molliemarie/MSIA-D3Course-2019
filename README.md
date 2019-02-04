@@ -4,7 +4,7 @@
 
 **Course:** [MSIA 411: Data Visualization](https://www.mccormick.northwestern.edu/analytics/curriculum/descriptions/msia-411.html)
 
-**Dates:** 1/25, 1/28, 2/1, 2/4, and 2/18 2019. 
+**Dates:** 1/25, 1/28, 2/4, 2/18, ad 2/22 2019. 
 
 **Time:** 1pm - 4pm for first four sessions; 1pm-3pm for last session
 
@@ -26,9 +26,9 @@ Mollie Pettit wears many technical hats including that of a data visualization d
 Week | Monday | Friday
 --- | --- | ---
 1/25 | --- | [Class 01 - getting to know D3 and building our first scatter plot!](Class1.md)
-1/28 & 2/1 | [Class 02 - debugging, finishing scatter plot, adding interactions, design process, your first d3 line plot](Class2.md) | Class 03 - understanding the general update pattern, your first d3 bar plot
-2/4 | Class 04 - finish bar plot, build our first tree map, brainstorm on and then implement interactions on new plots | ---
-2/18 | Class 05 - TBD | ---
+1/28| [Class 02 - debugging, finishing scatter plot, adding interactions](Class2.md) | ---
+2/4 | [Class 03 - brainstorming, your first line plot, your first bar plots](Class3.md) | ---
+2/18, 2/22 | Class 04 - general update pattern, your first tree map | Class 05
 
 
 For additional guidance working through these foundational skills, you can see the [resources page](resources.md).

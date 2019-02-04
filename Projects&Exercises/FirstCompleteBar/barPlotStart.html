@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+/*Add styling here */
+
+</style>
+
+<body>
+</body>
+
+<script>
+
+//Define variables that do not need data first:
+
+//Define Margins and svg here:
+
+// var margin = 
+
+// var width = 
+
+// var height = 
+
+// var svg = 
+
+
+//Define xscale, yscale, xaxis, and yaxis here:
+
+// var xScale = 
+
+// var yScale = 
+
+// var xAxis = 
+
+// var yAxis = 
+
+
+// Reading in data here, then calling "ready" function:
+d3.csv("data/ChiCrime.csv", ready)
+
+// Ready Function
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+
+  data.forEach(function(d) {
+    d.count = +d.count;
+    d.year = +d.year;
+    d.violation = d['Primary Type'];
+  });
+
+  // filtering for 2018 data
+  var data2018 = data.filter(function(d) { return d.year == 2018})
+
+  // Define xScale and yScale domains here:
+
+  // xScale.domain([0, d3.max([fill in appropriate code here])]);
+  // yScale.domain();
+
+  // define xAxisGroup and yAxisGroup here:
+
+  // var xAxisGroup = 
+
+  // var yAxisGroup = 
+
+
+  // Create bars here:
+
+  // var bars = 
+ }
+
+
+</script>

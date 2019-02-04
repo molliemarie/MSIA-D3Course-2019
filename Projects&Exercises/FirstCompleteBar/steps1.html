@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+/*Add styling here */
+
+</style>
+
+<body>
+</body>
+
+<script>
+
+//Define variables that do not need data first:
+
+// *1* Define Margins and svg here:
+
+var margin = {top: 20, right: 10, bottom: 20, left: 10};
+
+var width = 960 - margin.left - margin.right;
+var height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select("body").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+// Define xscale, yscale, xaxis, and yaxis here:
+
+// *2* define xScale
+var xScale = d3.scaleBand()
+  .rangeRound([0, width]);
+
+// *3* define yScale
+var yScale = d3.scaleLinear()
+  .range([height, 0]);
+
+// *4* define axes
+var xAxis = d3.axisBottom(xScale);
+
+var yAxis = d3.axisLeft(yScale);
+
+// Reading in data here, then calling "ready" function:
+d3.csv("data/ChiCrime.csv", ready)
+
+// Ready Function
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+
+  // formatting data
+  data.forEach(function(d) {
+    d.count = +d.count;
+    d.year = +d.year;
+    d.violation = d['Primary Type'];
+  });
+
+  // filtering for 2018 data
+  var data2018 = data.filter(function(d) { return d.year == 2018})
+
+  // Define xScale and yScale domains here:
+
+  // *5* y scale domain
+  yScale.domain([0, d3.max(data2018, function(d) { return d.count; })]);
+
+  // *6* x scale domain
+  xScale.domain(data2018.map(function(d) { return d.violation; }));
+
+  // *7* define xAxisGroup and yAxisGroup here:
+  var xAxisGroup = svg.append("g")
+    .attr("class","x axis")
+    .attr("transform","translate(0," + height + ")")
+    .call(xAxis);
+
+  var yAxisGroup = svg.append("g")
+    .attr("class","y axis")
+    .call(yAxis);
+
+
+  // *8* Create bars here:
+
+  svg.selectAll(".bar")
+    .data(data2018)
+    .enter().append("rect")
+    .attr("class", "bar")
+    .attr("x", function(d) { return xScale(d.violation); })
+    .attr("y", function(d) { return yScale(d.count); })
+    .attr("width", xScale.bandwidth())
+    .attr("height", function(d) { return height - yScale(d.count); })
+    .style("fill", "red")
+
+ }
+
+
+</script>

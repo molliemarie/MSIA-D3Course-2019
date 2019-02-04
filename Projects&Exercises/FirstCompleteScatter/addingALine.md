@@ -37,11 +37,12 @@ Additionall, while we're here, let's style the line a bit also:
   /*removes black fill*/
   fill: none;
   /*styles line */
-  stroke-width: 1.5;
   stroke: darkgray;
   stroke-width: 3   ;
 }
 ```
+
+Feel free to experiment with these values.
 
 3. The line is a bit rigid. Let's specify a curve using `d3.curve`(https://github.com/d3/d3-shape) to make the line flow a bit better:
 
@@ -61,6 +62,8 @@ Additionall, while we're here, let's style the line a bit also:
     .duration(transitionTime)
     .attr('d', lineGenerator(thisDataGroup));
 ```
+
+Try using different ease functions, or commenting out the ease line to see what happens. Also, experiment with different transition times. 
 
 Ok, let's test this out by refreshing and clicking on some buttons!
 

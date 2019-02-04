@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+/*Add styling here */
+
+/* *14* Play around with axis label styling*/
+/*.axis text {
+  font-size: 12px;
+  font-family: "Times New Roman", Times, serif;
+  fill: #777;
+}*/
+
+</style>
+
+<body>
+  <div id=#titleDiv> 
+    <h1>Crime in Chicago in 2018</h1>
+  </div>
+</body>
+
+<script>
+
+function titleCase(str) {
+  // lowercases each word, only capitalizing the first letter of each word
+   var splitStr = str.toLowerCase().split(' ');
+   for (var i = 0; i < splitStr.length; i++) {
+       // You do not need to check if i is larger than splitStr length, as your for does that for you
+       // Assign it back to the array
+       splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+   }
+   // Directly return the joined string
+   return splitStr.join(' '); 
+}
+
+// margins and svg
+var margin = {top: 20, right: 50, bottom: 130, left: 40};
+
+var width = 960 - margin.left - margin.right;
+var height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select("body").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+// xscale, yscale, xaxis, and yaxis
+var xScale = d3.scaleBand()
+  .padding([.1])
+  .rangeRound([0, width]);
+
+var yScale = d3.scaleLinear()
+  .range([height, 0]);
+
+var xAxis = d3.axisBottom(xScale);
+
+var yAxis = d3.axisLeft(yScale)
+  .tickFormat(d3.format(`.2s`));
+
+// Reading in data here, then calling "ready" function:
+d3.csv("data/ChiCrime.csv", ready)
+
+// Ready Function
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+
+  // formatting data
+  data.forEach(function(d) {
+    d.count = +d.count;
+    d.year = +d.year
+    d.violation = titleCase(d['Primary Type'])
+  });
+
+  var data2018 = data.filter(function(d) { return d.year == 2018})
+
+  // assigning domain to scales
+  yScale.domain([0, d3.max(data2018, function(d) { return d.count; })]);
+  xScale.domain(data2018.map(function(d) { return d.violation; }));
+
+  // defining and formatting axis groups
+  var xAxisGroup = svg.append("g")
+    .attr("class","x axis")
+    .attr("transform","translate(0," + height + ")")
+    .call(xAxis);
+
+  xAxisGroup
+    .selectAll('text')
+    .attr('transform', 'rotate(45) translate(7, -8)')
+    .style('text-anchor', 'start');
+
+  var yAxisGroup = svg.append("g")
+    .attr("class","y axis")
+    .call(yAxis);
+
+  // creating rectangles
+  svg.selectAll(".bar")
+    .data(data2018)
+    .enter().append("rect")
+    .attr("class", "bar")
+    .attr("x", function(d) { return xScale(d.violation); })
+    .attr("y", function(d) { return yScale(d.count); })
+    .attr("width", xScale.bandwidth())
+    .attr("height", function(d) { return height - yScale(d.count); })
+    .style("fill", "red")
+
+ }
+
+
+</script>
