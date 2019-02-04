@@ -22,6 +22,8 @@ You'll want to open the file `barHtml.html` and perform the following steps (ins
 
 5) In the `<style>` section, set `rect` elements to have a "fill" of "purple" (or whatever color you like)
 
+See a [finished example here](https://codepen.io/molliemarie/pen/GdJYRx).
+
 ## Part II: Using D3 to make a bar plot
 
 This is an exercise to practice manipulating the DOM with D3. 
@@ -37,6 +39,8 @@ You'll want to open the file `barD3.html` and perform the following steps (instr
     - `y`: How for to move the rect in the `y` direction (down from the top). Should be `10`, `40` `70` 
     - `width`: How far to draw the rectangle to the right. Should be `100`,`200`, `300` 
     - `height`: The vertical height of each rectangle. Should be `20` for all rectangles 
+    
+See a [finished example here](https://codepen.io/molliemarie/pen/BxNGEp)
 
 ## Part III: Using D3 AND Data Joins to make a bar plot
 
@@ -66,3 +70,6 @@ rects.data(data)
     - `y`: How for to move the rect in the `y` direction (down from the top). Should be `10`, `40` `70` 
     - `width`: How far to draw the rectangle to the right. Should be `100`,`200`, `300` 
     - `height`: The vertical height of each rectangle. Should be `20` for all rectangles 
+
+
+See a [finished example here](https://codepen.io/molliemarie/pen/BxNGEp)
