@@ -63,6 +63,7 @@ You'll notice our axes are still not showing up. This is because we have not yet
 ```
   svg.selectAll(".bar") 
     .data(data) 
+    .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) { return xScale(d.violation); }) 
     .attr("y", function(d) { return yScale(d.count); })
