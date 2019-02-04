@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style type="text/css">
+
+</style>
+
+<body>
+</body>
+
+<script>
+
+//define margins here
+var margin = {top: 20, right: 40, bottom: 150, left: 60};
+
+var width = 720 - margin.left - margin.right,
+  height = 600 - margin.top - margin.bottom;
+
+var svg = d3.select("body").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+//Define xscale, yscale, xaxis, and yaxis here:
+
+var xScale = d3.scaleBand()
+  // info on d3 ordinal scales: https://github.com/d3/d3/blob/master/API.md#ordinal-scales
+  .padding([.1])
+  .rangeRound([0, width]);
+
+var yScale = d3.scaleLinear()
+  .range([height, 0]);
+
+var xAxis = d3.axisBottom(xScale)
+  .tickPadding(8);
+
+var yAxis = d3.axisLeft(yScale)
+  .tickPadding(8);
+
+d3.csv("data/ChiCrime.csv", ready)
+
+function ready(error, data) {
+
+  if (error) return console.warn(error);
+
+  data.forEach(function(d) {
+    d.count = +d.count;
+    d.year = +d.year
+  });
+
+  xScale.domain(data.map(function(d) { return d.violation; }));
+  yScale.domain([0, d3.max(data, function(d) { return d.count; })]);
+
+  xAxisGroup = svg.append("g")
+    .attr("class","x axis")
+    .attr("transform","translate(0," + height + ")")
+    .call(xAxis);
+
+  xAxisGroup
+    .selectAll('text')
+    .attr('transform', 'rotate(45) translate(8, -10)')
+    .style('text-anchor', 'start');
+
+  svg.append("g")
+    .attr("class","y axis")
+    .call(yAxis);
+
+  svg.selectAll(".bar")
+    .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return xScale(d.violation); })
+      .attr("y", function(d) { return yScale(d.count); })
+      .attr("width", xScale.bandwidth())
+      .attr("height", function(d) { return height - yScale(d.count); })
+      .style("fill", "red")
+ }
+
+
+</script>
