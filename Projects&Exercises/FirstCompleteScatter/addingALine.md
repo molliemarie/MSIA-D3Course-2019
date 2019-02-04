@@ -63,6 +63,8 @@ Feel free to experiment with these values.
     .attr('d', lineGenerator(thisDataGroup));
 ```
 
+Try using different ease functions, or commenting out the ease line to see what happens. Also, experiment with different transition times. 
+
 Ok, let's test this out by refreshing and clicking on some buttons!
 
 Uh oh! It breaks. **Any idea why? Check the console. What's the error message??**
