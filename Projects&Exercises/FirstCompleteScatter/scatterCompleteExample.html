@@ -69,6 +69,11 @@ function dataSwap(datasetGroup) {
     .duration(transitionTime)
     .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
 
+    // update text
+    svg.selectAll('.ufoText')
+      .data(thisDataGroup)
+      .text(function(d) { return d.count})
+
   // update title
   d3.select('#titleText')
     .text('UFO Sightings in ' + datasetGroup);
