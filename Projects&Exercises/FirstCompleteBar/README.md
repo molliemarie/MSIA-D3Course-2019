@@ -147,11 +147,13 @@ var yAxis = d3.axisLeft(yScale)
 
 Check out the [`d3-format` documentation](https://github.com/d3/d3-format) and try playing around with different formatting options.
 
-14. I'd at this point encourage you to play around with the styling of the axis labels. Do this within the css section, in the `style` tags. Try changing the font, font-size, fill, etc. Make it look nice! 
+14. I personally don't like having all of the words capitalized in the x axis. Let's fix this! Try googling around for a function that you could utilize that would capitalize only the first letter of each word. There are often many ways to do this in [stack overflow](https://stackoverflow.com/questions/32589197/capitalize-first-letter-of-each-word-in-a-string-javascript/32589256).
+
+15. I'd at this point encourage you to play around with the styling of the axis labels. Do this within the css section, in the `style` tags. Try changing the font, font-size, fill, etc. Make it look nice! 
 
 You could also format the title font.
 
-15. I am not going to provide specific instructions for interactions for this plot. Instead, what I'd like you to do is brainstorm on the type of interactions you might like to add. Do you want to add hover interactions? If so, what kind? Perhaps you'd like to add other years of data and the ability to toggle in between. Or maybe you'd like to grab data from another city and allow people to compare. Then, think about how you might accomplish adding those interactions. You can use past examples as inspiration, or try searching in [block builder search](https://blockbuilder.org/search). 
+16. I am not going to provide specific instructions for interactions for this plot. Instead, what I'd like you to do is brainstorm on the type of interactions you might like to add. Do you want to add hover interactions? If so, what kind? Perhaps you'd like to add other years of data and the ability to toggle in between. Or maybe you'd like to grab data from another city and allow people to compare. Then, think about how you might accomplish adding those interactions. You can use past examples as inspiration, or try searching in [block builder search](https://blockbuilder.org/search). 
 
 You're encouraged to try some things on your own or with a friend before asking for help. Much of the d3 learning process is searching, trying, and failing before succeeding. Don't get discouraged! 
 
