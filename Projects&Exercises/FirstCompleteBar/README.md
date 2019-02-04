@@ -4,7 +4,7 @@ Now we'll be creating our first bar plot! We'll be using Chicago crime data, whi
 
 We're going to create a bar plot, showing the counts of each crime in Chicago. It will end up looking something like this:
 
-![static scatter](imgs/finishedBar.png)
+![static scatter](imgs/finishedBar2018.png)
 
 To get started, open up the file `barPlotStart.html` and follow the following instructions. The first several steps should look familiar, as they will similar to (or the same as) steps taken when making the scatter / line plot. I've provided less specific instructions for these steps. If your memory needs refreshed, I'd recommend looking at the earlier plots we created to refresh your memory. 
 
