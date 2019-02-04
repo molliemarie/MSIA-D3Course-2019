@@ -1,10 +1,18 @@
 # Bar plot of Chicago Crime
 
-Now we'll be creating our first bar plot!
+Now we'll be creating our first bar plot! We'll be using Chicago crime data, which is available on the [Chicago Data Portal](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2). For creation of this plot, the data has been aggregated to highlight the total counts of each type of crime for each year (done separately in python beforehand). Before getting started, open the data file (`ChiCrime.csv`) to see how the data is structured.
 
-TKTK: discuss data and where it came from, use scatter / line as reference, mention location of starter file, add photo of finished product, point in the direction of finished file.
+We're going to create a bar plot, showing the counts of each crime in Chicago. It will end up looking something like this:
 
 ![static scatter](imgs/finishedBar.png)
+
+To get started, open up the file `barPlotStart.html` and follow the following instructions. The first several steps should look familiar, as they will similar to (or the same as) steps taken when making the scatter / line plot. I've provided less specific instructions for these steps. If your memory needs refreshed, I'd recommend looking at the earlier plots we created to refresh your memory. 
+
+If you get stuck consider reading documentation, googling around a bit, or working together with a friend before asking for help. Additionally, you'll find the finished code as well as the various steps within this folder, but I'd recommend trying to work through the steps without looking if possible.
+
+And, here we go!
+
+## Bar Plot Steps
 
 1. Using Mike Bostock's [margin conventions](https://bl.ocks.org/mbostock/3019563) to define the `margin`, `width`, `height`, and `svg`.
 
