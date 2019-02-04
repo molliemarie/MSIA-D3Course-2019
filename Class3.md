@@ -23,11 +23,11 @@ We will follow [these instructions](Projects&Exercises/FirstCompleteScatter/addi
 
 ## Bar Chart Three Ways:
 
-This will look very similar to when we did our scatter plot three ways. The goal here is to reinforce the idea that d3 is merely manipulating DOM elements such as html tags, svg elements, and css stylings.
+[This exercise](Projects&Exercises/barChart3Ways/README.md) will look very similar to when we did our scatter plot three ways. The goal here is to reinforce the idea that d3 is merely manipulating DOM elements such as html tags, svg elements, and css stylings.
 
 ## Create our first full bar chart:
 
-Now, let's build our first bar chart from scratch. Parts of this will look very similar to when you built the scatter plot, but others will be bar charts specific. Pay attention to these similarities and differences
+Now, let's [build our first bar chart from scratch](Projects&Exercises/FirstCompleteBar/README.md). Parts of this will look very similar to when you built the scatter plot, but others will be bar charts specific. Pay attention to these similarities and differences
 
 ## End of day discussion:
 
