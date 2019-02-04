@@ -4,13 +4,15 @@ Now we'll be creating our first bar plot!
 
 TKTK: discuss data and where it came from, use scatter / line as reference, mention location of starter file, add photo of finished product, point in the direction of finished file.
 
+![static scatter](imgs/finishedBar.png)
+
 1. Using Mike Bostock's [margin conventions](https://bl.ocks.org/mbostock/3019563) to define the `margin`, `width`, `height`, and `svg`.
 
 Now, let's create our scales! 
 
 2. We'll start with our x scale. Because our x axis this time around is ordinal rather than linear, we'll be using a new scale for this plot. Specifically, we'll be using a [d3 band scale](https://github.com/d3/d3-scale/blob/master/README.md#scaleBand). Band scales are like [ordinal scales](https://github.com/d3/d3-scale/blob/master/README.md#ordinal-scales) except the output range is continuous and numeric. Discrete output values are automatically computed by the scale by dividing the continuous range into uniform bands. Band scales are typically used for bar charts with an ordinal or categorical dimension. 
 
-TKTK grab photo from link and put it here.
+![static scatter](imgs/bandScale.png)
 
 **Note:** Because the domain requires access to the data, we will only define the range here. Later, we will define the domain within the `ready` function.
 
