@@ -1,6 +1,6 @@
 # Bar plot of Chicago Crime
 
-Now we'll be creating our first bar plot! We'll be using Chicago crime data, which is available on the [Chicago Data Portal](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2). For creation of this plot, the data has been aggregated to highlight the total counts of each type of crime for each year (done separately in python beforehand). Before getting started, open the data file (`ChiCrime.csv`) to see how the data is structured.
+Now we'll be creating our first bar plot! We'll be using Chicago crime data, which is available on the [Chicago Data Portal](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2). For creation of this plot, I have aggregated the data to find the total counts of each type of crime for each year. (See ipython notebook where I did this [here](data/transformChiCrimeData.ipynb).) Before getting started, open the data file (`ChiCrime.csv`) to see how the data is structured.
 
 We're going to create a bar plot, showing the counts of each crime in Chicago. It will end up looking something like this:
 
@@ -63,6 +63,7 @@ You'll notice our axes are still not showing up. This is because we have not yet
 ```
   svg.selectAll(".bar") 
     .data(data) 
+    .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) { return xScale(d.violation); }) 
     .attr("y", function(d) { return yScale(d.count); })
@@ -153,7 +154,7 @@ Check out the [`d3-format` documentation](https://github.com/d3/d3-format) and t
 
 You could also format the title font.
 
-16. I am not going to provide specific instructions for interactions for this plot. Instead, what I'd like you to do is brainstorm on the type of interactions you might like to add. Do you want to add hover interactions? If so, what kind? Perhaps you'd like to add other years of data and the ability to toggle in between. Or maybe you'd like to grab data from another city and allow people to compare. Then, think about how you might accomplish adding those interactions. You can use past examples as inspiration, or try searching in [block builder search](https://blockbuilder.org/search). 
+16. I am not going to provide specific instructions for interactions for this plot. Instead, what I'd like you to do is brainstorm on the type of interactions you might like to add. Do you want to add hover interactions? If so, what kind? Perhaps you'd like to add other years of data and the ability to toggle in between, or maybe you'd like to grab data from another city and allow people to compare. Then, think about how you might accomplish adding those interactions. You can use past examples as inspiration, or try searching in [block builder search](https://blockbuilder.org/search). 
 
 You're encouraged to try some things on your own or with a friend before asking for help. Much of the d3 learning process is searching, trying, and failing before succeeding. Don't get discouraged! 
 
