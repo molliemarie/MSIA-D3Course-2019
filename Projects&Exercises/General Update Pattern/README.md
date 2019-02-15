@@ -104,4 +104,7 @@ If you need help in doing this, look at code in `steps4.html` for guidance.
 
 Congratulations! You've successfully utilized d3's general update pattern! :D
 
+Now, I want you to look at a [similar example of this plot](https://bl.ocks.org/molliemarie/3cba938e0485b105fdde92992a169f83). It uses the same data, but you'll notice it has one major difference - the y axis doesn't change. Things to think about:
 
+- When might you want to have the full axis visible at all times? What comparisons would a static axis stress?
+- When is it better to update the axis? What comparisons would a static axis stress?
