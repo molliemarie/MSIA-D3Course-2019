@@ -2,6 +2,7 @@
 # Welcome to Day Four! :D
 
 # Agenda:
+- d3 blueprint
 - Scatter plot with 2019 data
 - General Update  Pattern Talk
 - General Update Pattern tutorial
