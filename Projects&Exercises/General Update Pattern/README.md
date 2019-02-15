@@ -1,7 +1,5 @@
 
-
-
-
+# Adding General Update Pattern to Scatter Line Plot
 
 Now that we have an understanding of d3's general update pattern, let's put it into practice! We'll be doing this by editing our scatter / line plot we made last month. 
 
@@ -93,6 +91,17 @@ We're creating new bubbles now, but we didn't keep any of the interactions that 
 
 5. Ok, so we have this working well with the update pattern, but now we've created some redundancies, haven't we? 
 
-...
+What we'll want to do now is create a drawCircles function that will draw and move the circles. Then, we can call that function from both places! We'll want to use the code from the `dataSwap` function, as it applies the general update pattern.
+
+If you need help in doing this, look at code in `steps4.html` for guidance.
+
+6. You'll likely now notice that there are a few other redundancies in our code, the most obvious of which is that we currently set our scales and our axes in two different locations - within the `ready` function and within the `dataSwap` function. Let's create functions `setScales` and `setAxes`, and then call them from the two locations. 
+
+If you need help in doing this, look at code in `steps4.html` for guidance.
+
+
+## Further thoughts:
+
+Congratulations! You've successfully utilized d3's general update pattern! :D
 
 
