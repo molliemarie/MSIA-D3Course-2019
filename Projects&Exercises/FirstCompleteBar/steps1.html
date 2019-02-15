@@ -77,6 +77,11 @@ function ready(error, data) {
     .attr("transform","translate(0," + height + ")")
     .call(xAxis);
 
+   xAxisGroup
+    .selectAll('text')
+    .attr('transform', 'rotate(45)')
+    .style('text-anchor', 'start')
+
   var yAxisGroup = svg.append("g")
     .attr("class","y axis")
     .call(yAxis);
