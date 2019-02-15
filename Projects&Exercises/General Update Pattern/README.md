@@ -1,7 +1,7 @@
 
 # Adding General Update Pattern to Scatter Line Plot
 
-Now that we have an understanding of d3's general update pattern, let's put it into practice! We'll be doing this by editing our scatter / line plot we made last month. 
+Now that we have an understanding of d3's general update pattern, let's put it into practice! We'll be doing this by editing our scatter / line plot we made last month. Go to the `Projects&Exercises/General Update Pattern/` folder and open `UpdatingScatterLineStarter.html` to start.
 
 ## Steps
 
