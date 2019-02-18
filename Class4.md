@@ -2,12 +2,30 @@
 # Welcome to Day Four! :D
 
 ## Agenda:
+- Announcements
 - d3 blueprint
 - Scatter plot with 2019 data
 - General Update  Pattern Talk
 - General Update Pattern tutorial
 - Fix the scatter / line plot
 - First Tree map
+
+## Accouncement: Upcoming Meetup
+
+[Chicago Dava Visualization Community](https://www.meetup.com/Chicago-Data-Viz-Community) will be hosting an [event this Wednesday](https://www.meetup.com/Chicago-Data-Viz-Community/events/257723997/). 
+
+*****About the Talk*****
+
+What makes a style guide effective? Why are they useful? How style guides apply to data visualization? This talk outlines the differences between a style guide and a template, and why organizations should have both. I will share insights into the goals, tone and creation process of a style guide for data visualization, using both the Sunlight Foundation and CFPB style guides as case studies.
+
+*****About the Speaker*****
+
+Amy Cesal is a graphic designer specializing in data visualization. She’s currently a User Experience contractor for the Veterans Administration. Previously, Amy worked for the federal government as a Technology and Innovation Fellow at the Consumer Financial Protection Bureau and at the nonprofit Sunlight Foundation. Amy also holds a master’s degree in Information Visualization from the Maryland Institute College of Art and is a 2017 Information is Beautiful rising star.
+
+twitter: https://twitter.com/AmyCesal
+website: https://www.amycesal.com
+
+
 
 ## D3 Blueprint
 As you've probably noticed, plots (especially common plots like bar, scatter, line, etc.) will often start the same way with similar starter steps. I want you all to take a moment now to think through all the steps necessary for creating a plot. This is something you can then use in the future when starting new. 
