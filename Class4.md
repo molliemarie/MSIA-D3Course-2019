@@ -40,4 +40,6 @@ Create first TreeMap with [these instructions](/Projects&Exercises/TreeMap/)!
 
 We have just one more class left. If there is something specific that you're having trouble with or that you'd like to learn more about, ping me on slack and let me know!
 
+I'll poll the class about how far they got in their treemap in the event you need more time on that.
+
 
