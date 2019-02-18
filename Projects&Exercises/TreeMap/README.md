@@ -76,6 +76,8 @@ Additionally, look through the starter file, `treeMapStarter.html`. There are a 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 ```
 
+### Finished Product:
+
 You're finished product will look like this:
 
 <img src="imgs/finishedTreeMap.png" width="500px;"/>
