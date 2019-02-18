@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Libraries -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://d3js.org/d3.v4.js"></script>
+
+    <!-- Custom files -->
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body class="container">
+    <h1>Building a Treemap</h1>
+    <div class="instructions">
+        <h4>Steps</h4>
+        <ol>
+            <li>Newst your data using the <code>d3.nest</code> function.</li>
+            <li>Define a hierarchy for your data using <code>d3.hierarchy</code></li>
+            <li>Create a <code>treemap</code> function that will compute your layout given your data structure</li>
+            <li>Create <code>setTreemap</code> function and then call the function.</li>
+            <li>Create an ordinal color scale</li>
+            <li>Bind your data to a selection of elements with class <code>node</code>. Enter, append, and position elements.</li>
+            <li>Listen to change events on the input elements. When they change:
+                <ul>
+                    <li>Reset the value of your <code>year</code> variable</li>
+                    <li>Call your <code>setTreemap</code> function to describe that you want to visualize new data.</li>
+                    <li> Perform a data-join between you selection of elements with class <code>node</code> and the array of objects returned by <code>root.leaves()</code></li>
+                    <li>Assign the position of your div by setting the <code>width</code>, <code>height</code>, <code>x</code>, and <code>y</code> properties</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary active">
+            <input value="1931" type="radio" name="options" id="option1" autocomplete="off">Yield 1931
+        </label>
+        <label class="btn btn-primary">
+            <input value="1932" type="radio" name="options" id="option2" autocomplete="off" >Yield 1932
+        </label>
+    </div>
+    <div id="vis"></div>
+</body>
+
+<!-- your script file -->
+<script>
+
+var year = 1931;
+
+// Setting defaults
+var margin = {
+        top: 40,
+        right: 10,
+        bottom: 10,
+        left: 10
+    },
+    width = 960,
+    height = 500,
+    drawWidth = width - margin.left - margin.right,
+    drawHeight = height - margin.top - margin.bottom;
+
+// Append a wrapper div for the chart
+var div = d3.select('#vis')
+    .append("div")
+    .attr('height', height)
+    .attr('width', width)
+    .style("left", margin.left + "px")
+    .style("top", margin.top + "px");
+
+
+// Read in your data. On success, run the rest of your code
+d3.csv('data/barley-wide.csv', function(error, data) {
+
+    if (error) return console.warn(error);
+
+    /***** Create hierarchical data structure & treemap function  *****/
+
+
+    // *1* Nest your data *by site* using d3.nest()
+    var nestedData = d3.nest()
+        .key(function(d) {
+            return d.site;
+        })
+        .entries(data);
+
+    console.log('nestedData', nestedData)
+
+
+    // *2* Define a hierarchy for your data using d3.hierarchy
+    var root = d3.hierarchy({
+        values: nestedData
+    }, function(d) {
+        return d.values;
+    });
+
+    console.log('root', root)
+
+
+    // *3* Create a *treemap function* that will compute your layout given your data structure
+
+    var treemap = d3.treemap() // function that returns a function!
+        .size([width, height]) // set size: scaling will be done internally            
+        .tile(d3.treemapResquarify)
+        .padding(0);
+
+    /***** Write set treemap function  *****/
+    // *4* Set treemap
+    var setTreemap = function(year) {
+        // Redefine which value you want to visualize in your data by using the `.sum()` method
+        root.sum(function(d) {
+            return +d['yield_' + year];
+        });
+
+        // (Re)build your treemap data structure by passing your `root` to your `treemap` function
+        treemap(root);
+    }
+
+    // *4* Call your set Treemap function
+    setTreemap(year)
+
+    /***** Create an ordinal color scale  *****/
+
+    //  *5* Get list of sites for colors
+    var sites = nestedData.map(function(d) {
+        return d.key;
+    });
+
+    //  *5* Set an ordinal scale for colors
+    var colorScale = d3.scaleOrdinal().domain(sites).range(d3.schemeCategory10);
+
+
+    /***** Draw elements on the screen  *****/
+
+    // *6* Bind your data to a selection of elements with class node
+    // The data that you want to join is array of elements returned by `root.leaves()`
+
+    var nodes = div.selectAll(".node").data(root.leaves());
+
+    console.log('nodes', nodes)
+
+    // *6* Enter and append elements, then position them using the appropriate *styles*
+    nodes.enter()
+        .append("div")
+        .attr('class', 'node')
+        .text(function(d) {
+            return d.data.variety;
+        })
+        .style("left", function(d, i) {
+            return d.x0 + "px";
+        })
+        .style("top", function(d) {
+            return d.y0 + "px";
+        })
+        .style('width', function(d) {
+            return d.x1 - d.x0 + 'px';
+        })
+        .style("height", function(d) {
+            return d.y1 - d.y0 + "px";
+        })
+        .style("background", function(d, i) {
+            return colorScale(d.data.site);
+        });
+
+
+    // Enter and append elements, then position them using the appropriate *styles*
+
+
+    /***** Listen to changes  *****/
+
+    // Listen to change events on the input elements
+        d3.selectAll('.btn')
+            .on('click', function(d) {
+            // *7* Reset the value of your year variable
+                // Note: console.log can be super useful when you're trying to figure out how to grab the value you're looking for.
+                console.log(d3.select(this).select('input').attr('value'))
+                
+                var year = d3.select(this).select('input').attr('value')
+
+                // *8* Call your setTreemap function to describe that you want to visualize new data
+                setTreemap(year)
+
+                // *9* Perform a data-join between you selection of elements with class node and the array of objects returned by root.leaves()
+                var nodes = div.selectAll(".node").data(root.leaves());
+                // *9* Assign the position of your div by setting the width, height, x, and y properties 
+                nodes.transition().duration(1500)
+                    .style("left", function(d, i) {
+                        return d.x0 + "px";
+                    })
+                    .style("top", function(d) {
+                        return d.y0 + "px";
+                    })
+                    .style('width', function(d) {
+                        return d.x1 - d.x0 + 'px';
+                    })
+                    .style("height", function(d) {
+                        return d.y1 - d.y0 + "px";
+                    })
+            })
+
+    // // Listen to change events on the input elements
+    //     d3.select('input').on('change', function() {
+    //         // *7* Reset the value of your year variable
+    //         // console.log($(this))
+    //         var year = d3.select(this).val()
+
+    //         // *8* Call your setTreemap function to describe that you want to visualize new data
+    //         setTreemap(year)
+
+    //         // *9* Perform a data-join between you selection of elements with class node and the array of objects returned by root.leaves()
+    //         var nodes = div.selectAll(".node").data(root.leaves());
+    //         // *9* Assign the position of your div by setting the width, height, x, and y properties 
+    //         nodes.transition().duration(1500)
+    //             .style("left", function(d, i) {
+    //                 return d.x0 + "px";
+    //             })
+    //             .style("top", function(d) {
+    //                 return d.y0 + "px";
+    //             })
+    //             .style('width', function(d) {
+    //                 return d.x1 - d.x0 + 'px';
+    //             })
+    //             .style("height", function(d) {
+    //                 return d.y1 - d.y0 + "px";
+    //             })
+
+    //     });
+});
+</script>
+
+</html>
