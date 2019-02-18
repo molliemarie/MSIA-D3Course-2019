@@ -49,11 +49,9 @@ Now, you'll get some practice playing around with the `enter`, `exit`, and `upda
 
 Take what you've learned about the general update function and apply it to the scatter / line plot we made previously so that it doesn't break when adding data for an incomplete year. Instructions [here](/Projects&Exercises/generalUpdatePattern/). 
 
-## TreeMap
+## TreeMap 
 
-See an example of an interactive treemap [here](https://vizhub.healthdata.org/gbd-compare/). 
-
-Create first TreeMap with [these instructions](/Projects&Exercises/TreeMap/)!
+Learn about hierarchy, `d3.nest`, and build your first TreeMap [here](/Projects&Exercises/TreeMap/)!
 
 ## Before Next Class
 
