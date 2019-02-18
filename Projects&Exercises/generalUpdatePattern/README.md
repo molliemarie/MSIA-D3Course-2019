@@ -109,4 +109,4 @@ Now, I want you to look at a [similar example of this plot](https://bl.ocks.org/
 - When might you want to have the full axis visible at all times? What comparisons would a static axis stress?
 - When is it better to update the axis? What comparisons would a static axis stress?
 
-Write your answers down. We will discuss this near the end of class.
+Write your answers down. We will either discuss this near the end of class, or at the start of next class.
