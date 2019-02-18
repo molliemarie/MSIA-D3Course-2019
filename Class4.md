@@ -12,7 +12,7 @@
 ## D3 Blueprint
 As you've probably noticed, plots (especially common plots like bar, scatter, line, etc.) will often start the same way with similar starter steps. I want you all to take a moment now to think through all the steps necessary for creating a plot. This is something you can then use in the future when starting new. 
 
-Let's add the steps to [this doc](https://docs.google.com/document/d/12V8c9BRft1uhFFTjg9c0sAucCfVVyho63fIsQqk8gdg/edit?usp=sharing).
+Collaborate with your classmates and add the steps to [this doc](https://docs.google.com/document/d/12V8c9BRft1uhFFTjg9c0sAucCfVVyho63fIsQqk8gdg/edit?usp=sharing). This is something you can look back on when reminding yourself where to start.
 
 ## Scatter Plot with New Data
 
