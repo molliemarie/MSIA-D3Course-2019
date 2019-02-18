@@ -18,11 +18,11 @@ Collaborate with your classmates and add the steps to [this doc](https://docs.go
 
 I've added a new dataset that includes January 2019 data. Let's look at what this does to the plot we created. (You can find the new data in the `general Update Pattern` folder.)
 
-## Genearal Update Pattern Talk
+## General Update Pattern Talk
 
 We'll go through the basics of the general update  pattern in [this talk](https://github.com/molliemarie/SharedSlides/blob/master/General_Update_Pattern.pdf). 
 
-## Genearal Update Pattern Tutorial
+## General Update Pattern Tutorial
 
 Now, you'll get some practice playing around with the `enter`, `exit`, and `update` selections in [this General Update Pattern tutorial](/Projects&Exercises/generalUpdatePattern/genUpdatePattern_StarTrekLab.md).
 
@@ -32,7 +32,9 @@ Take what you've learned about the general update function and apply it to the s
 
 ## TreeMap
 
-Create first TreeMap [here](/Projects&Exercises/TreeMap/)!
+See an example of an interactive treemap [here](https://vizhub.healthdata.org/gbd-compare/). 
+
+Create first TreeMap with [these instructions](/Projects&Exercises/TreeMap/)!
 
 ## Before Next Class
 
