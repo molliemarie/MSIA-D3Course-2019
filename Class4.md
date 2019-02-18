@@ -24,7 +24,11 @@ We'll go through the basics of the general update  pattern in [this talk](https:
 
 ## Genearal Update Pattern Tutorial
 
-Now, you'll get some practice playing around with the `enter`, `exit`, and `update` selections in [this General Update Pattern tutorial](/Projects&Exercises/generalUpdatePattern/genUpdatePattern_StarTrekLab.md)
+Now, you'll get some practice playing around with the `enter`, `exit`, and `update` selections in [this General Update Pattern tutorial](/Projects&Exercises/generalUpdatePattern/genUpdatePattern_StarTrekLab.md).
+
+## Add General Update  Pattern to Line / Scatter Plot
+
+Now, take what you've learned about the general update function and apply it to the scatter / line plot we made previously so that it doesn't break when adding data for an incomplete year. Instructions [here](/Projects&Exercises/generalUpdatePattern/). 
 
 ## End of day discussion:
 
