@@ -9,7 +9,7 @@ You may find the following resources helpful along the way:
 - [General Update Pattern Example](https://bl.ocks.org/mbostock/3808218) _(Bostock)_
 
 ## A. Start a local Server
-Start up a local server and open the [`genUpdate_starter.html`](genUpdate_starter.html) file in a browser. Open up the developer tools. We'll be working within the console for this lab.
+Start up a local server and open the [`genUpdate_starter.html`](genUpdate_starter.html) file from the `generalUpdatePattern` folder in a browser. Open up the developer tools. We'll be working within the console for this lab.
 
 ## B. Define variables
 We'll start by defining some variables that we'll use throughout this lab. Each variable will be the array of individual letters that make up the string.

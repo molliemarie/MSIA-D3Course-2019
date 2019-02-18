@@ -1,7 +1,7 @@
 
 # Adding General Update Pattern to Scatter Line Plot
 
-Now that we have an understanding of d3's general update pattern, let's put it into practice! We'll be doing this by editing our scatter / line plot we made last month. Go to the `Projects&Exercises/General Update Pattern/` folder and open `UpdatingScatterLineStarter.html` to start.
+Now that we have an understanding of d3's general update pattern, let's put it into practice! We'll be doing this by editing our scatter / line plot we made last month. Go to the `Projects&Exercises/generalUpdatePattern/` folder and open `UpdatingScatterLineStarter.html` to start.
 
 ## Steps
 
@@ -109,4 +109,4 @@ Now, I want you to look at a [similar example of this plot](https://bl.ocks.org/
 - When might you want to have the full axis visible at all times? What comparisons would a static axis stress?
 - When is it better to update the axis? What comparisons would a static axis stress?
 
-Write your answers down. We will discuss this near the end of class.
+Write your answers down. We will either discuss this near the end of class, or at the start of next class.
