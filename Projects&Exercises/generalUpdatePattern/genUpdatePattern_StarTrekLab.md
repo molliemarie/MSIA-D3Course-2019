@@ -15,14 +15,14 @@ Start up a local server and open the [`genUpdateLab_starter.html`](genUpdate_sta
 We'll start by defining some variables that we'll use throughout this lab. Each variable will be the array of individual letters that make up the string. You can copy and paste these straight into the console.
 
 ```js
-var kirk = 'kirk'.split('');
-var picard = 'picard'.split('');
-var sisko = 'sisko'.split('');
-var janeway = 'janeway'.split('');
-var archer = 'archer'.split('');
+kirk = 'kirk'.split('');
+picard = 'picard'.split('');
+sisko = 'sisko'.split('');
+janeway = 'janeway'.split('');
+archer = 'archer'.split('');
 ```
 
-To see what the variables look like, print some of them out in the console. After you've defined them, you can do this by simply typing "kirk" or one of the others into the console and hitting enter.
+To see what the variables look like, print some of them out in the console. After you've defined them, you can do this by simply typing "kirk" or one of the others into the console and hitting enter. 
 
 **Important Note:** Throughout this lab, you will be going back and forth between the Console and Elements tab in developer tools. Every time you add something new or change a class, make sure to look at the Elements tab so that you can see what's happening under the hood. There will often be things happening that do not change the appearance of the screen. Looking at the Elements tab throughout this lab is the best way to understand what's going on. All new code will be added in the Console.
 
@@ -30,7 +30,7 @@ To see what the variables look like, print some of them out in the console. Afte
 
 1) create a text selection and bind the kirk data array.
 
-`var trekText = svg.selectAll('text').data(kirk);`
+`trekText = svg.selectAll('text').data(kirk);`
 
 2) Check out the enter selection:
 
