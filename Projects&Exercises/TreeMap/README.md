@@ -100,4 +100,40 @@ Now, set an ordinal scale for colors:
     var colorScale = d3.scaleOrdinal().domain(sites).range(d3.schemeCategory10);
 ```
 
-6. Ok, one more big step before we start seeing something on the page. We need to bind our data to a selection fo elements. Let's use the class `node`. The data that you want to join is array of elements returned by [`root.leaves()`](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_leaves). 
+6. Ok, one more big step before we start seeing something on the page. We need to bind our data to a selection fo elements. Let's use the class `node` for this. The data that you want to join is array of elements returned by [`root.leaves()`](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_leaves) (which returns the array of leaf nodes in traversal order; leaves are nodes with no children).
+
+First, let's start by selecting all elements with class `node` and binding the data `root.leaves()`. Let's also print them to the console so that we can take a look:
+
+```
+    var nodes = div.selectAll(".node").data(root.leaves());
+
+    console.log('nodes', nodes)
+```
+
+As you'll remember from earlier (and can see for yourself if you expand the `root` data or `nodes` in the console), each node has been assigned an `x0`, `x1`, `y0`, and `y1` value. (See step 3 to remind yourself what they are.)
+
+Now, enter and append the elements and position them using the appropriate styles. We'll first append a `div`, assign the class `node`, and add text corresponding to the barley variety. Then use styles to assign `left`, `top`, `width`, and `height` - using our `x0`, `x1`, `y0`, and `y1` values - to assign the location and size of each rectangle. Lastly, we'll assign the `background` using the colorscale. 
+
+```
+    nodes.enter()
+        .append("div")
+        .attr('class', 'node')
+        .text(function(d) {
+            return d.data.variety;
+        })
+        .style("left", function(d, i) {
+            return d.x0 + "px";
+        })
+        .style("top", function(d) {
+            return d.y0 + "px";
+        })
+        .style('width', function(d) {
+            return d.x1 - d.x0 + 'px';
+        })
+        .style("height", function(d) {
+            return d.y1 - d.y0 + "px";
+        })
+        .style("background", function(d, i) {
+            return colorScale(d.data.site);
+        });
+```
