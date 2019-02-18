@@ -7,7 +7,7 @@
 - General Update  Pattern Talk
 - General Update Pattern tutorial
 - Fix the scatter / line plot
-- First Tree maps
+- First Tree map
 
 ## D3 Blueprint
 As you've probably noticed, plots (especially common plots like bar, scatter, line, etc.) will often start the same way with similar starter steps. I want you all to take a moment now to think through all the steps necessary for creating a plot. This is something you can then use in the future when starting new. 
