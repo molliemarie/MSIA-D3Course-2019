@@ -206,3 +206,12 @@ setTreemap(year)
 
 9. Reassign the `nodes` variable. Then, assign the position of your div by setting the `top`, `left`, `width`, and `height` properties using a transition. Look at step 6 for help.
 
+**Note:** If you'd like to see what this would look like using d3.js, look at the `steps1_withD3Funct.html` file. 
+
+## Moving Forward:
+
+As usual, we've created some redundancies here when drawing and then redrawing our plot. if you have time, take a moment to create a `draw` function to remove these redundancies. Use past examples for help if necessary. 
+
+When you're ready, post your new plot to [bl.ocks](TechnicalSetup/blocks.md)!
+
+
