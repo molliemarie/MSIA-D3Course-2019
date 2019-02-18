@@ -23,6 +23,7 @@ What makes a style guide effective? Why are they useful? How style guides apply 
 Amy Cesal is a graphic designer specializing in data visualization. She’s currently a User Experience contractor for the Veterans Administration. Previously, Amy worked for the federal government as a Technology and Innovation Fellow at the Consumer Financial Protection Bureau and at the nonprofit Sunlight Foundation. Amy also holds a master’s degree in Information Visualization from the Maryland Institute College of Art and is a 2017 Information is Beautiful rising star.
 
 twitter: https://twitter.com/AmyCesal
+
 website: https://www.amycesal.com
 
 
