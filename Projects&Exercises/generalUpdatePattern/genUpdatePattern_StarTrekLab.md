@@ -22,7 +22,7 @@ var janeway = 'janeway'.split('');
 var archer = 'archer'.split('');
 ```
 
-To see what the variables look like, print some of them out in the console.
+To see what the variables look like, print some of them out in the console. After you've defined them, you can do this by simply typing "kirk" or one of the others into the console and hitting enter.
 
 ## C. Kirk - `enter`
 
