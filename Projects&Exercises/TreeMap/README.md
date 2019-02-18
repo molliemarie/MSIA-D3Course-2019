@@ -1,6 +1,56 @@
-# Nested Data and Our First Tree Map
+# Hierarchical Data, Nested Data and Our First Tree Map
 
-## The Data
+## What is Hierarchical data?
+
+"A hierarchical database model is a data model in which the data is organized into a tree-like structure. The data is stored as records which are connected to one another through links. A record is a collection of fields, with each field containing only one value."
+
+A simple example:
+
+<img src="imgs/simple_tree.png" width="150px;"/>
+
+Some characteristics to note:
+
+  - Connected graph with N-1 edges
+  - nodes as *parents* and *children* (hierarchical)
+  - single *root* node
+
+### What information exists in a tree structure?
+
+#### Computer Documents
+
+<img src="imgs/document_tree.png" width="150px;"/>
+
+#### Families / Organizations
+
+<img src="imgs/xmen_family.jpg" width="350px;"/>
+
+#### Classifications / Categorizations
+
+<img src="imgs/flare.png" width="500px;"/>
+
+From [this bl.ocks](https://bl.ocks.org/mbostock/4063550) that shows the [flare](http://flare.prefuse.org/) class hierarchy.
+
+#### Decisions
+
+<img src="imgs/nyt_elections.png" width="500px;"/>
+
+This is from the [2012 NYT Electoral Example](http://www.nytimes.com/newsgraphics/2012/10/12/electoral-calculator/945499ae1d8895edd03ba58bf016abaf36b8f039/iframe.html).
+
+#### Diseases
+
+<img src="imgs/diseases.png" width="500px;"/>
+
+### Resources
+
+- [The Book of Trees: Visualizing Branches of Knowledge](https://www.amazon.com/Book-Trees-Visualizing-Branches-Knowledge/dp/1616892188)
+
+## What is [`D3.nest`](https://github.com/d3/d3-collection#nest)?
+
+"Nesting allows elements in an array to be grouped into a hierarchical tree structure; think of it like the GROUP BY operator in SQL, except you can have multiple levels of grouping, and the resulting output is a tree rather than a flat table. The levels in the tree are specified by key functions. The leaf nodes of the tree can be sorted by value, while the internal nodes can be sorted by key. An optional rollup function will collapse the elements in each leaf node using a summary function. The nest operator (the object returned by nest) is reusable, and does not retain any references to the data that is nested."
+
+## Building a Treemap using `d3.nest`
+
+### The Data
 
 As William S. Cleveland puts it in [Visualizing Data](https://books.google.com/books/about/Visualizing_Data.html?id=V-dQAAAAMAAJ):
 
@@ -10,12 +60,9 @@ Open the data file `barley.tsv` ('tsv' stands for tab-separated values); look ov
 
 You're finished product will look like this:
 
+<img src="imgs/finishedTreeMap.png" width="500px;"/>
 
-## Hierarchical Data and `d3.nest`
-
-TKTK fill in with stuffs
-
-## Steps:
+### Steps:
 
 1) First, we're going to use [`d3.nest`](https://github.com/d3/d3-collection#nests) to structure our data hierarchically, passing in site as the key. Our code will look like this:
 
