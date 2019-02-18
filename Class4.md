@@ -28,7 +28,7 @@ Now, you'll get some practice playing around with the `enter`, `exit`, and `upda
 
 ## Add General Update  Pattern to Line / Scatter Plot
 
-Now, take what you've learned about the general update function and apply it to the scatter / line plot we made previously so that it doesn't break when adding data for an incomplete year. Instructions [here](/Projects&Exercises/generalUpdatePattern/). 
+Take what you've learned about the general update function and apply it to the scatter / line plot we made previously so that it doesn't break when adding data for an incomplete year. Instructions [here](/Projects&Exercises/generalUpdatePattern/). 
 
 ## TreeMap
 
