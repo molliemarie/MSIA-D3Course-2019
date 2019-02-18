@@ -174,7 +174,7 @@ Ok, let's move on...
 
 7. First, we need to reset the value of the year variable. Do you remember the javascript keyword [`this`](https://www.w3schools.com/js/js_this.asp)? It allows us to grab information from the element in question - in this case, the button we just pushed. 
 
-Now, look again at the button html. What is it from within each input that we'd like to grab? If you're not sure, look again at the `setTreemap` function we created. What value is needed?
+Now, look again at the button html. What is it from within each input that we'd like to grab? If you're not sure, look again at the `setTreemap` function we created. What value is needed? Try giving it a look before moving on.
 
 .
 
@@ -186,4 +186,23 @@ Now, look again at the button html. What is it from within each input that we'd 
 
 .
 
+.
+
+.
+
+.
+
+You'll notice that what we need is the year value. Let's use jquery again to grab `this` (in other words, the input value of the button we pushed); then, we can use `.val()` to grab the assigned value. Like so:
+
+```
+var year = $(this).val()
+```
+
+8. Now, we can pass in the year to the `setTreemap` function to allow for visualizing of the new data. 
+
+```
+setTreemap(year)
+```
+
+9. Reassign the `nodes` variable. Then, assign the position of your div by setting the `top`, `left`, `width`, and `height` properties using a transition. Look at step 6 for help.
 
