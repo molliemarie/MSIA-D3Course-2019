@@ -67,7 +67,7 @@ Our code will look like this:
 4. Now, let's create a function that will reset the treemap. As you may have noticed in the `d3.treemap` documentation, "you must call [`root.sum`](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_sum) before passing the hierarchy to the treemap layout."
 
 ```
-    var setTreemap = function() {
+    var setTreemap = function(year) {
         // Redefine which value you want to visualize in your data by using the `.sum()` method
         root.sum(function(d) {
             return +d['yield_' + year];
@@ -78,7 +78,7 @@ Our code will look like this:
     }
     
     // Now, call your set Treemap function
-    setTreemap()    
+    setTreemap(year)    
 ```
 
 5. Now, let's create an ordinal color scale. To do this we'll need to:
@@ -137,3 +137,53 @@ Now, enter and append the elements and position them using the appropriate style
             return colorScale(d.data.site);
         });
 ```
+
+And voila! We have a treemap! :D However, you'll notice that the buttons do not yet work. Let's fix that.
+
+## Buttons
+
+You'll notice some code already started in the file. 
+
+```
+    $("input").on('change', function() {
+        // Reset the value of your year variable
+        year = $(this).val()
+
+        // Call your setTreemap function to describe that you want to visualize new data
+
+
+        // Perform a data-join between you selection of elements with class node and the array of objects returned by root.leaves()
+
+
+        // Assign the position of your div by setting the width, height, x, and y properties 
+
+    });
+```
+
+This `$("input").on('change', function() {...` is [jquery](https://www.w3schools.com/JQuery/) for "listen to change events on the input elements. If you don't know what I mean by "input elements", take a quick look at the button html at the top of the code. You'll notice input values associated with each button. Therefore, whenever one of the buttons are pushed, this change event will fire.
+
+Note: The reason we can use jquery is because we load the library in the `head` section at the top of the page. Feel free to find it at the top of the file.
+
+```
+<script src="https://code.jquery.com/jquery.min.js"></script>
+```
+
+You'll likely recall that we created buttons and listened for change events differently in with our scatter plot example. There are many ways in which things like this can be done - using vanilla javascript, d3.js, and jquery being some examples. It helps to keep this in mind since you'll not always be working in a vacuuum; you're bound to encounter others who do things differently.
+
+Ok, let's move on...
+
+7. First, we need to reset the value of the year variable. Do you remember the javascript keyword [`this`](https://www.w3schools.com/js/js_this.asp)? It allows us to grab information from the element in question - in this case, the button we just pushed. 
+
+Now, look again at the button html. What is it from within each input that we'd like to grab? If you're not sure, look again at the `setTreemap` function we created. What value is needed?
+
+.
+
+.
+
+.
+
+.
+
+.
+
+
