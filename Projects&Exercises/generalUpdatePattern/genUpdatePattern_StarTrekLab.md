@@ -64,7 +64,7 @@ trekText = trekText.enter().append("text")
     .style("fill", "gold"); //Kirk wears a gold shirt, so he gets to be gold. :)
 ```
 
-Although no text has appeared on the screen, you can check and see that there are now four text elements in the DOM, attached to each are one of the four `kirk` data values.
+Although no text has appeared on the screen, you can check and see that there are now four text elements in the DOM, attached to each are one of the four `kirk` data values. **To verify this, go to your elements tab, expand the svg and g to see the bound text.**
 
 6) Let's add the actual text:
 
