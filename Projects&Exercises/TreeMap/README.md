@@ -212,6 +212,6 @@ setTreemap(year)
 
 As usual, we've created some redundancies here when drawing and then redrawing our plot. if you have time, take a moment to create a `draw` function to remove these redundancies. Use past examples for help if necessary. 
 
-When you're ready, post your new plot to [bl.ocks](TechnicalSetup/blocks.md)!
+When you're ready, post your new plot to [bl.ocks](/TechnicalSetup/blocks.md)!
 
 
