@@ -17,4 +17,17 @@ TKTK fill in with stuffs
 
 ## Steps:
 
-1) 
+1) First, we're going to use [`d3.nest()`](https://github.com/d3/d3-collection#nests) to structure our data hierarchically, passing in site as the key. Our code will look like this:
+
+```
+    var nestedData = d3.nest()
+        .key(function(d) { return d.site; })
+        .entries(data);
+```
+
+so that you can take a look at what this looks like, add the following line below:
+
+```
+    console.log('nestedData', nestedData)
+```
+and then take a look at the console.
