@@ -35,7 +35,7 @@ Collaborate with your classmates and add the steps to [this doc](https://docs.go
 
 ## Scatter Plot with New Data
 
-I've added a new dataset that includes January 2019 data. Let's look at what this does to the plot we created. (You can find the new data in the `general Update Pattern` folder.)
+I've added a new dataset that includes January 2019 data. Let's look at what this does to the plot we created. (You don't need to follow along for this, but if you'd like, you can find the new data in the `general Update Pattern` folder.)
 
 ## General Update Pattern Talk
 
