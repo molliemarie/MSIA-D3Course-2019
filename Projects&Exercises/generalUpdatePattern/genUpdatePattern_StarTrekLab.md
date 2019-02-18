@@ -24,6 +24,8 @@ var archer = 'archer'.split('');
 
 To see what the variables look like, print some of them out in the console. After you've defined them, you can do this by simply typing "kirk" or one of the others into the console and hitting enter.
 
+**Important Note:** Throughout this lab, you will be going back and forth between the Console and Elements tab in developer tools. Every time you add something new or change a class, make sure to look at the Elements tab so that you can see what's happening under the hood. There will often be things happening that do not change the appearance of the screen. Looking at the Elements tab throughout this lab is the best way to understand what's going on. All new code will be added in the Console.
+
 ## C. Kirk - `enter`
 
 1) create a text selection and bind the kirk data array.
@@ -239,4 +241,6 @@ However, the exit selection still remains. We need to remove it.
 
 We are now left with just the `sisko` text.
 
+## Repeat?
 
+This is tricky stuff, but it is a core building block of d3. Feel free to walk through this tutorial a second time if you think it would help. 
