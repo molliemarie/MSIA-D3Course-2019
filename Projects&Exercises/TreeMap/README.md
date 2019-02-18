@@ -40,6 +40,8 @@ This is from the [2012 NYT Electoral Example](http://www.nytimes.com/newsgraphic
 
 <img src="imgs/diseases.png" width="500px;"/>
 
+Link to interactive example [here](https://vizhub.healthdata.org/gbd-compare/)
+
 ### Resources
 
 - [The Book of Trees: Visualizing Branches of Knowledge](https://www.amazon.com/Book-Trees-Visualizing-Branches-Knowledge/dp/1616892188)
