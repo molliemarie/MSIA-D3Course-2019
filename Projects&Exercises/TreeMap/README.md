@@ -55,8 +55,26 @@ This is from the [2012 NYT Electoral Example](http://www.nytimes.com/newsgraphic
 As William S. Cleveland puts it in [Visualizing Data](https://books.google.com/books/about/Visualizing_Data.html?id=V-dQAAAAMAAJ):
 
  > In the early 1930s, agronomists in Minnesota ran a field trial to study the crop barley. At six sites in Minnesota, ten varieties of Barley were grown in each of two years. The data are the yields for all combinations of site, variety and year, so there are 6 x 10 x 2 =120 observations.
+ 
+ ### Starter File
 
 Open the data file `barley.tsv` ('tsv' stands for tab-separated values); look over the data and familiarize yourself with what we're about to plot.
+
+Additionally, look through the starter file, `treeMapStarter.html`. There are a few things to note. 
+
+1) The CSS is no longer being added within the HTML file. Instead, the CSS is in a `css` file in the folder also called `css`. The file is being brought into this file via the following line:
+
+```
+<link rel="stylesheet" href="css/main.css" />
+```
+
+2) We're also pulling in a couple other javascript libraries - jquery and bootstrap - plus the bootstrap css via the following lines:
+
+```
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+```
 
 You're finished product will look like this:
 
