@@ -66,7 +66,7 @@ trekText = trekText.enter().append("text")
 
 Although no text has appeared on the screen, you can check and see that there are now four text elements in the DOM, attached to each are one of the four `kirk` data values. **To verify this, go to your elements tab, expand the svg and g to see the bound text.** There should be no text on your screen, but you'll see them bound to the elements bound to the DOM like so:
 
-<img src="imgs/kirkDomButNoText.png" width="150px;"/>
+<img src="imgs/kirkDomButNoText.png" width="400px;"/>
 
 6) Let's add the actual text:
 
