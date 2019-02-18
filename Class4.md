@@ -24,7 +24,7 @@ We'll go through the basics of the general update  pattern in [this talk](https:
 
 ## Genearal Update Pattern Tutorial
 
-Now, you'll get some practice playing around with the `enter`, `exit`, and `update` selections in [this General Update Pattern tutorial](/Projects&Excamples/generalUpdatePattern/genUpdatePattern_StarTrekLab.md)
+Now, you'll get some practice playing around with the `enter`, `exit`, and `update` selections in [this General Update Pattern tutorial](/Projects&Exercises/generalUpdatePattern/genUpdatePattern_StarTrekLab.md)
 
 ## End of day discussion:
 
