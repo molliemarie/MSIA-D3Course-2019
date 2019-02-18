@@ -30,6 +30,10 @@ Now, you'll get some practice playing around with the `enter`, `exit`, and `upda
 
 Now, take what you've learned about the general update function and apply it to the scatter / line plot we made previously so that it doesn't break when adding data for an incomplete year. Instructions [here](/Projects&Exercises/generalUpdatePattern/). 
 
+## TreeMap
+
+Create first TreeMap [here](/Projects&Exercises/TreeMap/)!
+
 ## Before Next Class
 
 We have just one more class left. If there is something specific that you're having trouble with or that you'd like to learn more about, ping me on slack and let me know!
