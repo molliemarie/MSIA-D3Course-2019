@@ -75,8 +75,15 @@ function dataSwap(datasetGroup) {
 // *5* Create drawCircles function
 function drawCircles(data) {
 
+  // print()
+
   var groups = svg.selectAll('.ufoGroup')
     .data(data, function(d) { return d.month })
+
+  console.log('UPDATE', groups._groups[0])
+
+  // groups.select('text')
+  //   .text(function(d) { return d.count })
 
   enterGroups = groups
     .enter().append('g')
@@ -121,6 +128,8 @@ function drawCircles(data) {
         .style('opacity', 1)
     })
 
+    console.log('ENTER', enterGroups._groups[0])
+
     
   // *3* add new circles
   enterGroups.append('circle')
@@ -143,8 +152,15 @@ function drawCircles(data) {
     .duration(transitionTime)
     .attr('transform', function(d) { return 'translate(' + xScale(d.date) + ',' + yScale(d.count) + ')'})
 
+  groups.select('text')
+    .text(function(d) { return d.count })
 
-  groups.exit().remove()
+
+  exitGroups = groups.exit()
+
+  console.log('EXIT', exitGroups._groups[0])
+
+  exitGroups.remove()
 
 }
 
@@ -254,6 +270,7 @@ function ready(error, data) {
     .enter().append('button')
     .text(function(d) { return d; })
     .on('click', function(d) {
+      console.log('YEAR:', d)
       dataSwap(d) 
     })
 
