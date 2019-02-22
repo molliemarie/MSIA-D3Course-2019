@@ -68,7 +68,9 @@ Some other examples:
 - [Nadieh Bremer](https://www.visualcinnamon.com/blog/) has created some several blogs on some of her fancier techniques. 
 - Additional resources [here](resources.md)
 
+## Class Project time!
 
+Get in your class project groups. Let's see what you got! :)
 
 
 
