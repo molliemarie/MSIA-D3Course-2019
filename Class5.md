@@ -61,8 +61,12 @@ Some other examples:
 
 ## Resources to keep in mind
 
-- [blocksbuilder](https://blockbuilder.org/search)
-- [Interactive Data Visualization for the Web](https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/ref=pd_lpo_sbs_14_t_0?_encoding=UTF8&psc=1&refRID=E4SJ53PCAA5KA87ARSH5) by Scott Murray
+- [blocksbuilder](https://blockbuilder.org/search) - great tool for finding examples!
+- [Interactive Data Visualization for the Web](https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/ref=pd_lpo_sbs_14_t_0?_encoding=UTF8&psc=1&refRID=E4SJ53PCAA5KA87ARSH5) by Scott Murray. Best book I've seen on d3.
+- [DashingD3](https://www.dashingd3js.com/) has a number of free tutorials. (Although some are only accessible with a membership.)
+- [Jim Vallandingham](https://vallandingham.me/) has some great tutorials.
+- [Nadieh Bremer](https://www.visualcinnamon.com/blog/) has created some several blogs on some of her fancier techniques. 
+- Additional resources [here](resources.md)
 
 
 
