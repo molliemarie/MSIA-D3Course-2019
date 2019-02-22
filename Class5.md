@@ -21,7 +21,9 @@ At the time I wrote this (Thursday at 6pm), we had over 1,500 people already sig
 
 Let's take a look at the finished line/scatter plot with the general update pattern applied. 
 
-(Also, we had an error last time, let's look at how to fix it!)
+Also:
+- We had an error last time, let's look at how to fix it!
+- What else could be improved about this plot?
 
 ## Hierarchy
 
