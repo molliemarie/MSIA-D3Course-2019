@@ -59,6 +59,12 @@ Some other examples:
 
 ## Debugging
 
+Remember, a few common ways to debug in the front-end are:
+
+- typing directing into the console
+- using `console.log()` in your code to print out data - make sure it looks how you think it should!
+- global variables
+
 ## Resources to keep in mind
 
 - [blocksbuilder](https://blockbuilder.org/search) - great tool for finding examples!
