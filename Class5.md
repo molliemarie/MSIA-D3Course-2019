@@ -1,13 +1,7 @@
 # Welcome to Day Five! :D
 
 ## Agenda:
-- Announcements
-- d3 blueprint
-- Scatter plot with 2019 data
-- General Update  Pattern Talk
-- General Update Pattern tutorial
-- Fix the scatter / line plot
-- First Tree map
+...
 
 ## Accouncement: Data Visualization Society Launch!
 
@@ -25,25 +19,24 @@ Let's discuss hierarchy, when it applies, and some examples of d3 plots for whic
 
 Some other examples:
 
+- [tree map](https://blockbuilder.org/mbostock/8fe6fa6ed1fa976e5dd76cfa4d816fec)
 - [sunburst](https://blockbuilder.org/EE2dev/4153ee8eafb5a27d32588b12877a0ea7)
 - [circle packing](https://blockbuilder.org/mbostock/4063530)
+- [zoomable circle packing](https://blockbuilder.org/mbostock/7607535)
+- [tree of life](https://blockbuilder.org/mbostock/c034d66572fd6bd6815a)
+- [radial cluster dendogram](https://blockbuilder.org/mbostock/4339607)
+- [crazy tree map thing](https://blockbuilder.org/mbostock/4341134)
 
-## General Update Pattern Tutorial
+## Other things to be aware of
+- queue
+- zoom
+- legends
 
-Now, you'll get some practice playing around with the `enter`, `exit`, and `update` selections in [this General Update Pattern tutorial](/Projects&Exercises/generalUpdatePattern/genUpdatePattern_StarTrekLab.md).
+## Debugging
 
-## Add General Update  Pattern to Line / Scatter Plot
+## Resources
 
-Take what you've learned about the general update function and apply it to the scatter / line plot we made previously so that it doesn't break when adding data for an incomplete year. Instructions [here](/Projects&Exercises/generalUpdatePattern/). 
 
-## TreeMap 
 
-Learn about hierarchy, `d3.nest`, and build your first TreeMap [here](/Projects&Exercises/TreeMap/)!
-
-## Before Next Class
-
-We have just one more class left. If there is something specific that you're having trouble with or that you'd like to learn more about, ping me on slack and let me know!
-
-I'll poll the class about how far they got in their treemap in the event you need more time on that.
 
 
