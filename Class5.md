@@ -8,6 +8,7 @@
 - Other things to be aware of
 - Debugging reveiw
 - Resources to keep in mind
+- Project time!
 
 
 ## Accouncement: Data Visualization Society Launch!
@@ -19,6 +20,8 @@ At the time I wrote this (Thursday at 6pm), we had over 1,500 people already sig
 ## Review General Update Pattern
 
 Let's take a look at the finished line/scatter plot with the general update pattern applied. 
+
+(Also, we had an error last time, let's look at how to fix it!)
 
 ## Hierarchy
 
