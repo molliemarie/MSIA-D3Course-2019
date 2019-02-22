@@ -108,7 +108,6 @@ So today's the final class, but you should keep learning more D3. How!? You migh
       - Host locally 
       - [gh-pages](https://pages.github.com/)
       - [bl.ocks](https://bl.ocks.org)
-  - [blockbuilder](http://blockbuilder.org/)
   - [d3 plugins](https://github.com/d3/d3-plugins)
   - Check out [Resource page](resources.md)
 
