@@ -6,7 +6,8 @@
 - General Update Pattern Review
 - Hierarchy review
 - Other things to be aware of
-- Debugging reveiw
+- Sample File Structure
+- Debugging
 - Keep it going!
 - Project time!
 
@@ -57,6 +58,9 @@ Some other examples:
   - [re-centering brush](https://blockbuilder.org/mbostock/6498000)
   - [Brush and Zoom 1](https://blockbuilder.org/mbostock/34f08d5e11952a80609169b7917d4172)
   - [Brush and Zoom2](https://blockbuilder.org/mbostock/f48fcdb929a620ed97877e4678ab15e6)
+-[`d3-tip`](https://github.com/Caged/d3-tip)
+  - allows you to easily add a tooltip to your plot
+  -[example](http://bl.ocks.org/Caged/6476579)
 - legends
   - [example](https://blockbuilder.org/mbostock/3887051)
   - [example 2](https://blockbuilder.org/mbostock/1341679)
